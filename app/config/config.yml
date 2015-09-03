@@ -35,6 +35,7 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    cache: false
 
 # Assetic Configuration
 assetic:
@@ -98,6 +99,9 @@ sonata_block:
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
+
+sonata_admin:
+    title: SkyWox
 
 fos_user:
     db_driver:      orm
