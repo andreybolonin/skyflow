@@ -29,6 +29,11 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
 
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+
+            // not required, but recommended for better extraction
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+
             // Application Bundles
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),

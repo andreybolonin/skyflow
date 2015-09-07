@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class AirportAdmin extends Admin
 {
+    protected $translationDomain = 'GeneralSettings';
+
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
      *

@@ -4,10 +4,10 @@
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
-                <h1>Welcome to the <span>SkyWox</span></h1>
-                <p>Page is under construction.</p>
+                <h1>{{ 'Welcome to the'|trans({}, 'Dev')}} <span>SkyWox</span></h1>
+                <p>{{ 'Page is under construction'|trans({}, 'Dev')}}.</p>
                 <img src="/uc.png" style="width: 200px; float: right; margin-top: -130px">
-                <a href="/admin">Go to the backend</a>
+                <a href="{{ path('sonata_admin_dashboard') }}">{{ 'Go to the backend'|trans({}, 'Dev') }}</a>
             </div>
         </div>
     </div>
