@@ -114,3 +114,10 @@ fos_user:
 
     service:
         user_manager: sonata.user.orm.user_manager
+
+services:
+   app.admin.airport:
+      class: AppBundle\Admin\AirportAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: General Settings, label: Airports }
+      arguments: [null, AppBundle\Entity\Airport, AppBundle:AirportAdmin]
