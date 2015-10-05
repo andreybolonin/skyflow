@@ -1,0 +1,18 @@
+Skywox\GermanyCustomsBundle\Entity\N12000:
+    type: entity
+    table: gc_N12000
+    description: Dokumentart
+    fields:
+        ATF_Beschreibung_der_Dokumentart:
+            type: string
+            length: 200
+            otype: VARCHAR
+        ATG_Anzeigeflag:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        ATE_Dokumentart:
+            type: string
+            length: 6
+            otype: VARCHAR

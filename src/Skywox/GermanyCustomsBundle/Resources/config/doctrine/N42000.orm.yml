@@ -1,0 +1,40 @@
+Skywox\GermanyCustomsBundle\Entity\N42000:
+    type: entity
+    table: gc_N42000
+    description: Warennomenklatur
+    fields:
+        BEJ_SID_der_TARIC_Nomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BEK_ID_der_nationalen_Warennomenklatur:
+            type: string
+            length: 11
+            otype: CHAR
+        BEL_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+        BEM_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BEN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BEO_Anzahl_der_Führungsstriche:
+            type: string
+            length: 2
+            otype: CHAR
+        BEP_Währungseinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        BEQ_Beschreibung:
+            type: string
+            length: 2000
+            otype: VARCHAR
+    id:
+        BEI_SID_der_nationalen_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER

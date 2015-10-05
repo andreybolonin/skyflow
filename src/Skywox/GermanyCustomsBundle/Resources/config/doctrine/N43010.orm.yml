@@ -1,0 +1,14 @@
+Skywox\GermanyCustomsBundle\Entity\N43010:
+    type: entity
+    table: gc_N43010
+    description: 'Darstellung der Bedingung'
+    fields:
+        BGF_Beschreibung_der_Anzeige_der_Maßnahmebedingung:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        BGE_TARIC_Bedingungscode:
+            type: string
+            length: 2
+            otype: CHAR

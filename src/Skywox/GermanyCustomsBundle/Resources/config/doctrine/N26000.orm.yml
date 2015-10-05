@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N26000:
+    type: entity
+    table: gc_N26000
+    description: 'TARIC- Ländergruppenschlüssel'
+    fields:
+        AXB_Schlüssel_der_korrespondierenden_nationalen_Ländergruppe:
+            type: string
+            length: 4
+            otype: VARCHAR
+        AXC_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AXD_Beschreibung:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        AWZ_TARIC_Schlüssel_der_Ländergruppe:
+            type: string
+            length: 4
+            otype: CHAR
+        AXA_Beginndatum:
+            type: edidatetime
+            otype: DATE

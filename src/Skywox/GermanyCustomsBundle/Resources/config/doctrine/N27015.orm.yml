@@ -1,0 +1,27 @@
+Skywox\GermanyCustomsBundle\Entity\N27015:
+    type: entity
+    table: gc_N27015
+    description: 'Zuordnung Kontingentsnummer - Hinweise (national)'
+    fields:
+        AYC_SID_der_Zuordnung_Kontingent_Geographisches_Gebiet:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AYD_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        AYE_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AYF_Länderausschluss:
+            type: string
+            length: 200
+            otype: VARCHAR
+        AYG_Hinweistext:
+            type: text
+            otype: CLOB
+    id:
+        AYB_SID_der_Kontingentshinweise:
+            type: integer
+            length: 8
+            otype: NUMBER

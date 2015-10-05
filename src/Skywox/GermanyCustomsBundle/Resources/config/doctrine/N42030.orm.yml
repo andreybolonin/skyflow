@@ -1,0 +1,26 @@
+Skywox\GermanyCustomsBundle\Entity\N42030:
+    type: entity
+    table: gc_N42030
+    description: Gültigkeitszeiträume
+    fields:
+        BFW_Beginndatum_der_Saison:
+            type: string
+            length: 4
+            otype: CHAR
+        BFX_Endedatum_der_Saison:
+            type: string
+            length: 4
+            otype: CHAR
+        BFY_SID_der_Verweiscodenummer:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BFZ_Verweiscodenummer:
+            type: string
+            length: 11
+            otype: CHAR
+    id:
+        BFV_SID_der_nationalen_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER

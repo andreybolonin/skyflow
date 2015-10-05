@@ -1,0 +1,18 @@
+Skywox\GermanyCustomsBundle\Entity\N14000:
+    type: entity
+    table: gc_N14000
+    description: Hinweisart
+    fields:
+        ATM_Beschreibung_der_Hinweisart:
+            type: string
+            length: 200
+            otype: VARCHAR
+        ATN_Handelsbewegungscode:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        ATL_Hinweisart:
+            type: string
+            length: 3
+            otype: CHAR

@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N50300:
+    type: entity
+    table: gc_N50300
+    description: 'Zuordnung Ausfuhrerstattungsnomenklatur – Hinweise'
+    fields:
+        BHC_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BHA_SID_der_AE_Nomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BHB_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BHD_Hinweisart:
+            type: string
+            length: 3
+            otype: CHAR
+        BHE_Hinweis:
+            type: string
+            length: 4
+            otype: VARCHAR

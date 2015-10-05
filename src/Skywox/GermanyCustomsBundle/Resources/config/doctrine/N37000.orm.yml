@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N37000:
+    type: entity
+    table: gc_N37000
+    description: 'erste Stelle des Schlüssel der KEU für zolltarifliche Regime'
+    fields:
+        BBP_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BBL_Erste_Stelle_des_Antragscodes:
+            type: string
+            length: 1
+            otype: CHAR
+        BBM_Art_der_Bescheinigung:
+            type: string
+            length: 1
+            otype: CHAR
+        BBN_Schlüssel_der_Bescheinigung:
+            type: string
+            length: 3
+            otype: VARCHAR
+        BBO_Beginndatum:
+            type: edidatetime
+            otype: DATE

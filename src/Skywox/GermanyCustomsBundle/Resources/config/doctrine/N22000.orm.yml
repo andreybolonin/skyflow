@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\N22000:
+    type: entity
+    table: gc_N22000
+    description: 'Schlüssel und Geltungsdauer Zollaussetzung'
+    fields:
+        AVH_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AVI_Beschreibung_der_Zollaussetzung:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        AVF_Zollaussetzung:
+            type: string
+            length: 2
+            otype: CHAR
+        AVG_Beginndatum:
+            type: edidatetime
+            otype: DATE

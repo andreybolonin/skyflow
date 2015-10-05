@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N42025:
+    type: entity
+    table: gc_N42025
+    description: 'Zuordnung Hinweise zur Warennomenklatur – Fußnoten'
+    fields:
+        BFU_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BFQ_SID_der_Zuordnung_nationale_Warennomenklatur_nationaler_Hinw:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BFR_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        BFS_Fußnote:
+            type: string
+            length: 5
+            otype: CHAR
+        BFT_Beginndatum:
+            type: edidatetime
+            otype: DATE

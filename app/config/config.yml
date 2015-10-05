@@ -60,15 +60,10 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
 
         types:
             json: Sonata\Doctrine\Types\JsonType
+            edidatetime: Skywox\GermanyCustomsBundle\Type\EDIDateTimeType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -104,15 +99,15 @@ sonata_user:
     manager_type: orm # can be orm or mongodb
 
 sonata_admin:
-    title: SkyWox
+    title: Skywox
 
 fos_user:
     db_driver:      orm
     firewall_name:  main
-    user_class:     Application\Sonata\UserBundle\Entity\User
+    user_class:     Skywox\Sonata\UserBundle\Entity\User
 
     group:
-        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_class:   Skywox\Sonata\UserBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager
 
     service:
@@ -120,12 +115,12 @@ fos_user:
 
 services:
    app.admin.airport:
-       class: AppBundle\Admin\AirportAdmin
+       class: Skywox\AppBundle\Admin\AirportAdmin
        tags:
          - { name: sonata.admin, manager_type: orm, group: General settings, label: Airports, label_catalogue: GeneralSettings }
-       arguments: [null, AppBundle\Entity\Airport, AppBundle:AirportAdmin]
+       arguments: [null, Skywox\AppBundle\Entity\Airport, Skywox:AppBundle:AirportAdmin]
 
-jms_i18n_routing:
-    default_locale: ru
-    locales: [en, ru]
-    strategy: prefix
+#jms_i18n_routing:
+#    default_locale: ru
+#    locales: [en, ru]
+#    strategy: prefix

@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T35000:
+    type: entity
+    table: gc_T35000
+    description: Maßnahmebedingung
+    fields:
+        AKL_Datum_des_Gültigkeitsbeginns_der_Maßnahmebedingung:
+            type: edidatetime
+            otype: DATE
+        AKM_Gültigkeitsendedatum_der_Maßnahmebedingung:
+            type: edidatetime
+            otype: DATE
+        AKN_Beschreibung_der_Maßnahmebedingung:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AKK_Bedingungscode:
+            type: string
+            length: 2
+            otype: CHAR

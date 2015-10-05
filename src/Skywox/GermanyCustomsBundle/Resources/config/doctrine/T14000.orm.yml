@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\T14000:
+    type: entity
+    table: gc_T14000
+    description: Maßnahmeartserien
+    fields:
+        AAW_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        AAX_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AAY_Maßnahmeartkombination:
+            type: string
+            length: 1
+            otype: CHAR
+        AAZ_Beschreibung_der_Maßnahmeartserie:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AAV_Maßnahmeartserien_ID:
+            type: string
+            length: 2
+            otype: CHAR

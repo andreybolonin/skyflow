@@ -1,0 +1,40 @@
+Skywox\GermanyCustomsBundle\Entity\T28000:
+    type: entity
+    table: gc_T28000
+    description: 'Explizite Aufhebungsverordnung'
+    fields:
+        AFV_Veröffentlichungsdatum_der_expliziten_Aufhebungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AFW_Nummer_des_Amtsblattes:
+            type: string
+            length: 5
+            otype: CHAR
+        AFX_Amtsblatt_Seite:
+            type: string
+            length: 4
+            otype: CHAR
+        AFY_Ersatzindikator:
+            type: string
+            length: 1
+            otype: CHAR
+        AFZ_Aufhebungsdatum:
+            type: edidatetime
+            otype: DATE
+        AGA_Informationstext:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AGB_Billigungsindikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AFT_Explizite_Aufhebungsverordnungsfunktion:
+            type: string
+            length: 1
+            otype: CHAR
+        AFU_ID_der_expliziten_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR

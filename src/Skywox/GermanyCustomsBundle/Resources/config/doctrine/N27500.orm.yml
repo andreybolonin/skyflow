@@ -1,0 +1,52 @@
+Skywox\GermanyCustomsBundle\Entity\N27500:
+    type: entity
+    table: gc_N27500
+    description: 'Lizenzfreimenge bei Marktordnungswaren'
+    fields:
+        AYN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AYO_SID_der_Zuordnung_Warennomenklatur__Hinweise:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AYP_Warennomenklatur_ID:
+            type: string
+            length: 10
+            otype: CHAR
+        AYQ_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+        AYR_Beginndatum_der_Warennomenklaturlinie:
+            type: edidatetime
+            otype: DATE
+        AYS_lizenzfreie_Menge:
+            type: decimal
+            precision: 10
+            scale: 3
+            otype: NUMBER
+        AYT_Schlüssel_der_Maßeinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        AYU_Qualifikator_der_Maßeinheit:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AYJ_SID_der_TARIC_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AYK_Handelsbewegungscode:
+            type: string
+            length: 1
+            otype: CHAR
+        AYL_Ursprungsland:
+            type: string
+            length: 4
+            otype: CHAR
+        AYM_Beginndatum:
+            type: edidatetime
+            otype: DATE

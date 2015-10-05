@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T15000:
+    type: entity
+    table: gc_T15000
+    description: Verordnungsgruppe
+    fields:
+        ABB_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        ABC_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ABD_Beschreibung_der_Verordnungsgruppe:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ABA_Verordnungsgruppen_ID:
+            type: string
+            length: 3
+            otype: CHAR

@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T24000:
+    type: entity
+    table: gc_T24000
+    description: Zusatzcode-/Maßnahmeart
+    fields:
+        ADU_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        ADV_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        ADS_Maßnahmeart_ID:
+            type: string
+            length: 6
+            otype: CHAR
+        ADT_Zusatzcodeart_ID:
+            type: string
+            length: 1
+            otype: CHAR

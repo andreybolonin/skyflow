@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\N24020:
+    type: entity
+    table: gc_N24020
+    description: Bescheinigungsbereich
+    fields:
+        AWN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AWO_Beschreibung_des_Bescheinigungsbereich:
+            type: string
+            length: 2000
+            otype: VARCHAR
+    id:
+        AWL_Bescheinigungsbereich:
+            type: string
+            length: 1
+            otype: CHAR
+        AWM_Beginndatum:
+            type: edidatetime
+            otype: DATE

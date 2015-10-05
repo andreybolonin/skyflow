@@ -1,0 +1,14 @@
+Skywox\GermanyCustomsBundle\Entity\T16010:
+    type: entity
+    table: gc_T16010
+    description: Verordnungsfunktionskombination
+    fields: {  }
+    id:
+        ABI_Verordnungsfunktionsart_ID:
+            type: string
+            length: 1
+            otype: CHAR
+        ABJ_kombinierter_Verordnungsfunktionsart_ID:
+            type: string
+            length: 1
+            otype: CHAR

@@ -1,0 +1,44 @@
+Skywox\GermanyCustomsBundle\Entity\N41000:
+    type: entity
+    table: gc_N41000
+    description: Verbrauchsteuernomenklaturen
+    fields:
+        BDU_Verbrauchsteuerart_ID:
+            type: string
+            length: 2
+            otype: CHAR
+        BDV_Verbrauchsteuer_ID:
+            type: string
+            length: 4
+            otype: CHAR
+        BDW_Verbrauchsteuerliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+        BDX_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BDY_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BDZ_Anzahl_Führungsstriche_in_der_Verbrauchsteuernomenklatur:
+            type: string
+            length: 2
+            otype: CHAR
+        BEA_Warenbeschreibung:
+            type: string
+            length: 2000
+            otype: VARCHAR
+        BEB_Gesamtjahreserzeugung_Bier_minimal:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BEC_Gesamtjahreserzeugung_Bier_maximal:
+            type: integer
+            length: 8
+            otype: NUMBER
+    id:
+        BDT_SID:
+            type: integer
+            length: 8
+            otype: NUMBER

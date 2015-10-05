@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T25015:
+    type: entity
+    table: gc_T25015
+    description: 'Mitgliedschaft des geographischen Gebiets'
+    fields:
+        AFE_Datum_des_Gültigkeitsende_der_Mitgliedschaft_des_geographis:
+            type: edidatetime
+            otype: DATE
+    id:
+        AFB_SID_des_geographischen_Gebiets:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AFC_SID_der_Ländergruppe:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AFD_Datum_des_Gültigkeitsbeginn_der_Mitgliedschaft_des_geograph:
+            type: edidatetime
+            otype: DATE
