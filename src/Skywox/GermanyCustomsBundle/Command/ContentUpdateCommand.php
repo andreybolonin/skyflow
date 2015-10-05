@@ -38,7 +38,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
      * @param OutputInterface $output
      * @return int|null|void
      *
-     * TODO Optimize command. Current realization is too slow (1 row per second after 10 minutes of processing)
+     * TODO Solve encoding problem
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -54,13 +54,13 @@ class ContentUpdateCommand extends ContainerAwareCommand
 
         $fp = fopen($edifactFilename, 'r');
 
-        $skip = 21000; // temporarily variable for testing to skip processed rows
+        $skip = 105500; // temporarily variable for testing to skip processed rows
         $counter = 0;
         $time = 0;
         while (!feof($fp)) {
             $counter++;
 
-            $msg = fgets($fp);
+            $msg = iconv('ISO-8859-15', 'UTF-8', fgets($fp));
 
             // skip processed rows
             if ($counter <= $skip) {
@@ -76,6 +76,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
             // message example: 000010001T01000i+00001391,000000245Da Praeferenzzucker mit Ursprung in Indien nicht im Rahmen des APS eingef▒hrt wird, ist die Integration mit Ma▒nahme 142 nicht korrekt (es ist keine Form A erforderlich).  Daher sind die Zolls▒tze mit Ma▒nahme 103 und Ursprung integriert worden.
             $id = substr($msg, 0, 5);
             $number = substr($msg, 5, 4);
+            $sameTable = isset($table) && $table == substr($msg, 9, 6);
             $table = substr($msg, 9, 6);
             $operation = substr($msg, 15, 1); // i - insert, u - update, d - delete
             $data = substr($msg, 16);
@@ -93,8 +94,11 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 $time = microtime(true);
             }
 
-            // fill out entity with new values
-            list($tableEntity, $fields) = $this->getTableStructure($table);
+            if (!$sameTable) {
+                // fill out entity with new values
+                list($tableEntity, $fields) = $this->getTableStructure($table);
+            }
+
             $entity = $this->getEntityByOperation($operation, $tableEntity);
             $start = 0;
             foreach ($fields as $name => $options) {
@@ -107,8 +111,11 @@ class ContentUpdateCommand extends ContainerAwareCommand
             try {
                 $this->entityManager->merge($entity);
                 $this->entityManager->flush();
+                $this->entityManager->clear();
             } catch (DBALException $e) {
-                continue;
+                echo $e->getMessage() . PHP_EOL;
+                var_dump($data);
+                die;
             }
         }
 
@@ -146,16 +153,21 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 break;
 
             case 'u': // update
-                $entity = new $tableEntity;
+                // TODO Update operation logic
                 break;
 
             case 'd': // delete
-                $entity = new $tableEntity;
+                // TODO Delete operation logic
                 break;
 
             default:
                 throw new \UnexpectedValueException('undefined operation "' . $operation . '"');
         }
+
+        if (!isset($entity)) {
+            throw new \UnexpectedValueException('no logic for operation "' . $operation . '"');
+        }
+
         return $entity;
     }
 
