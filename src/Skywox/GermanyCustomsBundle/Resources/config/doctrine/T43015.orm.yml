@@ -1,0 +1,18 @@
+Skywox\GermanyCustomsBundle\Entity\T43015:
+    type: entity
+    table: gc_T43015
+    description: 'von Maßnahme ausgeschlossenes Land/Region'
+    fields:
+        ASG_SID_des_geographischen_Gebiets:
+            type: integer
+            length: 8
+            otype: NUMBER
+    id:
+        ASE_SID_der_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ASF_Ausgeschlossenes_Land__Region:
+            type: string
+            length: 4
+            otype: CHAR

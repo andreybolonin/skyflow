@@ -1,0 +1,28 @@
+Skywox\GermanyCustomsBundle\Entity\T25000:
+    type: entity
+    table: gc_T25000
+    description: 'Geographisches Gebiet'
+    fields:
+        AEQ_ID_des_geographischen_Gebiets:
+            type: string
+            length: 4
+            otype: CHAR
+        AER_Datum_des_Gültigkeitsbeginn_des_geographischen_Gebiets:
+            type: edidatetime
+            otype: DATE
+        AES_Datum_des_Gültigkeitsende_des_geographischen_Gebiets:
+            type: edidatetime
+            otype: DATE
+        AET_Art_des_geographischen_Gebiets:
+            type: string
+            length: 1
+            otype: CHAR
+        AEU_SID_der_Ausgangsländergruppe:
+            type: integer
+            length: 8
+            otype: NUMBER
+    id:
+        AEP_SID_des_geographischen_Gebiets:
+            type: integer
+            length: 8
+            otype: NUMBER

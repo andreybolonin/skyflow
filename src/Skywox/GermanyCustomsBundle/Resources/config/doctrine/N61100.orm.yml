@@ -1,0 +1,32 @@
+Skywox\GermanyCustomsBundle\Entity\N61100:
+    type: entity
+    table: gc_N61100
+    description: 'Verbindung Ausfuhrliste - Warennomenklatur'
+    fields:
+        BHY_Warennummer:
+            type: string
+            length: 10
+            otype: CHAR
+        BHZ_Flag_ob_nur_ein_Teil_der_Warennummer_betroffen_ist:
+            type: integer
+            length: 1
+            otype: NUMBER
+        BIB_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BIC_Ausfuhrlistennummer:
+            type: string
+            length: 10
+            otype: CHAR
+        BID_Beschreibung:
+            type: string
+            length: 4000
+            otype: VARCHAR
+    id:
+        BHX_SID:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BIA_Beginndatum:
+            type: edidatetime
+            otype: DATE

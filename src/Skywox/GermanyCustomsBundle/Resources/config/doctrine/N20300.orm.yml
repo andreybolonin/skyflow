@@ -1,0 +1,14 @@
+Skywox\GermanyCustomsBundle\Entity\N20300:
+    type: entity
+    table: gc_N20300
+    description: Abkürzungen
+    fields:
+        AUJ_Erläuternder_Text_zur_Abkürzung:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        AUI_Abkürzung:
+            type: string
+            length: 50
+            otype: VARCHAR

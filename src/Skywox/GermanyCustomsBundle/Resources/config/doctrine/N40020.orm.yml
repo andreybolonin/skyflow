@@ -1,0 +1,31 @@
+Skywox\GermanyCustomsBundle\Entity\N40020:
+    type: entity
+    table: gc_N40020
+    description: 'nationale Maßnahmebedingungsaktion'
+    fields:
+        BDP_Aktionsbetrag:
+            type: decimal
+            precision: 10
+            scale: 3
+            otype: NUMBER
+        BDQ_Währungseinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        BDR_Maßeinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        BDS_Maßeinheitsqualifikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        BDN_SID_der_Bedingungskomponente:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BDO_Abgabenart:
+            type: string
+            length: 2
+            otype: CHAR

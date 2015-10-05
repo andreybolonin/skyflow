@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N24000:
+    type: entity
+    table: gc_N24000
+    description: 'Lizenzen, Bescheinigungen und ähnliche Dokumente'
+    fields:
+        AWF_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AWG_Beschreibung_der_Bescheinigung:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AWC_Bescheinigungsart:
+            type: string
+            length: 1
+            otype: CHAR
+        AWD_Schlüssel_der_Bescheinigung:
+            type: string
+            length: 3
+            otype: VARCHAR
+        AWE_Beginndatum:
+            type: edidatetime
+            otype: DATE

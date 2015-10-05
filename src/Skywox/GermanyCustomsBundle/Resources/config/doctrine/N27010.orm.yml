@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\N27010:
+    type: entity
+    table: gc_N27010
+    description: 'Zuordnung Kontingentsnummer – kritischer Zeitraum'
+    fields:
+        AXY_Status_des_Kontingents:
+            type: string
+            length: 1
+            otype: CHAR
+        AYA_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        AXX_SID_der_Zuordnung_Kontingent_Geographisches_Gebiet:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AXZ_Beginndatum:
+            type: edidatetime
+            otype: DATE

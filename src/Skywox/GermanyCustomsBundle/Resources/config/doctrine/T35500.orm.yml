@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T35500:
+    type: entity
+    table: gc_T35500
+    description: Maßnahmeaktion
+    fields:
+        AKP_Gültigkeitsbeginn_des_Aktionscode:
+            type: edidatetime
+            otype: DATE
+        AKQ_Gültigkeitsende_des_Aktionscode:
+            type: edidatetime
+            otype: DATE
+        AKR_Beschreibung_der_Maßnahmeaktion:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AKO_Aktionscode:
+            type: string
+            length: 3
+            otype: CHAR

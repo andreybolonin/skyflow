@@ -1,0 +1,16 @@
+Skywox\GermanyCustomsBundle\Entity\T37520:
+    type: entity
+    table: gc_T37520
+    description: 'Wiedereröffnung eines Kontingents'
+    fields:
+        AMY_Datum_der_Wiedereröffnung:
+            type: edidatetime
+            otype: DATE
+    id:
+        AMW_SID_der_QUOTA_Beschreibung:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AMX_Datum_und_Uhrzeit:
+            type: edidatetime
+            otype: DATE

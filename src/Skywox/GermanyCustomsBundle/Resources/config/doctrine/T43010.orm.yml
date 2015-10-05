@@ -1,0 +1,51 @@
+Skywox\GermanyCustomsBundle\Entity\T43010:
+    type: entity
+    table: gc_T43010
+    description: Maßnahmebedingung
+    fields:
+        ARO_SID_der_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ARP_Bedingungscode:
+            type: string
+            length: 2
+            otype: CHAR
+        ARQ_Sequentielle_Nummer_der_Bedingung:
+            type: string
+            length: 3
+            otype: CHAR
+        ARR_Bedingung_Zollbetrag:
+            type: decimal
+            precision: 10
+            scale: 3
+            otype: NUMBER
+        ARS_Bedingung_Währungseinheitscode:
+            type: string
+            length: 3
+            otype: CHAR
+        ART_Bedingung_Maßeinheitscode:
+            type: string
+            length: 3
+            otype: CHAR
+        ARU_Bedingung_Code_des_Maßeinheitsqualifikators:
+            type: string
+            length: 1
+            otype: CHAR
+        ARV_Aktionscode:
+            type: string
+            length: 3
+            otype: CHAR
+        ARW_Code_der_Bescheinigungsart:
+            type: string
+            length: 1
+            otype: CHAR
+        ARX_Bescheinigungsreferenznummer:
+            type: string
+            length: 3
+            otype: CHAR
+    id:
+        ARN_SID_der_Maßnahmebedingung:
+            type: integer
+            length: 8
+            otype: NUMBER

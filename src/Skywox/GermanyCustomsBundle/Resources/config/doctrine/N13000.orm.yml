@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\N13000:
+    type: entity
+    table: gc_N13000
+    description: Fußnotenart-ID
+    fields:
+        ATJ_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ATK_Beschreibung_der_Fußnotenart_ID:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ATH_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        ATI_Beginndatum:
+            type: edidatetime
+            otype: DATE

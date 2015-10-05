@@ -1,0 +1,28 @@
+Skywox\GermanyCustomsBundle\Entity\N29000:
+    type: entity
+    table: gc_N29000
+    description: Maßeinheitsqualifikatoren
+    fields:
+        AZK_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AZL_Beschreibung_des_Maßeinheitsqualifikators_entsprechend_der_:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AZM_Beschreibung_des_Maßeinheitsqualifikators:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AZH_Qualifikator_der_Maßeinheit:
+            type: string
+            length: 1
+            otype: CHAR
+        AZI_Herkunft_des_Maßeinheitsqualifikators_TARIC_national:
+            type: string
+            length: 1
+            otype: CHAR
+        AZJ_Beginndatum:
+            type: edidatetime
+            otype: DATE

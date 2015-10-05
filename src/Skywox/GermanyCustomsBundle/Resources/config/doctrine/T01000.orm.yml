@@ -1,0 +1,13 @@
+Skywox\GermanyCustomsBundle\Entity\T01000:
+    type: entity
+    table: gc_T01000
+    description: Übertragungskommentar
+    fields:
+        AAB_Kommentar:
+            type: text
+            otype: LONG
+    id:
+        AAA_ID_des_Kommentar:
+            type: integer
+            length: 8
+            otype: NUMBER

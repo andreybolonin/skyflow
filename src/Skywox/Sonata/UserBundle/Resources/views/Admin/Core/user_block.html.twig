@@ -1,0 +1,8 @@
+{% block user_block %}
+    {% if app.user %}
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="{{ url('sonata_user_admin_security_logout') }}"
+                    ><span class="glyphicon glyphicon-log-out"></span> {{ 'user_block_logout'|trans({}, 'SonataUserBundle') }}</a>
+        </li>
+    {% endif %}
+{% endblock %}

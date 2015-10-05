@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\T16000:
+    type: entity
+    table: gc_T16000
+    description: Verordnungsfunktionsart
+    fields:
+        ABF_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        ABG_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ABH_Beschreibung_der_Verordnungsfunktion:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ABE_Verordnungsfunktionsart_ID:
+            type: string
+            length: 1
+            otype: CHAR

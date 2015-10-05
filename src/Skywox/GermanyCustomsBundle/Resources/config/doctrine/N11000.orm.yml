@@ -1,0 +1,20 @@
+Skywox\GermanyCustomsBundle\Entity\N11000:
+    type: entity
+    table: gc_N11000
+    description: Bescheinigungsart
+    fields:
+        ATC_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ATD_Beschreibung_der_Bescheinigungsart:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ATA_Art_der_Bescheinigung:
+            type: string
+            length: 1
+            otype: CHAR
+        ATB_Beginndatum:
+            type: edidatetime
+            otype: DATE

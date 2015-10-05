@@ -1,0 +1,16 @@
+Skywox\GermanyCustomsBundle\Entity\T37525:
+    type: entity
+    table: gc_T37525
+    description: 'Aufhebung der Aussetzung eines Kontingents'
+    fields:
+        ANB_Datum_der_Aufhebung_der_Aussetzung:
+            type: edidatetime
+            otype: DATE
+    id:
+        AMZ_SID_der_QUOTA_Beschreibung:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ANA_Datum_und_Uhrzeit:
+            type: edidatetime
+            otype: DATE

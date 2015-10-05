@@ -1,0 +1,24 @@
+Skywox\GermanyCustomsBundle\Entity\N27005:
+    type: entity
+    table: gc_N27005
+    description: 'Zuordnung Kontingentsnummer – geogr. Gebiet'
+    fields:
+        AXT_Ordnungsnummer:
+            type: string
+            length: 6
+            otype: VARCHAR
+        AXU_ID_des_geographischen_Gebiets:
+            type: string
+            length: 4
+            otype: VARCHAR
+        AXV_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        AXW_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        AXS_SID:
+            type: integer
+            length: 8
+            otype: NUMBER
