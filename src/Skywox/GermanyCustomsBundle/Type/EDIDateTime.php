@@ -24,10 +24,15 @@ class EDIDateTime extends \DateTime
     public static function ediCreateFromFormat($format, $time)
     {
         $d = parent::createFromFormat($format, $time);
-
         $edi = new self();
-        $edi->setDate($d->format('Y'), $d->format('m'), $d->format('d'));
-        $edi->setTime($d->format('H'), $d->format('i'), $d->format('s'));
+
+        if (!$d) {
+            $edi->setDate(0, 1, 1);
+            $edi->setTime(0, 0, 0);
+        } else {
+            $edi->setDate($d->format('Y'), $d->format('m'), $d->format('d'));
+            $edi->setTime($d->format('H'), $d->format('i'), $d->format('s'));
+        }
 
         return $edi;
     }
