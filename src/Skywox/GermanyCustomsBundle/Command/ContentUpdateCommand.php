@@ -37,8 +37,6 @@ class ContentUpdateCommand extends ContainerAwareCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int|null|void
-     *
-     * TODO Solve encoding problem
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -54,7 +52,9 @@ class ContentUpdateCommand extends ContainerAwareCommand
 
         $fp = fopen($edifactFilename, 'r');
 
-        $skip = 105500; // temporarily variable for testing to skip processed rows
+        $counterFile = '/var/www/skywox-boris/ContentUpdateCommand.txt';
+
+        $skip = (int)file_get_contents($counterFile) - 100; // temporarily variable for testing to skip processed rows
         $counter = 0;
         $time = 0;
         while (!feof($fp)) {
@@ -117,6 +117,8 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 var_dump($data);
                 die;
             }
+
+            file_put_contents($counterFile, $counter);
         }
 
         fclose($fp);
