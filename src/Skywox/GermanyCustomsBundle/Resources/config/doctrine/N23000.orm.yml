@@ -21,7 +21,7 @@ Skywox\GermanyCustomsBundle\Entity\N23000:
         AVX_Beschreibung_der_Abgaben:
             type: string
             length: 2000
-            otype: VARCHAR
+            otype: LONG
     id:
         AVR_Buchungsschlüssel:
             type: string

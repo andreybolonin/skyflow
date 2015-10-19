@@ -32,7 +32,7 @@ Skywox\GermanyCustomsBundle\Entity\N42000:
         BEQ_Beschreibung:
             type: string
             length: 2000
-            otype: VARCHAR
+            otype: LONG
     id:
         BEI_SID_der_nationalen_Warennomenklatur:
             type: integer

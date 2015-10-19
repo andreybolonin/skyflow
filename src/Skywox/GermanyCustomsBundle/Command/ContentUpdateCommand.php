@@ -42,6 +42,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
     {
         $this->yamlParser = new Parser();
         $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
+        $this->entityManager->getConnection()->getConfiguration()->setSQLLogger(null);
 
         $edifactFilename = $input->getArgument('edifactFilename');
 
@@ -51,21 +52,13 @@ class ContentUpdateCommand extends ContainerAwareCommand
         }
 
         $fp = fopen($edifactFilename, 'r');
-
-        $counterFile = '/var/www/skywox-boris/ContentUpdateCommand.txt';
-
-        $skip = (int)file_get_contents($counterFile) - 100; // temporarily variable for testing to skip processed rows
         $counter = 0;
         $time = 0;
+
         while (!feof($fp)) {
             $counter++;
 
-            $msg = iconv('ISO-8859-15', 'UTF-8', fgets($fp));
-
-            // skip processed rows
-            if ($counter <= $skip) {
-                continue;
-            }
+            $msg = fgets($fp);
 
             // skip headers strings
             $msgHeader = substr($msg, 0, 3);
@@ -81,17 +74,16 @@ class ContentUpdateCommand extends ContainerAwareCommand
             $operation = substr($msg, 15, 1); // i - insert, u - update, d - delete
             $data = substr($msg, 16);
 
-            // TODO This is only for testing to catch unexpected values, delete in production mode
-            if (strlen($id) < 5 || strlen($number) < 4 || strlen($table) < 6 || !in_array($table[0], ['T', 'N']) || $operation != 'i') {
-                var_dump($id, $number, $table, $operation, $data);
-                continue;
-                //die;
-            }
-
             // Count speed of command processing
             if ($counter % 100 == 0) {
                 echo $counter . ' ' . round((100 / (microtime(true) - $time))) . ' rows per second' . PHP_EOL;
                 $time = microtime(true);
+            }
+
+            // TODO This is only for testing to catch unexpected values, delete in production mode
+            if (strlen($id) < 5 || strlen($number) < 4 || strlen($table) < 6 || !in_array($table[0], ['T', 'N']) || $operation != 'i') {
+                var_dump($id, $number, $table, $operation, $data);
+                continue;
             }
 
             if (!$sameTable) {
@@ -99,11 +91,20 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 list($tableEntity, $fields) = $this->getTableStructure($table);
             }
 
+            if (!isset($tableEntity) && !isset($fields)) {
+                throw new \UnexpectedValueException('$tableEntity and $fields is not set');
+            }
+
             $entity = $this->getEntityByOperation($operation, $tableEntity);
             $start = 0;
             foreach ($fields as $name => $options) {
                 $setterName = 'set' . str_replace('_', '', $name);
                 $value = $this->parseColumnValue($options, $data, $start, $fp);
+
+                if (is_string($value)) {
+                    $value = iconv('ISO-8859-15', 'UTF-8', $value);
+                }
+
                 $entity->$setterName($value);
             }
 
@@ -117,8 +118,6 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 var_dump($data);
                 die;
             }
-
-            file_put_contents($counterFile, $counter);
         }
 
         fclose($fp);
@@ -139,6 +138,9 @@ class ContentUpdateCommand extends ContainerAwareCommand
         $tableEntity = array_keys($yaml)[0];
 
         $fields = array_merge($yaml[$tableEntity]['id'], $yaml[$tableEntity]['fields']);
+
+        ksort($fields);
+
         return [$tableEntity, $fields];
     }
 
@@ -215,9 +217,11 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 $length = (int)substr($data, $start, 9);
                 $start += 9;
                 $value = substr($data, $start, $length);
+
                 while (strlen($value) < $length) {
-                    $value .= fgets($fp);
+                    $value .= fgets($fp, 4096);
                 }
+
                 $start += $length;
                 break;
 

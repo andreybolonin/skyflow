@@ -7,9 +7,9 @@ Skywox\GermanyCustomsBundle\Entity\N22505:
             type: edidatetime
             otype: DATE
         AVQ_Beschreibung_der_Verfahrensbeschränkung:
-            type: string
+            type: text
             length: 2000
-            otype: VARCHAR
+            otype: LONG
     id:
         AVN_Schlüssel_der_Verfahrensbeschränkung:
             type: string
