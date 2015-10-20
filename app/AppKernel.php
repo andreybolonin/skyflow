@@ -29,6 +29,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
 
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+            new Mopa\Bundle\BarcodeBundle\MopaBarcodeBundle(),
+
             //new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
 
             // not required, but recommended for better extraction
