@@ -2,6 +2,7 @@
 
 namespace Skywox\AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,12 +13,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Sender extends Base
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="DeliveryOrder", mappedBy="sender")
+     */
+    protected $orders;
+
     /**
      * @var string
      *
      * @ORM\Column(name="company", type="string", length=255)
      */
     private $company;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     /**
      * Set company

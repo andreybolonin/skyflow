@@ -30,7 +30,8 @@ class User extends BaseUser
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        parent::__construct();
+        $this->orders = new ArrayCollection();
     }
 
     /**

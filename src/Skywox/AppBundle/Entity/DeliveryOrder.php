@@ -2,6 +2,7 @@
 
 namespace Skywox\AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -17,6 +18,37 @@ class DeliveryOrder extends Base
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Recipient", inversedBy="ordersRecipient")
+     * @ORM\JoinColumn(name="recipient_id", referencedColumnName="id")
+     */
+    protected $recipient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Recipient", inversedBy="ordersApplicant")
+     * @ORM\JoinColumn(name="applicant_id", referencedColumnName="id")
+     */
+    protected $applicant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Sender", inversedBy="orders")
+     * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
+     */
+    protected $sender;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="deliveryOrder")
+     */
+    protected $documents;
+
+    /**
+     * DeliveryOrder constructor.
+     */
+    public function __construct()
+    {
+        $this->documents = new ArrayCollection();
+    }
 
     /**
      * var string
