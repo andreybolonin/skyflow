@@ -14,7 +14,7 @@ class DeliveryOrder extends Base
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="\Skywox\Sonata\UserBundle\Entity\User", inversedBy="orders")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
