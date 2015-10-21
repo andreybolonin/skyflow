@@ -16,7 +16,7 @@ class User extends BaseUser
 {
 
     /**
-     * var int
+     * @var integer $id
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

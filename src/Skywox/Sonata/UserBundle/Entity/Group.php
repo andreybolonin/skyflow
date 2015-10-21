@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Group extends BaseGroup
 {
     /**
-     * var int
+     * @var integer $id
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
