@@ -561,14 +561,14 @@ N22500;AWR- Ausnahmeregelungen für bestimmte geographische Gebiete;SID;NUMBER(8
 N22505;Verfahrensbeschränkungen;Schlüssel der Verfahrensbeschränkung;CHAR(3);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
-;;Beschreibung der Verfahrensbeschränkung;VARCHAR(2000);nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
+;;Beschreibung der Verfahrensbeschränkung;LONG;nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
 N23000;zu verwendende Verbuchungsstellen;Buchungsschlüssel;CHAR(5);ja;;
 ;;Buchungsschlüssel EU-Code;VARCHAR(5);nein;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
 ;;nationale Verbuchungsstelle der Einnahmen;VARCHAR(200);nein;;
 ;;Zusatzinformationen zur Verbuchungsstelle;VARCHAR(200);nein;;
-;;Beschreibung der Abgaben;VARCHAR(2000);nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
+;;Beschreibung der Abgaben;LONG;nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
 N23500;Bedingungsart;Bedingung;CHAR(2);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
@@ -606,7 +606,7 @@ N26500;Hinweise;Hinweisart;CHAR(3);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
 ;;Beschreibung des Hinweises;VARCHAR(200);nein;;
-;;Hinweistext;VARCHAR(2000);nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
+;;Hinweistext;LONG;nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
 N27000;Zuordnung Ordnungsnummer mit Kontingentsart und Kontingentsmaßstab;Ordnungsnummer;CHAR(6);ja;T43000;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
@@ -795,7 +795,7 @@ N42000;Warennomenklatur;SID der nationalen Warennomenklatur;NUMBER(8);ja;;
 ;;Endedatum;DATE;nein;;
 ;;Anzahl der Führungsstriche;CHAR(2);nein;;
 ;;Währungseinheit;CHAR(3);nein;;
-;;Beschreibung;VARCHAR(2000);nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
+;;Beschreibung;LONG;nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
 N42005;ländergruppen- und/oder länderbezogene Schlüssel- Bedingungen/Genehmigun gspflicht AWR;SID;NUMBER(8);ja;;
 ;;SID der nationalen Warennomenklatur;NUMBER(8);nein;N42000;
 ;;Geographisches Gebiet;CHAR(4);nein;T25000;
@@ -886,7 +886,7 @@ N61100;Verbindung Ausfuhrliste - Warennomenklatur;SID;NUMBER(8);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
 ;;Ausfuhrlistennummer;CHAR(10);nein;N61200;
-;;Beschreibung;VARCHAR(4000);nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
+;;Beschreibung;LONG;nein;;Achtung: Bei diesem Attribut geben die ersten 9 Zeichen die Länge des Attributes in der Bereitstellungsdatei an (Verwaltungsinformation). Die ersten 9 Zeichen gehören daher nicht zu den Nutzdaten!
 N61200;Ausfuhrliste Teil 1;Ausfuhrlistennummer;CHAR(10);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;

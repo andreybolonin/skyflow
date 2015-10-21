@@ -42,6 +42,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
     {
         $this->yamlParser = new Parser();
         $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
+        $this->entityManager->getConnection()->getConfiguration()->setSQLLogger(null);
 
         $edifactFilename = $input->getArgument('edifactFilename');
 
@@ -51,46 +52,27 @@ class ContentUpdateCommand extends ContainerAwareCommand
         }
 
         $fp = fopen($edifactFilename, 'r');
-
-        $counterFile = '/var/www/skywox-boris/ContentUpdateCommand.txt';
-
-        $skip = (int)file_get_contents($counterFile) - 100; // temporarily variable for testing to skip processed rows
         $counter = 0;
         $time = 0;
-
-
 
         while (!feof($fp)) {
             $counter++;
 
-            $msg = iconv('ISO-8859-15', 'UTF-8//TRANSLIT', fgets($fp));
-
-            // skip processed rows
-            if ($counter <= $skip) {
-                //continue;
-            }
+            $msg = fgets($fp);
 
             // skip headers strings
-            $msgHeader = mb_substr($msg, 0, 3);
+            $msgHeader = substr($msg, 0, 3);
             if (in_array($msgHeader, ['UNB', 'UNH', 'UNT', 'UNZ'])) {
                 continue;
             }
 
             // message example: 000010001T01000i+00001391,000000245Da Praeferenzzucker mit Ursprung in Indien nicht im Rahmen des APS eingef▒hrt wird, ist die Integration mit Ma▒nahme 142 nicht korrekt (es ist keine Form A erforderlich).  Daher sind die Zolls▒tze mit Ma▒nahme 103 und Ursprung integriert worden.
-            $id = mb_substr($msg, 0, 5);
-            $number = mb_substr($msg, 5, 4);
-            $sameTable = isset($table) && $table == mb_substr($msg, 9, 6);
-            $table     = mb_substr($msg, 9, 6);
-            $operation = mb_substr($msg, 15, 1); // i - insert, u - update, d - delete
-            $data      = mb_substr($msg, 16);
-
-
-            // TODO This is only for testing to catch unexpected values, delete in production mode
-            if (strlen($id) < 5 || strlen($number) < 4 || strlen($table) < 6 || !in_array($table[0], ['T', 'N']) || $operation != 'i') {
-                var_dump($id, $number, $table, $operation, $data);
-                continue;
-                //die;
-            }
+            $id = substr($msg, 0, 5);
+            $number = substr($msg, 5, 4);
+            $sameTable = isset($table) && $table == substr($msg, 9, 6);
+            $table = substr($msg, 9, 6);
+            $operation = substr($msg, 15, 1); // i - insert, u - update, d - delete
+            $data = substr($msg, 16);
 
             // Count speed of command processing
             if ($counter % 100 == 0) {
@@ -98,9 +80,19 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 $time = microtime(true);
             }
 
+            // TODO This is only for testing to catch unexpected values, delete in production mode
+            if (strlen($id) < 5 || strlen($number) < 4 || strlen($table) < 6 || !in_array($table[0], ['T', 'N']) || $operation != 'i') {
+                var_dump($id, $number, $table, $operation, $data);
+                continue;
+            }
+
             if (!$sameTable) {
                 // fill out entity with new values
                 list($tableEntity, $fields) = $this->getTableStructure($table);
+            }
+
+            if (!isset($tableEntity) && !isset($fields)) {
+                throw new \UnexpectedValueException('$tableEntity and $fields is not set');
             }
 
             $entity = $this->getEntityByOperation($operation, $tableEntity);
@@ -108,6 +100,11 @@ class ContentUpdateCommand extends ContainerAwareCommand
             foreach ($fields as $name => $options) {
                 $setterName = 'set' . str_replace('_', '', $name);
                 $value = $this->parseColumnValue($options, $data, $start, $fp);
+
+                if (is_string($value)) {
+                    $value = iconv('ISO-8859-15', 'UTF-8', $value);
+                }
+
                 $entity->$setterName($value);
             }
 
@@ -121,8 +118,6 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 var_dump($data);
                 die;
             }
-
-            file_put_contents($counterFile, $counter);
         }
 
         fclose($fp);
@@ -143,6 +138,9 @@ class ContentUpdateCommand extends ContainerAwareCommand
         $tableEntity = array_keys($yaml)[0];
 
         $fields = array_merge($yaml[$tableEntity]['id'], $yaml[$tableEntity]['fields']);
+
+        ksort($fields);
+
         return [$tableEntity, $fields];
     }
 
@@ -216,23 +214,11 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 break;
 
             case 'LONG':
-
-                //multibyte fix start
-
-                //Here we detect all multibyte german characters in string
-                //and extend $length to ([total multibyte characters in string] / 2) bytes;
-                //to prevent early cut off.
-
-                preg_match_all('/[\xC4\xD6\xDC\xDF\xE4\xF6\xFC]+/u', $data, $matches);
-                $multibyte_fix = strlen(implode('',$matches[0])) / 2 ;
-
-                //multibyte fix end
-
-                $length = (int)mb_substr($data, $start, 9) + $multibyte_fix;
+                $length = (int)substr($data, $start, 9);
                 $start += 9;
-                $value = mb_substr($data, $start, $length);
+                $value = substr($data, $start, $length);
 
-                while (mb_strlen($value) < $length) {
+                while (strlen($value) < $length) {
                     $value .= fgets($fp, 4096);
                 }
 
@@ -240,21 +226,10 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 break;
 
             case 'CLOB':
-                //multibyte fix start
-
-                //Here we detect all multibyte german characters in string
-                //and extend $length to ([total multibyte characters in string] / 2) bytes;
-                //to prevent early cut off.
-
-                preg_match_all('/[\xC4\xD6\xDC\xDF\xE4\xF6\xFC]+/u', $data, $matches);
-                $multibyte_fix = strlen(implode('',$matches[0])) / 2 ;
-
-                //multibyte fix end
-
-                $length = (int)mb_substr($data, $start, 9) + $multibyte_fix;
+                $length = (int)substr($data, $start, 9);
                 $start += 9;
                 $value = '';
-                while (mb_strlen($value) < $length) {
+                while (strlen($value) < $length) {
                     $value .= fgets($fp);
                 }
                 break;

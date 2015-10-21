@@ -13,7 +13,7 @@ Skywox\GermanyCustomsBundle\Entity\N26500:
         AXJ_Hinweistext:
             type: string
             length: 2000
-            otype: VARCHAR
+            otype: LONG
     id:
         AXE_Hinweisart:
             type: string

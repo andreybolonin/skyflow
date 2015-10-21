@@ -21,7 +21,7 @@ Skywox\GermanyCustomsBundle\Entity\N61100:
         BID_Beschreibung:
             type: string
             length: 4000
-            otype: VARCHAR
+            otype: LONG
     id:
         BHX_SID:
             type: integer
