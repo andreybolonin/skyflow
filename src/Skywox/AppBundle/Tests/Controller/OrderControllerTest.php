@@ -18,7 +18,7 @@ class OrderControllerTest extends WebTestCase
         $password = uniqid();
 
         $client = static::createClient();
-        $crawler = $client->request('GET', 'http://localhost:8000/index');
+        $crawler = $client->request('GET', '/index');
         $form = $crawler->selectButton('Save')->form();
 
         $form->setValues(
