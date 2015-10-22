@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class Base
 {
     /**
-     * var int
+     * @var integer $id
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

@@ -58,7 +58,7 @@ class DeliveryOrder extends Base
      *
      * @ORM\Column(type="string")
      */
-    protected $adresses;
+    protected $addresses;
 
     /**
      * var string
@@ -153,17 +153,17 @@ class DeliveryOrder extends Base
     /**
      * @return mixed
      */
-    public function getAdresses()
+    public function getAddresses()
     {
-        return $this->adresses;
+        return $this->addresses;
     }
 
     /**
-     * @param mixed $adresses
+     * @param mixed $addresses
      */
-    public function setAdresses($adresses)
+    public function setAddresses($addresses)
     {
-        $this->adresses = $adresses;
+        $this->addresses = $addresses;
     }
 
     /**
