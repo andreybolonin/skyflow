@@ -20,22 +20,6 @@ class Sender extends Base
     protected $orders;
 
     /**
-     * @return string
-     */
-    public function getFormOfAddress()
-    {
-        return $this->formOfAddress;
-    }
-
-    /**
-     * @param string $formOfAddress
-     */
-    public function setFormOfAddress($formOfAddress)
-    {
-        $this->formOfAddress = $formOfAddress;
-    }
-
-    /**
      * @var string
      *
      * @ORM\Column(name="formOfAddress", type="string", length=255)
@@ -76,6 +60,97 @@ class Sender extends Base
      * @ORM\Column(name="mobile", type="string", length=255)
      */
     private $mobile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="company", type="string", length=255)
+     */
+    private $company;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstName", type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="familyName", type="string", length=255)
+     */
+    private $familyName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="companyReg", type="string", length=255)
+     */
+    private $companyReg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additionalInfo", type="string", length=255)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postCode", type="string", length=255)
+     */
+    private $postCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customReg", type="string", length=255)
+     */
+    private $customReg;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormOfAddress()
+    {
+        return $this->formOfAddress;
+    }
+
+    /**
+     * @param string $formOfAddress
+     */
+    public function setFormOfAddress($formOfAddress)
+    {
+        $this->formOfAddress = $formOfAddress;
+    }
 
     /**
      * @return string
@@ -158,13 +233,6 @@ class Sender extends Base
     }
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="company", type="string", length=255)
-     */
-    private $company;
-
-    /**
      * @return string
      */
     public function getFamilyName()
@@ -179,34 +247,6 @@ class Sender extends Base
     {
         $this->familyName = $familyName;
     }
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstName", type="string", length=255)
-     */
-    private $firstName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="familyName", type="string", length=255)
-     */
-    private $familyName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="companyReg", type="string", length=255)
-     */
-    private $companyReg;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=255)
-     */
-    private $address;
 
     /**
      * @return string
@@ -225,27 +265,6 @@ class Sender extends Base
     }
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="additionalInfo", type="string", length=255)
-     */
-    private $additionalInfo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postCode", type="string", length=255)
-     */
-    private $postCode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    private $country;
-
-    /**
      * @return string
      */
     public function getEmail()
@@ -260,13 +279,6 @@ class Sender extends Base
     {
         $this->email = $email;
     }
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
 
     /**
      * @return string
@@ -348,13 +360,6 @@ class Sender extends Base
         $this->customReg = $customReg;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="customReg", type="string", length=255)
-     */
-    private $customReg;
-
 
     /**
      * @return string
@@ -370,11 +375,6 @@ class Sender extends Base
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
-    }
-
-    public function __construct()
-    {
-        $this->orders = new ArrayCollection();
     }
 
     /**

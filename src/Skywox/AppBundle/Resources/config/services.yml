@@ -1,0 +1,5 @@
+services:
+    skywox.form.flow.create_vehicle:
+        class: Skywox\AppBundle\Form\CreateVehicleFlow
+        parent: craue.form.flow
+        scope: request

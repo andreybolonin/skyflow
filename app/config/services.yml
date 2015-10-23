@@ -7,3 +7,15 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    skywox.form.create_vehicle:
+        class: Skywox\AppBundle\Form\CreateVehicleForm
+        tags:
+            - { name: form.type, alias: createVehicle }
+
+    skywox.form.flow.create_vehicle:
+        class: Skywox\AppBundle\Form\CreateVehicleFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+            - [ setFormType, [ "@skywox.form.create_vehicle" ] ]

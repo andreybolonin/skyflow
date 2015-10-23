@@ -31,6 +31,7 @@ class AppKernel extends Kernel
 
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Mopa\Bundle\BarcodeBundle\MopaBarcodeBundle(),
+            new Craue\FormFlowBundle\CraueFormFlowBundle(),
 
             //new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
 

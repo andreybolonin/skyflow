@@ -26,6 +26,22 @@ class DeliveryOrder extends Base
     protected $recipient;
 
     /**
+     * @return mixed
+     */
+    public function getRecipient()
+    {
+        return $this->recipient;
+    }
+
+    /**
+     * @param mixed $recipient
+     */
+    public function setRecipient($recipient)
+    {
+        $this->recipient = $recipient;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="Recipient", inversedBy="ordersApplicant")
      * @ORM\JoinColumn(name="applicant_id", referencedColumnName="id")
      */
@@ -36,6 +52,54 @@ class DeliveryOrder extends Base
      * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
      */
     protected $sender;
+
+    /**
+     * @return mixed
+     */
+    public function getApplicant()
+    {
+        return $this->applicant;
+    }
+
+    /**
+     * @param mixed $applicant
+     */
+    public function setApplicant($applicant)
+    {
+        $this->applicant = $applicant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSender()
+    {
+        return $this->sender;
+    }
+
+    /**
+     * @param mixed $sender
+     */
+    public function setSender($sender)
+    {
+        $this->sender = $sender;
+    }
 
     /**
      * @ORM\OneToMany(targetEntity="Document", mappedBy="deliveryOrder")
@@ -53,7 +117,6 @@ class DeliveryOrder extends Base
     /**
      * var string
      *
-     * @Assert\NotBlank()
      * @Assert\Length(min = 2, max = 255)
      *
      * @ORM\Column(type="string")
@@ -63,12 +126,11 @@ class DeliveryOrder extends Base
     /**
      * var string
      *
-     * @Assert\NotBlank()
      * @Assert\Length(min = 2, max = 255)
      *
      * @ORM\Column(type="string")
      */
-    protected $desc;
+    protected $description;
 
     /**
      * var string
@@ -169,17 +231,17 @@ class DeliveryOrder extends Base
     /**
      * @return mixed
      */
-    public function getDesc()
+    public function getDescription()
     {
-        return $this->desc;
+        return $this->description;
     }
 
     /**
      * @param mixed $desc
      */
-    public function setDesc($desc)
+    public function setDescription($desc)
     {
-        $this->desc = $desc;
+        $this->description = $desc;
     }
 
     /**
