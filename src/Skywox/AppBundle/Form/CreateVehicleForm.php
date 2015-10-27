@@ -15,7 +15,6 @@ class CreateVehicleForm extends AbstractType
     {
         switch ($options['flow_step']) {
             case 1:
-//                $validValues = array(2, 4);
                 $builder->add('sender', new SenderType(), array(
                     'data_class' => 'Skywox\AppBundle\Entity\Sender',
                 ));
@@ -28,7 +27,6 @@ class CreateVehicleForm extends AbstractType
             case 3:
                 $builder->add('compliance', 'choice', array(
                     'choices' => array_combine(array(1, 0), array(1, 0)),
-//                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
                 ));
                 break;
             case 4:

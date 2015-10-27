@@ -39,7 +39,6 @@ class CreateVehicleFlow extends FormFlow
             [
                 'label' => 'sender',
                 'form_type' => $this->formType,
-//                'data_class' => ''
             ],
             [
                 'label' => 'recipient',
@@ -47,10 +46,7 @@ class CreateVehicleFlow extends FormFlow
             ],
             [
                 'label' => 'compliance',
-                'form_type' => $this->formType,
-//                'skip' => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
-//                    return $estimatedCurrentStepNumber > 1 && !$flow->getFormData()->canHaveEngine();
-//                },
+//                'form_type' => $this->formType,
             ],
             [
                 'label' => 'shipment',

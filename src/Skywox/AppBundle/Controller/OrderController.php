@@ -42,12 +42,22 @@ class OrderController extends Controller
             if ($flow->nextStep()) {
                 // form for the next step
                 $form = $flow->createForm();
+
+                // compliance check
+                if ($flow->getCurrentStepLabel() === 'compliance') {
+                    if ($this->get('skywox.compliance')->check($form->getData()) === false) {
+                        print_r('Compliance error');
+                        return false;
+                    } else {
+                        print_r('Compliance is ok');
+                    }
+                }
+
             } else {
 
                 // flow finished
                 $sender = $formData['sender'];
                 $recipient = $formData['recipient'];
-//                $compliance = $formData['compliance'];
                 $deliveryOrder = $formData['shipment'];
 
                 $user = $em->getRepository('SkywoxSonataUserBundle:User')->find(1);

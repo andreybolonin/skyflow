@@ -19,3 +19,6 @@ services:
         scope: request
         calls:
             - [ setFormType, [ "@skywox.form.create_vehicle" ] ]
+
+    skywox.compliance:
+        class: Skywox\AppBundle\Compliance

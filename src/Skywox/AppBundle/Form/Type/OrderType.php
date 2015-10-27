@@ -4,8 +4,6 @@ namespace Skywox\AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-//use Application\UserBundle\Entity\User;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class OrderType extends AbstractType
@@ -31,7 +29,6 @@ class OrderType extends AbstractType
             case 3:
                 $builder->add('compliance', 'choice', array(
                     'choices' => array_combine(array(2, 4), array(2, 4)),
-//                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
                 ));
                 break;
             case 4:
