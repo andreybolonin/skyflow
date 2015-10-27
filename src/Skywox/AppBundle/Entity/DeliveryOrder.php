@@ -237,11 +237,11 @@ class DeliveryOrder extends Base
     }
 
     /**
-     * @param mixed $desc
+     * @param mixed $description
      */
-    public function setDescription($desc)
+    public function setDescription($description)
     {
-        $this->description = $desc;
+        $this->description = $description;
     }
 
     /**

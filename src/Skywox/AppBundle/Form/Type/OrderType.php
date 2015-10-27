@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ___OrderType extends AbstractType
+class OrderType extends AbstractType
 {
 
     /**
@@ -35,12 +35,12 @@ class ___OrderType extends AbstractType
                 ));
                 break;
             case 4:
-                $builder->add('compliance', 'ShipmentType', array(
+                $builder->add('shipment', 'ShipmentType', array(
                     'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;
             case 5:
-                $builder->add('compliance', 'PositionsType', array(
+                $builder->add('positions', 'PositionsType', array(
                     'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;

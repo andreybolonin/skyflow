@@ -3,16 +3,16 @@
 {#{% block title %}AppBundle:Order:index{% endblock %}#}
 
 {% block body %}
-    <div>
-        Steps:
-        {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
-    </div>
+    {#<div>#}
+        {#Steps:#}
+        {#{% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}#}
+    {#</div>#}
     {{ form_start(form) }}
     {{ form_errors(form) }}
 
     {% if flow.getCurrentStepNumber() == 1 %}
         <div>
-            When selecting four wheels you have to choose the engine in the next step.<br />
+            {#When selecting four wheels you have to choose the engine in the next step.<br />#}
             {{ form_row(form) }}
         </div>
     {% endif %}

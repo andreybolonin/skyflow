@@ -3,3 +3,6 @@ services:
         class: Skywox\AppBundle\Form\CreateVehicleFlow
         parent: craue.form.flow
         scope: request
+
+    skywox.compliance:
+        class: Skywox\AppBundle\Compliance

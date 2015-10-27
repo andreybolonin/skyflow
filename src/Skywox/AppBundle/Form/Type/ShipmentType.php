@@ -15,16 +15,16 @@ class ShipmentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('addresses', 'text')
-            ->add('desc', 'text')
-            ->add('weight', 'text')
-            ->add('packing', 'text')
-            ->add('qty', 'text')
-            ->add('measurements', 'text')
-            ->add('itemPrice', 'text')
-            ->add('value', 'text')
-            ->add('euTaricNo', 'text')
-            ->add('euCode', 'text');
+            ->add('measurements', 'text');
+//            ->add('description', 'text')
+//            ->add('weight', 'text')
+//            ->add('packing', 'text')
+//            ->add('qty', 'text')
+//            ->add('measurements', 'text')
+//            ->add('itemPrice', 'text')
+//            ->add('value', 'text')
+//            ->add('euTaricNo', 'text')
+//            ->add('euCode', 'text');
     }
 
     /**

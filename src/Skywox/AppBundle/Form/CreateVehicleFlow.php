@@ -3,17 +3,12 @@
 namespace Skywox\AppBundle\Form;
 
 use Craue\FormFlowBundle\Form\FormFlow;
-use Craue\FormFlowBundle\Form\FormFlowInterface;
-use Skywox\AppBundle\Entity\DeliveryOrder;
-use Skywox\AppBundle\Entity\Recipient;
-use Skywox\AppBundle\Entity\Sender;
-use Skywox\AppBundle\Form\Type\OrderType;
-use Skywox\AppBundle\Form\Type\PositionsType;
-use Skywox\AppBundle\Form\Type\RecipientType;
-use Skywox\AppBundle\Form\Type\SenderType;
-use Skywox\AppBundle\Form\Type\ShipmentType;
 use Symfony\Component\Form\FormTypeInterface;
 
+/**
+ * Class CreateVehicleFlow
+ * @package Skywox\AppBundle\Form
+ */
 class CreateVehicleFlow extends FormFlow
 {
 
@@ -27,46 +22,52 @@ class CreateVehicleFlow extends FormFlow
      */
     protected $allowDynamicStepNavigation = true;
 
+    /**
+     * @param FormTypeInterface $formType
+     */
     public function setFormType(FormTypeInterface $formType)
     {
         $this->formType = $formType;
     }
 
+    /**
+     * @return array
+     */
     protected function loadStepsConfig()
     {
-        return array(
-            array(
+        return [
+            [
                 'label' => 'sender',
                 'form_type' => $this->formType,
 //                'data_class' => ''
-            ),
-            array(
+            ],
+            [
                 'label' => 'recipient',
                 'form_type' => $this->formType,
-            ),
-//            array(
-//                'label' => 'compliance',
-//                'type' => new OrderType(),
-////                'skip' => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
-////                    return $estimatedCurrentStepNumber > 1 && !$flow->getFormData()->canHaveEngine();
-////                },
-//            ),
-//            array(
-//                'label' => 'shipment',
-//                'type' => new ShipmentType(),
-//            ),
-//            array(
-//                'label' => 'positions',
-//                'type' => new PositionsType(),
-//            ),
-            array(
-                'label' => 'confirmation',
-            ),
-        );
+            ],
+            [
+                'label' => 'compliance',
+                'form_type' => $this->formType,
+//                'skip' => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
+//                    return $estimatedCurrentStepNumber > 1 && !$flow->getFormData()->canHaveEngine();
+//                },
+            ],
+            [
+                'label' => 'shipment',
+                'form_type' => $this->formType,
+            ],
+            [
+                'label' => 'positions',
+                'form_type' => $this->formType,
+            ],
+        ];
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-        return 'createVehicle';
+        return 'form';
     }
 }

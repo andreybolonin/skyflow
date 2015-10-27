@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('new_order_sender') }}">Add new order</a><br/>
+    <a href="{{ path('new_order') }}">Add new order</a><br/>
     <a href="/orders_in_progress">Orders in progress</a><br/>
-    <a href="/new_order_sender">Addresses</a><br/>
-    <a href="/new_order_sender">Open invoices</a><br/>
-    <a href="/new_order_sender">My account</a>
+    <a href="/addresses">Addresses</a><br/>
+    <a href="/invoices">Open invoices</a><br/>
+    <a href="{{ path('account') }}">My account</a>
 {% endblock %}

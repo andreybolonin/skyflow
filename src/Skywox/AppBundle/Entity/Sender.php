@@ -137,6 +137,14 @@ class Sender extends Base
     }
 
     /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
      * @return string
      */
     public function getFormOfAddress()
