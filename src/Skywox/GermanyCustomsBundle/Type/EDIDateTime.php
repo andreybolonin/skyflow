@@ -19,7 +19,7 @@ class EDIDateTime extends \DateTime
     /**
      * @param string $format
      * @param string $time
-     * @return \DateTime
+     * @return self
      */
     public static function ediCreateFromFormat($format, $time)
     {
