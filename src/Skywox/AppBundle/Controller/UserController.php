@@ -8,4 +8,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class UserController extends Controller
 {
+    /**
+     * @Route("/account", name="account")
+     * @Template()
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function accountAction()
+    {
+        return $this->render('AppBundle:User:account.html.twig', array());
+    }
 }

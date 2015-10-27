@@ -30,7 +30,8 @@
     "mopa/barcode-bundle": "dev-master",
     "avalanche123/imagine-bundle": "dev-master",
     "zendframework/zend-barcode": "~2.3.7",
-    "zendframework/zend-servicemanager": "~2.3.7"
+    "zendframework/zend-servicemanager": "~2.3.7",
+    "craue/formflow-bundle": "~3.0@dev"
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3"

@@ -37,9 +37,16 @@ class Recipient extends Base
     /**
      * @var string
      *
-     * @ORM\Column(name="formOfAdress", type="string", length=255)
+     * @ORM\Column(name="formOfAddress", type="string", length=255)
      */
-    private $formOfAdress;
+    private $formOfAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="buildingNumber", type="string", length=255)
+     */
+    private $buildingNumber;
 
     /**
      * @var string
@@ -65,16 +72,16 @@ class Recipient extends Base
     /**
      * @var string
      *
-     * @ORM\Column(name="customRegNo", type="string", length=255)
+     * @ORM\Column(name="customReg", type="string", length=255)
      */
-    private $customRegNo;
+    private $customReg;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="companyRegNo", type="string", length=255)
+     * @ORM\Column(name="companyReg", type="string", length=255)
      */
-    private $companyRegNo;
+    private $companyReg;
 
     /**
      * @var string
@@ -114,68 +121,116 @@ class Recipient extends Base
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string")
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string")
-     */
-    private $password;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="password", type="string", length=255)
+//     */
+//    private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string")
+     * @ORM\Column(name="telephone", type="string", length=255)
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fax", type="string")
+     * @ORM\Column(name="fax", type="string", length=255)
      */
     private $fax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mobile", type="string")
+     * @ORM\Column(name="mobile", type="string", length=255)
      */
     private $mobile;
 
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="status", type="string", length=255)
+//     */
+//    private $status;
+
+    /**
+     * Recipient constructor.
+     */
+    public function __construct()
+    {
+        $this->ordersRecipient = new ArrayCollection();
+        $this->ordersApplicant = new ArrayCollection();
+    }
+
     /**
      * @return string
      */
-    public function getCustomRegNo()
+    public function getBuildingNumber()
     {
-        return $this->customRegNo;
+        return $this->buildingNumber;
     }
 
     /**
-     * @param string $customRegNo
+     * @param string $buildingNumber
      */
-    public function setCustomRegNo($customRegNo)
+    public function setBuildingNumber($buildingNumber)
     {
-        $this->customRegNo = $customRegNo;
+        $this->buildingNumber = $buildingNumber;
     }
 
     /**
      * @return string
      */
-    public function getCompanyRegNo()
+    public function getCustomReg()
     {
-        return $this->companyRegNo;
+        return $this->customReg;
     }
 
     /**
-     * @param string $companyRegNo
+     * @param string $customReg
      */
-    public function setCompanyRegNo($companyRegNo)
+    public function setCustomReg($customReg)
     {
-        $this->companyRegNo = $companyRegNo;
+        $this->customReg = $customReg;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompanyReg()
+    {
+        return $this->companyReg;
+    }
+
+    /**
+     * @param string $companyReg
+     */
+    public function setCompanyReg($companyReg)
+    {
+        $this->companyReg = $companyReg;
     }
 
     /**
@@ -274,21 +329,21 @@ class Recipient extends Base
         $this->email = $email;
     }
 
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getPassword()
+//    {
+//        return $this->password;
+//    }
+//
+//    /**
+//     * @param string $password
+//     */
+//    public function setPassword($password)
+//    {
+//        $this->password = $password;
+//    }
 
     /**
      * @return string
@@ -338,59 +393,43 @@ class Recipient extends Base
         $this->mobile = $mobile;
     }
 
+//    /**
+//     * @return string
+//     */
+//    public function getStatus()
+//    {
+//        return $this->status;
+//    }
+//
+//    /**
+//     * @param string $status
+//     */
+//    public function setStatus($status)
+//    {
+//        $this->status = $status;
+//    }
+
     /**
-     * @var string
+     * Set formOfAddress
      *
-     * @ORM\Column(name="status", type="string", length=255)
-     */
-    private $status;
-
-    /**
-     * Recipient constructor.
-     */
-    public function __construct()
-    {
-        $this->ordersRecipient = new ArrayCollection();
-        $this->ordersApplicant = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param string $status
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-    }
-
-    /**
-     * Set formOfAdress
-     *
-     * @param string $formOfAdress
+     * @param string $formOfAddress
      * @return Recipient
      */
-    public function setFormOfAdress($formOfAdress)
+    public function setFormOfAddress($formOfAddress)
     {
-        $this->formOfAdress = $formOfAdress;
+        $this->formOfAddress = $formOfAddress;
 
         return $this;
     }
 
     /**
-     * Get formOfAdress
+     * Get formOfAddress
      *
      * @return string 
      */
-    public function getFormOfAdress()
+    public function getFormOfAddress()
     {
-        return $this->formOfAdress;
+        return $this->formOfAddress;
     }
 
     /**

@@ -2,7 +2,10 @@
 
 namespace Skywox\AppBundle\Controller;
 
+use Application\Sonata\UserBundle\Entity\User;
+use Craue\FormFlowBundle\Tests\IntegrationTestBundle\Entity\Vehicle;
 use Skywox\AppBundle\Entity\DeliveryOrder;
+use Skywox\AppBundle\Entity\Recipient;
 use Skywox\AppBundle\Entity\Sender;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,45 +14,74 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends Controller
 {
+
     /**
-     * @Route("/index")
+     * @Route("/new_order", name="new_order")
      * @Template()
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request)
+    public function createVehicleAction(Request $request)
     {
-        $sender = new Sender();
         $em = $this->getDoctrine()->getManager();
+        $deliveryOrder = new DeliveryOrder();
 
-        $form = $this->createFormBuilder($sender)
-            ->add('formOfAddress', 'text')
-            ->add('company', 'text')
-            ->add('firstName', 'text')
-            ->add('familyName', 'text')
-            ->add('address', 'text')
-            ->add('customReg', 'text')
-            ->add('companyReg', 'text')
-            ->add('buildingNumber', 'text')
-            ->add('additionalInfo', 'text')
-            ->add('postCode', 'text')
-            ->add('city', 'text')
-            ->add('country', 'text')
-            ->add('email', 'text')
-            ->add('telephone', 'text')
-            ->add('fax', 'text')
-            ->add('mobile', 'text')
-            ->add('save', 'submit', array('label' => 'Save'))
-            ->getForm();
+        $formData['sender'] = new Sender();
+        $formData['recipient'] = new Recipient();
+        $formData['shipment'] = $deliveryOrder;
+        $formData['positions'] = $deliveryOrder;
 
-        $form->handleRequest($request);
+        $flow = $this->get('skywox.form.flow.create_vehicle'); // must match the flow's service id
+        $flow->bind($formData);
 
-        if ($form->isValid()) {
-            $em->persist($sender);
-            $em->flush();
+        // form of the current step
+        $form = $flow->createForm();
+
+        if ($flow->isValid($form)) {
+            $flow->saveCurrentStepData($form);
+
+            if ($flow->nextStep()) {
+                // form for the next step
+                $form = $flow->createForm();
+
+                // compliance check
+                if ($flow->getCurrentStepLabel() === 'compliance') {
+                    if ($this->get('skywox.compliance')->check($form->getData()) === false) {
+                        print_r('Compliance error');
+                        return false;
+                    } else {
+                        print_r('Compliance is ok');
+                    }
+                }
+
+            } else {
+
+                // flow finished
+                $sender = $formData['sender'];
+                $recipient = $formData['recipient'];
+                $deliveryOrder = $formData['shipment'];
+
+                $user = $em->getRepository('SkywoxSonataUserBundle:User')->find(1);
+
+                $deliveryOrder->setSender($sender);
+                $deliveryOrder->setRecipient($recipient);
+                $deliveryOrder->setApplicant($recipient);
+                $deliveryOrder->setUser($user);
+
+                $em->persist($deliveryOrder);
+                $em->persist($sender);
+                $em->persist($recipient);
+
+                $em->flush();
+
+                $flow->reset(); // remove step data from the session
+
+                return $this->redirect($this->generateUrl('account')); // redirect when done
+            }
         }
 
-        return $this->render(
-            'AppBundle:Order:new.html.twig', array(
-                'form' => $form->createView(),
+        return $this->render('AppBundle:Order:vehicle.html.twig', array(
+            'form' => $form->createView(),
+            'flow' => $flow,
         ));
     }
 
