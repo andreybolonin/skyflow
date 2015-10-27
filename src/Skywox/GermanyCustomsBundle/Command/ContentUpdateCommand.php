@@ -80,7 +80,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 $time = microtime(true);
             }
 
-            // TODO This is only for testing to catch unexpected values, delete in production mode
+            // Skip non messages strings
             if (strlen($id) < 5 || strlen($number) < 4 || strlen($table) < 6 || !in_array($table[0], ['T', 'N']) || $operation != 'i') {
                 var_dump($id, $number, $table, $operation, $data);
                 continue;
@@ -88,29 +88,40 @@ class ContentUpdateCommand extends ContainerAwareCommand
 
             if (!$sameTable) {
                 // fill out entity with new values
-                list($tableEntity, $fields) = $this->getTableStructure($table);
+                list($tableEntity, $fields, $pkFields) = $this->getTableStructure($table);
             }
 
-            if (!isset($tableEntity) && !isset($fields)) {
+            if (!isset($tableEntity) && !isset($fields) && !isset($pkFields)) {
                 throw new \UnexpectedValueException('$tableEntity and $fields is not set');
             }
 
-            $entity = $this->getEntityByOperation($operation, $tableEntity);
+            $entityValues = [];
             $start = 0;
             foreach ($fields as $name => $options) {
-                $setterName = 'set' . str_replace('_', '', $name);
                 $value = $this->parseColumnValue($options, $data, $start, $fp);
 
                 if (is_string($value)) {
                     $value = iconv('ISO-8859-15', 'UTF-8', $value);
                 }
 
+                $entityValues[$name] = $value;
+            }
+
+            $entity = $this->getEntityByOperation($operation, $tableEntity, $pkFields, $entityValues);
+
+            foreach ($entityValues as $name => $value) {
+                $setterName = $this->getSetterName($name);
                 $entity->$setterName($value);
             }
 
             // insert, update or delete row in MySQL database
             try {
-                $this->entityManager->merge($entity);
+                if ($operation == 'd') {
+                    $this->entityManager->remove($entity);
+                } else {
+                    $this->entityManager->merge($entity);
+                }
+
                 $this->entityManager->flush();
                 $this->entityManager->clear();
             } catch (DBALException $e) {
@@ -118,9 +129,99 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 var_dump($data);
                 die;
             }
+
+            // Operation test
+            $criteria = [];
+            foreach ($pkFields as $name => $options) {
+                $getterName = $this->getGetterName($name);
+                $criteria[$name] = $entity->$getterName();
+            }
+            $resultEntity = $this->entityManager->getRepository($tableEntity)->findOneBy($criteria);
+
+            switch ($operation) {
+                case 'i': // insert
+                case 'u': // update
+                    if (is_null($resultEntity)) {
+                        echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error! Record is not found!' . PHP_EOL;
+                        echo 'Table: ' . $table . '; Criteria:' . PHP_EOL;
+                        var_dump($criteria);
+
+                        die;
+                    }
+
+                    foreach ($fields as $name => $options) {
+                        $getterName = $this->getGetterName($name);
+
+                        $source = $entity->$getterName();
+                        $result = $resultEntity->$getterName();
+
+                        // datetime comparison
+                        if ($source instanceof EDIDateTime && $result instanceof EDIDateTime) {
+                            $result->setTimezone($source->getTimezone());
+
+                            $source = $source->format('Y-m-d H:i:s');
+                            $result = $result->format('Y-m-d H:i:s');
+                        }
+
+                        if (is_float($source)) {
+                            $result = (float)$result;
+                        }
+
+                        if ($source !== $result) {
+                            echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error!' . PHP_EOL;
+
+                            echo 'Table: ' . $table . '; Column: ' . $name . '; Criteria:' . PHP_EOL;
+                            var_dump($criteria);
+
+                            echo 'Source entity value:' . PHP_EOL;
+                            var_dump($entity->$getterName());
+
+                            echo 'Result entity value:' . PHP_EOL;
+                            var_dump($resultEntity->$getterName());
+
+                            die;
+                        }
+                    }
+                    break;
+
+                case 'd': // delete
+                    if (!is_null($resultEntity)) {
+                        echo 'Delete operation error!' . PHP_EOL;
+                        var_dump($table, $criteria);
+                        die;
+                    }
+                    break;
+            }
         }
 
         fclose($fp);
+    }
+
+    /**
+     * @param $name
+     * @return string
+     */
+    private function getGetterName($name)
+    {
+        return 'get' . $this->getGetterSetterName($name);
+    }
+
+    /**
+     * @param $name
+     * @return string
+     */
+    private function getSetterName($name)
+    {
+        return 'set' . $this->getGetterSetterName($name);
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    private function getGetterSetterName($name)
+    {
+        return str_replace('_', '', $name);
     }
 
     /**
@@ -141,15 +242,17 @@ class ContentUpdateCommand extends ContainerAwareCommand
 
         ksort($fields);
 
-        return [$tableEntity, $fields];
+        return [$tableEntity, $fields, $yaml[$tableEntity]['id']];
     }
 
     /**
-     * @param $operation
-     * @param $tableEntity
+     * @param string $operation
+     * @param string $tableEntity
+     * @param array $pkFields
+     * @param array $entityValues
      * @return mixed
      */
-    private function getEntityByOperation($operation, $tableEntity)
+    private function getEntityByOperation($operation, $tableEntity, $pkFields, $entityValues)
     {
         switch ($operation) {
             case 'i': // insert
@@ -157,11 +260,12 @@ class ContentUpdateCommand extends ContainerAwareCommand
                 break;
 
             case 'u': // update
-                // TODO Update operation logic
-                break;
-
             case 'd': // delete
-                // TODO Delete operation logic
+                $criteria = [];
+                foreach ($pkFields as $name => $options) {
+                    $criteria[$name] = $entityValues[$name];
+                }
+                $entity = $this->entityManager->getRepository($tableEntity)->findOneBy($criteria);
                 break;
 
             default:
