@@ -176,67 +176,183 @@ class ContentUpdateCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param $options
-     * @param $data
-     * @param $start
-     * @param $fp
+     * @param string $data
+     * @param int $start
+     * @param int $length
+     * @return string
+     */
+    public function parseChar($data, &$start, $length)
+    {
+        $value = substr($data, $start, $length);
+        $start += $length;
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @return string
+     */
+    public function parseVarchar($data, &$start)
+    {
+        $endPos = strpos(substr($data, $start + 1), '"+');
+        if ($endPos === false) {
+            throw new \UnexpectedValueException('end of varchar value is not found');
+        }
+
+        $value = substr($data, $start + 1, $endPos);
+        $start += strlen($value) + 3;
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @return EDIDateTime
+     */
+    public function parseDate($data, &$start)
+    {
+        // format is DDMMYYYYHH24MISS
+        $value = EDIDateTime::ediCreateFromFormat('dmYHis', substr($data, $start, 14));
+        $start += 14;
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @param int $precision
+     * @return string
+     */
+    public function parseDecimal($data, &$start, $precision)
+    {
+        $value = (float)str_replace(',', '.', substr($data, $start, $precision + 2)); // 1 symbol uses for number sign +/-, 1 symbol for comma
+        $start += $precision + 2;
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @param int $length
+     * @return string
+     */
+    public function parseInteger($data, &$start, $length)
+    {
+        $value = (int)substr($data, $start, $length + 1); // 1 symbol uses for number sign +/-
+        $start += $length + 2; // +1 symbol for comma
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @param resource $fp
+     * @return string
+     */
+    public function parseLong($data, &$start, $fp)
+    {
+        // read length of value
+        $length = (int)substr($data, $start, 9);
+        $start += 9; // skip length pointer
+
+        // read value
+        $value = substr($data, $start, $length);
+        while (strlen($value) < $length) {
+            $value .= fgets($fp);
+        }
+
+        $start += $length;
+
+        return $value;
+    }
+
+    /**
+     * @param string $data
+     * @param int $start
+     * @param resource $fp
+     * @return string
+     */
+    public function parseClob($data, &$start, $fp)
+    {
+        $length = (int)substr($data, $start, 9);
+        $start += 10;
+        $value = '';
+
+        if (!is_null($fp)) {
+            while (strlen($value) < $length) {
+                $value .= fgets($fp);
+            }
+        } else {
+            $value .= substr($data, $start, $length);
+        }
+
+        $start += $length;
+
+        return $value;
+    }
+
+    /**
+     * @param array $options
+     * @param string $data
+     * @param int $start
+     * @param resource $fp
      * @return \DateTime|float|int|string
      */
     private function parseColumnValue($options, $data, &$start, $fp)
     {
         switch ($options['otype']) {
             case 'CHAR':
-                $value = substr($data, $start, $options['length']);
-                $start += $options['length'];
+                if (!isset($options['length']) || (int)$options['length'] <= 0) {
+                    throw new \UnexpectedValueException('value length must be integer and more than 0');
+                }
+
+                return $this->parseChar($data, $start, $options['length']);
                 break;
 
             case 'VARCHAR':
-                $endPos = strpos(substr($data, $start + 1), '"+');
-                $value = substr($data, $start + 1, $endPos);
-                $start += strlen($value) + 3;
+                return $this->parseVarchar($data, $start);
                 break;
 
             case 'DATE':
-                // format is DDMMYYYYHH24MISS
-                $value = EDIDateTime::ediCreateFromFormat('dmYHis', substr($data, $start, 14));
-                $start += 14;
+                return $this->parseDate($data, $start);
                 break;
 
             case 'NUMBER':
                 if ($options['type'] == 'decimal') {
-                    $value = (float)str_replace(',', '.', substr($data, $start, $options['precision'] + 2)); // 1 symbol uses for number sign +/-, 1 symbol for comma
-                    $start += $options['precision'] + 2;
+                    if (!isset($options['precision']) || (int)$options['precision'] <= 0) {
+                        throw new \UnexpectedValueException('value precision must be integer and more than 0');
+                    }
+
+                    return $this->parseDecimal($data, $start, $options['precision']);
+
+                } elseif ($options['type'] == 'integer') {
+                    if (!isset($options['length']) || (int)$options['length'] <= 0) {
+                        throw new \UnexpectedValueException('value length must be integer and more than 0');
+                    }
+
+                    return $this->parseInteger($data, $start, $options['length']);
                 } else {
-                    $value = (int)substr($data, $start, $options['length'] + 1); // 1 symbol uses for number sign +/-
-                    $start += $options['length'] + 2; // +1 symbol for comma
+                    throw new \UnexpectedValueException('type of number column can be only decimal or integer');
                 }
 
                 break;
 
             case 'LONG':
-                $length = (int)substr($data, $start, 9);
-                $start += 9;
-                $value = substr($data, $start, $length);
-
-                while (strlen($value) < $length) {
-                    $value .= fgets($fp, 4096);
-                }
-
-                $start += $length;
+                return $this->parseLong($data, $start, $fp);
                 break;
 
             case 'CLOB':
-                $length = (int)substr($data, $start, 9);
-                $start += 9;
-                $value = '';
-                while (strlen($value) < $length) {
-                    $value .= fgets($fp);
-                }
+                return $this->parseClob($data, $start, $fp);
                 break;
 
             default:
                 throw new \UnexpectedValueException('undefined field type "' . $options['type'] . '"');
         }
-        return $value;
     }
 }
