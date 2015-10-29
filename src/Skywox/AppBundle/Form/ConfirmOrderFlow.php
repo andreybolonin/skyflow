@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormTypeInterface;
  * Class CreateVehicleFlow
  * @package Skywox\AppBundle\Form
  */
-class CreateVehicleFlow extends FormFlow
+class ConfirmOrderFlow extends FormFlow
 {
 
     /**
@@ -37,7 +37,11 @@ class CreateVehicleFlow extends FormFlow
     {
         return [
             [
-                'label' => 'sender',
+                'label' => 'post',
+                'form_type' => $this->formType,
+            ],
+            [
+                'label' => 'terms',
                 'form_type' => $this->formType,
             ],
             [
@@ -45,15 +49,23 @@ class CreateVehicleFlow extends FormFlow
                 'form_type' => $this->formType,
             ],
             [
-                'label' => 'compliance',
-//                'form_type' => $this->formType,
-            ],
-            [
                 'label' => 'shipment',
                 'form_type' => $this->formType,
             ],
             [
                 'label' => 'positions',
+                'form_type' => $this->formType,
+            ],
+            [
+                'label' => 'poa',
+                'form_type' => $this->formType,
+            ],
+            [
+                'label' => 'validate',
+                'form_type' => $this->formType,
+            ],
+            [
+                'label' => 'confirmation',
                 'form_type' => $this->formType,
             ],
         ];

@@ -8,17 +8,29 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-    skywox.form.create_vehicle:
-        class: Skywox\AppBundle\Form\CreateVehicleForm
+    skywox.form.create_order:
+        class: Skywox\AppBundle\Form\CreateOrderForm
         tags:
             - { name: form.type, alias: createVehicle }
 
-    skywox.form.flow.create_vehicle:
-        class: Skywox\AppBundle\Form\CreateVehicleFlow
+    skywox.form.flow.create_order:
+        class: Skywox\AppBundle\Form\CreateOrderFlow
         parent: craue.form.flow
         scope: request
         calls:
-            - [ setFormType, [ "@skywox.form.create_vehicle" ] ]
+            - [ setFormType, [ "@skywox.form.create_order" ] ]
+
+    skywox.form.confirm_order:
+        class: Skywox\AppBundle\Form\ConfirmOrderForm
+        tags:
+            - { name: form.type, alias: createVehicle }
+
+    skywox.form.flow.confirm_order:
+        class: Skywox\AppBundle\Form\ConfirmOrderFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+            - [ setFormType, [ "@skywox.form.confirm_order" ] ]
 
     skywox.compliance:
         class: Skywox\AppBundle\Compliance
