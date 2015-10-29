@@ -9,7 +9,7 @@ use Skywox\AppBundle\Form\Type\ShipmentType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class CreateVehicleForm extends AbstractType
+class CreateOrderForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
