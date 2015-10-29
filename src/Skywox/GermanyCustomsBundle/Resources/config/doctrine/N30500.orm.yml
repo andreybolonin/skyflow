@@ -5,7 +5,7 @@ Skywox\GermanyCustomsBundle\Entity\N30500:
     fields:
         BAO_Stichwort:
             type: string
-            length: 100
+            length: 255
             otype: VARCHAR
         BAP_Fundstelle:
             type: string

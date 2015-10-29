@@ -37,11 +37,6 @@ class N20000
     /**
      * @var string
      */
-    private $AUB_Abkürzung;
-
-    /**
-     * @var string
-     */
     private $AUC_Beschreibung_der_Abgabenart;
 
     /**
@@ -163,29 +158,6 @@ class N20000
     public function getAUAAbkürzungDerMaßnahmeart()
     {
         return $this->AUA_Abkürzung_der_Maßnahmeart;
-    }
-
-    /**
-     * Set AUB_Abkürzung
-     *
-     * @param string $aUBAbkürzung
-     * @return N20000
-     */
-    public function setAUBAbkürzung($aUBAbkürzung)
-    {
-        $this->AUB_Abkürzung = $aUBAbkürzung;
-
-        return $this;
-    }
-
-    /**
-     * Get AUB_Abkürzung
-     *
-     * @return string 
-     */
-    public function getAUBAbkürzung()
-    {
-        return $this->AUB_Abkürzung;
     }
 
     /**

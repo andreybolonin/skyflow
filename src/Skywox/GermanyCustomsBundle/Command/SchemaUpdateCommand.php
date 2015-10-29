@@ -104,6 +104,10 @@ class SchemaUpdateCommand extends ContainerAwareCommand
                 $field['length'] = (int)substr($columnType, 8, -1);
             }
 
+            if ($columnType == 'DEPRECATED') {
+                continue;
+            }
+
             if ($columnType == 'DATE') {
                 $field['type'] = 'edidatetime';
             }
