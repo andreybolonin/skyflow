@@ -10,10 +10,6 @@ Skywox\GermanyCustomsBundle\Entity\N20000:
             type: integer
             length: 1
             otype: NUMBER
-        AUB_Abkürzung:
-            type: string
-            length: 5
-            otype: CHAR
         AUC_Beschreibung_der_Abgabenart:
             type: string
             length: 500

@@ -520,7 +520,7 @@ N20000;Abgabenart;Abgabenart;CHAR(2);ja;;
 ;;Beginndatum;DATE;ja;;
 ;;Endedatum;DATE;nein;;
 ;;Abkürzung der Maßnahmeart;NUMBER(1);nein;;
-;;Abkürzung;CHAR(5);nein;T23000;
+;;Abkürzung;DEPRECATED;nein;T23000;
 ;;Beschreibung der Abgabenart;VARCHAR(500);nein;;
 ;;Kurzform der Abgabenart;VARCHAR(500);nein;;
 N20005;Zuordnung Abgabenart zur "sekundären" Maßnahmeart;Abgabenart der z.Zt. in Prüfung befindlichen Maßnahme;CHAR(2);ja;T43005;Die Tabelle stellt den in Maßnahmenkomponenten gespeicherten Abgabenarten im Bedarfsfall eine zusätzlich auszuwertende Maßnahmeart gegenüber ("sekundäre" Maßnahmeart)

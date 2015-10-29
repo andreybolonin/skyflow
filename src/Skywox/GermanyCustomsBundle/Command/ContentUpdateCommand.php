@@ -192,6 +192,9 @@ class ContentUpdateCommand extends ContainerAwareCommand
                     }
                     break;
             }
+
+            unset($resultEntity);
+            $this->entityManager->clear();
         }
 
         fclose($fp);
