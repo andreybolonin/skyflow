@@ -237,6 +237,22 @@ class DeliveryOrder extends Base
     }
 
     /**
+     * @return mixed
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * @param mixed $document
+     */
+    public function setDocument($document)
+    {
+        $this->documents[] = $document;
+    }
+
+    /**
      * @param mixed $description
      */
     public function setDescription($description)

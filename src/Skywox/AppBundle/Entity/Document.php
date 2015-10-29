@@ -20,25 +20,27 @@ class Document extends Base
     protected $deliveryOrder;
 
     /**
+     * @return mixed
+     */
+    public function getDeliveryOrder()
+    {
+        return $this->deliveryOrder;
+    }
+
+    /**
+     * @param mixed $deliveryOrder
+     */
+    public function setDeliveryOrder($deliveryOrder)
+    {
+        $this->deliveryOrder = $deliveryOrder;
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="amount", type="string", length=255)
-     */
-    private $amount;
 
     /**
      * @var string
@@ -71,52 +73,6 @@ class Document extends Base
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     * @return Document
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set amount
-     *
-     * @param string $amount
-     * @return Document
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return string 
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
      * Set filename
      *
      * @param string $filename
@@ -137,5 +93,45 @@ class Document extends Base
     public function getFilename()
     {
         return $this->filename;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/documents';
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAbsolutePath()
+    {
+        return null === $this->filename
+            ? null
+            : $this->getUploadRootDir().'/'.$this->filename;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getWebPath()
+    {
+        return null === $this->filename
+            ? null
+            : $this->getUploadDir().'/'.$this->filename;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 }
