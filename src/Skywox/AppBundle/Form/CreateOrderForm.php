@@ -16,12 +16,12 @@ class CreateOrderForm extends AbstractType
         switch ($options['flow_step']) {
             case 1:
                 $builder->add('sender', new SenderType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Sender',
+                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
                 ));
                 break;
             case 2:
                 $builder->add('recipient', new RecipientType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
+                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
                 ));
                 break;
             case 3:

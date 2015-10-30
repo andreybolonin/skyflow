@@ -4,6 +4,6 @@ namespace Skywox\AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class SkywoxAppBundle extends Bundle
 {
 }

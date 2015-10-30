@@ -4,6 +4,8 @@ namespace Skywox\AppBundle\Controller;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Craue\FormFlowBundle\Tests\IntegrationTestBundle\Entity\Vehicle;
+use Skywox\AppBundle\Entity\Costumer;
+use Skywox\AppBundle\Entity\Customer;
 use Skywox\AppBundle\Entity\DeliveryOrder;
 use Skywox\AppBundle\Entity\Document;
 use Skywox\AppBundle\Entity\Recipient;
@@ -26,8 +28,8 @@ class OrderController extends Controller
         $em = $this->getDoctrine()->getManager();
         $deliveryOrder = new DeliveryOrder();
 
-        $formData['sender'] = new Sender();
-        $formData['recipient'] = new Recipient();
+        $formData['sender'] = new Customer(Customer::TYPE_SENDER);
+        $formData['recipient'] = new Customer(CUSTOMER::TYPE_RECIPIENT);
         $formData['shipment'] = $deliveryOrder;
         $formData['positions'] = $deliveryOrder;
 

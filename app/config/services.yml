@@ -34,3 +34,33 @@ services:
 
     skywox.compliance:
         class: Skywox\AppBundle\Compliance
+
+    app.admin.airport:
+        class: Skywox\AppBundle\Admin\AirportAdmin
+        tags:
+         - { name: sonata.admin, manager_type: orm, group: General settings, label: Airports, label_catalogue: GeneralSettings }
+        arguments: [null, Skywox\AppBundle\Entity\Airport, Skywox:AppBundle:AirportAdmin]
+
+    app.admin.customer:
+        class: Skywox\AppBundle\Admin\CustomerAdmin
+        tags:
+         - { name: sonata.admin, manager_type: orm, group: Handling, label: Customers, label_catalogue: GeneralSettings }
+        arguments: [null, Skywox\AppBundle\Entity\Customer, SkywoxAppBundle:CustomerAdmin]
+
+    app.admin.shipment:
+        class: Skywox\AppBundle\Admin\CustomerAdmin
+        tags:
+         - { name: sonata.admin, manager_type: orm, group: Handling, label: Shipments, label_catalogue: GeneralSettings }
+        arguments: [null, Skywox\AppBundle\Entity\DeliveryOrder, Skywox:AppBundle:OrderAdmin]
+
+    app.admin.processing_china:
+        class: Skywox\AppBundle\Admin\CustomerAdmin
+        tags:
+         - { name: sonata.admin, manager_type: orm, group: Handling, label: Processing China, label_catalogue: GeneralSettings }
+        arguments: [null, Skywox\AppBundle\Entity\DeliveryOrder, Skywox:AppBundle:OrderAdmin]
+
+    app.admin.processing_germany:
+        class: Skywox\AppBundle\Admin\CustomerAdmin
+        tags:
+         - { name: sonata.admin, manager_type: orm, group: Handling, label: Processing Germany, label_catalogue: GeneralSettings }
+        arguments: [null, Skywox\AppBundle\Entity\DeliveryOrder, Skywox:AppBundle:OrderAdmin]

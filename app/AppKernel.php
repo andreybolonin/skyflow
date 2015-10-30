@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Skywox\AppBundle\AppBundle(),
+            new Skywox\AppBundle\SkywoxAppBundle(),
 
             // Add your dependencies
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
