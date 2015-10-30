@@ -115,13 +115,6 @@ fos_user:
     service:
         user_manager: sonata.user.orm.user_manager
 
-services:
-   app.admin.airport:
-       class: Skywox\AppBundle\Admin\AirportAdmin
-       tags:
-         - { name: sonata.admin, manager_type: orm, group: General settings, label: Airports, label_catalogue: GeneralSettings }
-       arguments: [null, Skywox\AppBundle\Entity\Airport, Skywox:AppBundle:AirportAdmin]
-
 #jms_i18n_routing:
 #    default_locale: ru
 #    locales: [en, ru]

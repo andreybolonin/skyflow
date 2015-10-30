@@ -6,5 +6,5 @@
     <a href="/addresses">Addresses</a><br/>
     <a href="/invoices">Open invoices</a><br/>
     <a href="{{ path('account') }}">My account</a><br/>
-    <a href="{{ path('confirmOrder') }}">Confirm order</a>
+    <a href="{{ path('confirmOrder', {'orderId' : '1'}) }}">Confirm order</a>
 {% endblock %}

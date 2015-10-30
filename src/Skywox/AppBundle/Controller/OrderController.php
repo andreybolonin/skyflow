@@ -4,7 +4,10 @@ namespace Skywox\AppBundle\Controller;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Craue\FormFlowBundle\Tests\IntegrationTestBundle\Entity\Vehicle;
+use Skywox\AppBundle\Entity\Costumer;
+use Skywox\AppBundle\Entity\Customer;
 use Skywox\AppBundle\Entity\DeliveryOrder;
+use Skywox\AppBundle\Entity\Document;
 use Skywox\AppBundle\Entity\Recipient;
 use Skywox\AppBundle\Entity\Sender;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,8 +28,8 @@ class OrderController extends Controller
         $em = $this->getDoctrine()->getManager();
         $deliveryOrder = new DeliveryOrder();
 
-        $formData['sender'] = new Sender();
-        $formData['recipient'] = new Recipient();
+        $formData['sender'] = new Customer(Customer::TYPE_SENDER);
+        $formData['recipient'] = new Customer(CUSTOMER::TYPE_RECIPIENT);
         $formData['shipment'] = $deliveryOrder;
         $formData['positions'] = $deliveryOrder;
 
@@ -86,20 +89,29 @@ class OrderController extends Controller
     }
 
     /**
-     * @Route("/confirmOrder", name="confirmOrder")
+     * @Route("/confirmOrder/{orderId}", name="confirmOrder")
      * @Template()
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
-    public function confirmOrderAction()
+    public function confirmOrderAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $deliveryOrder = new DeliveryOrder();
-        $recipient = new Recipient();
+        $orderId = $request->get('orderId');
+        $deliveryOrder = $em->getRepository('AppBundle:DeliveryOrder')->find($orderId);
+
+        if (!$deliveryOrder) {
+            throw new \Exception('Order with '.$orderId.' id does not exists');
+        }
+
+        $recipient = $deliveryOrder->getRecipient();
 
         $formData['post'] = $recipient;
-        $formData['recipient'] = new Recipient();
+        $formData['recipient'] = $recipient;
         $formData['shipment'] = $deliveryOrder;
         $formData['positions'] = $deliveryOrder;
+        $formData['poa'] = new Document();
 
         $flow = $this->get('skywox.form.flow.confirm_order'); // must match the flow's service id
         $flow->bind($formData);
@@ -126,20 +138,26 @@ class OrderController extends Controller
 
             } else {
 
+                $file = $formData['poa']->getType();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move($formData['poa']->getUploadRootDir(), $fileName);
+                $formData['poa']->setFilename($fileName);
+                $formData['poa']->setType('poa');
+
                 // flow finished
-                $sender = $formData['sender'];
+                $poa = $formData['poa'];
                 $recipient = $formData['recipient'];
                 $deliveryOrder = $formData['shipment'];
 
                 $user = $em->getRepository('SkywoxSonataUserBundle:User')->find(1);
 
-                $deliveryOrder->setSender($sender);
+                $poa->setDeliveryOrder($deliveryOrder);
                 $deliveryOrder->setRecipient($recipient);
                 $deliveryOrder->setApplicant($recipient);
                 $deliveryOrder->setUser($user);
 
                 $em->persist($deliveryOrder);
-                $em->persist($sender);
+                $em->persist($poa);
                 $em->persist($recipient);
 
                 $em->flush();

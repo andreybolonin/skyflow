@@ -18,17 +18,17 @@ class ConfirmOrderForm extends AbstractType
         switch ($options['flow_step']) {
             case 1:
                 $builder->add('post', new PostType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
+                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
                 ));
                 break;
             case 2:
                 $builder->add('terms', 'checkbox', array(
-//                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
+//                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
                 ));
                 break;
             case 3:
                 $builder->add('recipient', new RecipientType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
+                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
                 ));
                 break;
             case 4:

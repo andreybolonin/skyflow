@@ -2,6 +2,7 @@
 
 namespace Skywox\AppBundle\Tests\Controller;
 
+use Skywox\AppBundle\Entity\Customer;
 use Skywox\AppBundle\Entity\DeliveryOrder;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -22,8 +23,9 @@ class OrderControllerTest extends WebTestCase
 
         $em = $container->get("doctrine.orm.entity_manager");
 
-        $email = uniqid() . '@gmail.com';
-        $password = uniqid();
+        $email1 = uniqid() . '@gmail.com';
+        $email2 = uniqid() . '@gmail.com';
+//        $password = uniqid();
 
         $client = static::createClient();
 
@@ -45,7 +47,7 @@ class OrderControllerTest extends WebTestCase
                 'form[sender][postCode]' => uniqid(),
                 'form[sender][city]' => uniqid(),
                 'form[sender][country]' => uniqid(),
-                'form[sender][email]' => $email,
+                'form[sender][email]' => $email1,
                 'form[sender][telephone]' => uniqid(),
                 'form[sender][fax]' => uniqid(),
                 'form[sender][mobile]' => uniqid(),
@@ -69,7 +71,7 @@ class OrderControllerTest extends WebTestCase
                 'form[recipient][postCode]' => uniqid(),
                 'form[recipient][city]' => uniqid(),
                 'form[recipient][country]' => uniqid(),
-                'form[recipient][email]' => $email,
+                'form[recipient][email]' => $email2,
                 'form[recipient][telephone]' => uniqid(),
                 'form[recipient][fax]' => uniqid(),
                 'form[recipient][mobile]' => uniqid(),
@@ -103,14 +105,75 @@ class OrderControllerTest extends WebTestCase
         );
         $client->submit($form);
 
-        $recipient = $em->getRepository('AppBundle:Recipient')->findOneByEmail($email);
-        $sender = $em->getRepository('AppBundle:Sender')->findOneByEmail($email);
-        $orders = $sender->getOrders();
-        $deliveryOrder = $orders->first();
+        $sender = $em->getRepository('AppBundle:Customer')->findOneByEmail($email1);
+        $recipient = $em->getRepository('AppBundle:Customer')->findOneByEmail($email2);
+        $deliveryOrder = $em->getRepository('AppBundle:DeliveryOrder')->findOneByRecipient($recipient->getId());
 
         $this->assertEquals($deliveryOrder instanceof DeliveryOrder, true);
-        $this->assertEquals($email, $sender->getEmail());
-        $this->assertEquals($email, $recipient->getEmail());
+        $this->assertEquals($email1, $sender->getEmail());
+        $this->assertEquals($email2, $recipient->getEmail());
+    }
+
+    public function testConfirmOrder()
+    {
+        static::$kernel = static::createKernel();
+        static::$kernel->boot();
+        $container = static::$kernel->getContainer();
+
+        $em = $container->get("doctrine.orm.entity_manager");
+
+        $client = static::createClient();
+
+        $orderId = 1;
+
+        $crawler = $client->request('GET', '/confirmOrder/'.$orderId);
+
+        // Post code
+        $form = $crawler->filter('body > form')->form();
+        $form->setValues([
+                'form[post][postCode]' => uniqid(),
+        ]);
+        $crawler = $client->submit($form);
+
+        // Terms
+        $form = $crawler->filter('body > form')->form();
+        $form['form[terms]']->tick();
+        $crawler = $client->submit($form);
+
+        // Recipient
+        $form = $crawler->filter('body > form')->form();
+        $crawler = $client->submit($form);
+
+        // Shipment
+        $form = $crawler->filter('body > form')->form();
+        $crawler = $client->submit($form);
+
+        // Positions
+        $form = $crawler->filter('body > form')->form();
+        $crawler = $client->submit($form);
+
+        // Poa
+        $form = $crawler->filter('body > form')->form();
+        $form['form[poa][type]']->upload('/home/andreybolonin/diagram.png');
+        $crawler = $client->submit($form);
+
+        // Validate
+        $form = $crawler->filter('body > form')->form();
+        $form['form[validate]']->tick();
+        $crawler = $client->submit($form);
+
+        // Confirmation
+        $form = $crawler->filter('body > form')->form();
+        $form['form[confirmation]']->tick();
+        $crawler = $client->submit($form);
+
+        $deliveryOrder = $em->getRepository('AppBundle:DeliveryOrder')->find($orderId);
+        $recipient = $deliveryOrder->getRecipient();
+        $document = $em->getRepository('AppBundle:Document')->findOneByDeliveryOrder($deliveryOrder->getId());
+
+        $this->assertEquals($deliveryOrder instanceof DeliveryOrder, true);
+        $this->assertFileExists($document->getAbsolutePath());
+        $this->assertEquals($recipient instanceof Customer, true);
     }
 
 }

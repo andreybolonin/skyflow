@@ -20,7 +20,7 @@ class DeliveryOrder extends Base
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Recipient", inversedBy="ordersRecipient")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="ordersRecipient")
      * @ORM\JoinColumn(name="recipient_id", referencedColumnName="id")
      */
     protected $recipient;
@@ -42,13 +42,13 @@ class DeliveryOrder extends Base
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Recipient", inversedBy="ordersApplicant")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="ordersApplicant")
      * @ORM\JoinColumn(name="applicant_id", referencedColumnName="id")
      */
     protected $applicant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Sender", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="orders")
      * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
      */
     protected $sender;
@@ -234,6 +234,22 @@ class DeliveryOrder extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * @param mixed $document
+     */
+    public function setDocument($document)
+    {
+        $this->documents[] = $document;
     }
 
     /**
