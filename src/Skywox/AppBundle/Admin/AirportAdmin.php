@@ -20,7 +20,7 @@ class AirportAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title');
+            ->add('id');
     }
 
     /**
@@ -32,7 +32,7 @@ class AirportAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('title')
+            ->add('id')
             ->end();
     }
 
@@ -44,7 +44,7 @@ class AirportAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
+            ->addIdentifier('id')
             ->add('_action', 'actions', [
                 'actions' => [
                     'show' => [],
@@ -62,6 +62,6 @@ class AirportAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title');
+            ->add('id');
     }
 }

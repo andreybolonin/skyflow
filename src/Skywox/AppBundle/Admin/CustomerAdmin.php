@@ -20,7 +20,7 @@ class CustomerAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title');
+            ->add('id');
     }
 
     /**
@@ -32,7 +32,7 @@ class CustomerAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('title')
+            ->add('id')
             ->end();
     }
 
@@ -44,7 +44,8 @@ class CustomerAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
+            ->addIdentifier('id')
+            ->add('rolesAsChar')
             ->add('_action', 'actions', [
                 'actions' => [
                     'show' => [],
@@ -62,7 +63,7 @@ class CustomerAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title');
+            ->add('id');
     }
 
 }

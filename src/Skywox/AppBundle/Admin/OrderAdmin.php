@@ -20,7 +20,7 @@ class OrderAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title');
+            ->add('id');
     }
 
     /**
@@ -32,7 +32,7 @@ class OrderAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('title')
+            ->add('id')
             ->end();
     }
 

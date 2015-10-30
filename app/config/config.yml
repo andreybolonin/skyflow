@@ -97,6 +97,9 @@ sonata_block:
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
+    class:
+        user: Skywox\Sonata\UserBundle\Entity\User
+        group: Skywox\Sonata\UserBundle\Entity\Group
 
 sonata_admin:
     title: Skywox
