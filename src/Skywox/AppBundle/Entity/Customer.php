@@ -40,6 +40,11 @@ class Customer extends Base
     protected $ordersApplicant;
 
     /**
+     * @ORM\OneToMany(targetEntity="Invoice", mappedBy="customer")
+     */
+    protected $invoices;
+
+    /**
      * @ORM\OneToMany(targetEntity="DeliveryOrder", mappedBy="sender")
      */
     protected $orders;
@@ -58,6 +63,29 @@ class Customer extends Base
      * @ORM\Column(name="formOfAddress", type="string", length=255)
      */
     private $formOfAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trackingNumber", type="string", length=255)
+     */
+    private $trackingNumber;
+
+    /**
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->trackingNumber;
+    }
+
+    /**
+     * @param string $trackingNumber
+     */
+    public function setTrackingNumber($trackingNumber)
+    {
+        $this->trackingNumber = $trackingNumber;
+    }
 
     /**
      * @var string
@@ -209,7 +237,16 @@ class Customer extends Base
         $this->ordersRecipient = new ArrayCollection();
         $this->ordersApplicant = new ArrayCollection();
         $this->orders = new ArrayCollection();
+        $this->invoices = new ArrayCollection();
         $this->setType($type);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoices()
+    {
+        return $this->invoices;
     }
 
     /**

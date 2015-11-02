@@ -38,19 +38,18 @@ class DeliveryOrderAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('addresses')
-            ->add('description')
-            ->add('weight')
-            ->add('packing')
-            ->add('qty')
-            ->add('measurements')
-            ->add('itemPrice')
-            ->add('value')
-            ->add('euTaricNo')
-            ->add('euCode')
-            ->add('createdAt')
-            ->add('updatedAt')
+            ->addIdentifier('id', null, ['label' => 'OrderId'])
+            ->add('createdAt', null, ['label' => 'Date'])
+            ->add('Tracking Id')
+            ->add('CBM')
+            ->add('Sender Name')
+            ->add('Recipient Name')
+            ->add('DE')
+            ->add('Status')
+//            ->add('euTaricNo')
+//            ->add('euCode')
+//            ->add('createdAt')
+//            ->add('updatedAt')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

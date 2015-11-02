@@ -11,8 +11,11 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Airport}
 
-    skywox_app.admin.delivery_order:
-        class: Skywox\AppBundle\Admin\DeliveryOrderAdmin
-        arguments: [~, Skywox\AppBundle\Entity\DeliveryOrder, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: DeliveryOrder}
+#    skywox_app.admin.delivery_order:
+#        class: Skywox\AppBundle\Admin\DeliveryOrderAdmin
+#        arguments: [~, Skywox\AppBundle\Entity\DeliveryOrder, SonataAdminBundle:CRUD]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: admin, label: DeliveryOrder}
+
+    skywox_app.tracking:
+        class: Skywox\AppBundle\TrackingNumber

@@ -48,7 +48,7 @@ services:
         arguments: [null, Skywox\AppBundle\Entity\Customer, SkywoxAppBundle:CustomerAdmin]
 
     app.admin.shipment:
-        class: Skywox\AppBundle\Admin\CustomerAdmin
+        class: Skywox\AppBundle\Admin\DeliveryOrderAdmin
         tags:
          - { name: sonata.admin, manager_type: orm, group: Handling, label: Shipments, label_catalogue: GeneralSettings }
         arguments: [null, Skywox\AppBundle\Entity\DeliveryOrder, SkywoxAppBundle:DeliveryOrderAdmin]
