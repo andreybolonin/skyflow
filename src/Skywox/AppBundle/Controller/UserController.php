@@ -15,6 +15,6 @@ class UserController extends Controller
      */
     public function accountAction()
     {
-        return $this->render('AppBundle:User:account.html.twig', array());
+        return $this->render('SkywoxAppBundle:User:account.html.twig', array());
     }
 }

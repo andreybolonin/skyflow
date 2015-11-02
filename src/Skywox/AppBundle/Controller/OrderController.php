@@ -82,7 +82,7 @@ class OrderController extends Controller
             }
         }
 
-        return $this->render('AppBundle:Order:vehicle.html.twig', array(
+        return $this->render('SkywoxAppBundle:Order:vehicle.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
         ));
@@ -168,7 +168,7 @@ class OrderController extends Controller
             }
         }
 
-        return $this->render('AppBundle:Order:confirm.html.twig', array(
+        return $this->render('SkywoxAppBundle:Order:confirm.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
         ));
