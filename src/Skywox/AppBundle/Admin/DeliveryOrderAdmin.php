@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class AirportAdmin extends Admin
+class DeliveryOrderAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,8 +16,17 @@ class AirportAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
             ->add('id')
+            ->add('addresses')
+            ->add('description')
+            ->add('weight')
+            ->add('packing')
+            ->add('qty')
+            ->add('measurements')
+            ->add('itemPrice')
+            ->add('value')
+            ->add('euTaricNo')
+            ->add('euCode')
             ->add('createdAt')
             ->add('updatedAt')
         ;
@@ -29,8 +38,17 @@ class AirportAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('title')
             ->addIdentifier('id')
+            ->add('addresses')
+            ->add('description')
+            ->add('weight')
+            ->add('packing')
+            ->add('qty')
+            ->add('measurements')
+            ->add('itemPrice')
+            ->add('value')
+            ->add('euTaricNo')
+            ->add('euCode')
             ->add('createdAt')
             ->add('updatedAt')
             ->add('_action', 'actions', array(
@@ -49,8 +67,17 @@ class AirportAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
             ->add('id')
+            ->add('addresses')
+            ->add('description')
+            ->add('weight')
+            ->add('packing')
+            ->add('qty')
+            ->add('measurements')
+            ->add('itemPrice')
+            ->add('value')
+            ->add('euTaricNo')
+            ->add('euCode')
             ->add('createdAt')
             ->add('updatedAt')
         ;
@@ -62,7 +89,16 @@ class AirportAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title')
+            ->add('addresses')
+            ->add('description')
+            ->add('weight')
+            ->add('packing')
+            ->add('qty')
+            ->add('measurements')
+            ->add('itemPrice')
+            ->add('value')
+            ->add('euTaricNo')
+            ->add('euCode')
             ->add('id')
             ->add('createdAt')
             ->add('updatedAt')

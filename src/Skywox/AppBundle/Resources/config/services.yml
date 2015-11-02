@@ -1,1 +1,18 @@
 services:
+    skywox_app.admin.customer:
+        class: Skywox\AppBundle\Admin\CustomerAdmin
+        arguments: [~, Skywox\AppBundle\Entity\Customer, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Customer}
+
+    skywox_app.admin.airport:
+        class: Skywox\AppBundle\Admin\AirportAdmin
+        arguments: [~, Skywox\AppBundle\Entity\Airport, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Airport}
+
+    skywox_app.admin.delivery_order:
+        class: Skywox\AppBundle\Admin\DeliveryOrderAdmin
+        arguments: [~, Skywox\AppBundle\Entity\DeliveryOrder, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: DeliveryOrder}
