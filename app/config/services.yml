@@ -8,50 +8,50 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-    skywox.form.create_order:
-        class: Skywox\AppBundle\Form\CreateOrderForm
+    skyflow.form.create_order:
+        class: SkyFlow\AppBundle\Form\CreateOrderForm
         tags:
             - { name: form.type, alias: createVehicle }
 
-    skywox.form.flow.create_order:
-        class: Skywox\AppBundle\Form\CreateOrderFlow
+    skyflow.form.flow.create_order:
+        class: SkyFlow\AppBundle\Form\CreateOrderFlow
         parent: craue.form.flow
         scope: request
         calls:
-            - [ setFormType, [ "@skywox.form.create_order" ] ]
+            - [ setFormType, [ "@skyflow.form.create_order" ] ]
 
-    skywox.form.confirm_order:
-        class: Skywox\AppBundle\Form\ConfirmOrderForm
+    skyflow.form.confirm_order:
+        class: SkyFlow\AppBundle\Form\ConfirmOrderForm
         tags:
             - { name: form.type, alias: createVehicle }
 
-    skywox.form.flow.confirm_order:
-        class: Skywox\AppBundle\Form\ConfirmOrderFlow
+    skyflow.form.flow.confirm_order:
+        class: SkyFlow\AppBundle\Form\ConfirmOrderFlow
         parent: craue.form.flow
         scope: request
         calls:
-            - [ setFormType, [ "@skywox.form.confirm_order" ] ]
+            - [ setFormType, [ "@skyflow.form.confirm_order" ] ]
 
-    skywox.compliance:
-        class: Skywox\AppBundle\Compliance
+    skyflow.compliance:
+        class: SkyFlow\AppBundle\Compliance
 
     app.admin.airport:
-        class: Skywox\AppBundle\Admin\AirportAdmin
+        class: SkyFlow\AppBundle\Admin\AirportAdmin
         tags:
          - { name: sonata.admin, manager_type: orm, group: General settings, label: Airports, label_catalogue: GeneralSettings }
-        arguments: [null, Skywox\AppBundle\Entity\Airport, SkywoxAppBundle:AirportAdmin]
+        arguments: [null, SkyFlow\AppBundle\Entity\Airport, SkyFlowAppBundle:AirportAdmin]
 
     app.admin.customer:
-        class: Skywox\AppBundle\Admin\CustomerAdmin
+        class: SkyFlow\AppBundle\Admin\CustomerAdmin
         tags:
          - { name: sonata.admin, manager_type: orm, group: Handling, label: Customers, label_catalogue: GeneralSettings }
-        arguments: [null, Skywox\AppBundle\Entity\Customer, SkywoxAppBundle:CustomerAdmin]
+        arguments: [null, SkyFlow\AppBundle\Entity\Customer, SkyFlowAppBundle:CustomerAdmin]
 
     app.admin.shipment:
-        class: Skywox\AppBundle\Admin\DeliveryOrderAdmin
+        class: SkyFlow\AppBundle\Admin\DeliveryOrderAdmin
         tags:
          - { name: sonata.admin, manager_type: orm, group: Handling, label: Shipments, label_catalogue: GeneralSettings }
-        arguments: [null, Skywox\AppBundle\Entity\DeliveryOrder, SkywoxAppBundle:DeliveryOrderAdmin]
+        arguments: [null, SkyFlow\AppBundle\Entity\DeliveryOrder, SkyFlowAppBundle:DeliveryOrderAdmin]
 
 #    app.admin.processing_china:
 #        class: Skywox\AppBundle\Admin\CustomerAdmin

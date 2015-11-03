@@ -1,5 +1,5 @@
 app:
-    resource: "@SkywoxAppBundle/Controller/"
+    resource: "@SkyFlowAppBundle/Controller/"
     type:     annotation
 
 # app/config/routing.yml
