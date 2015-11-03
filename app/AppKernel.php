@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Skywox\AppBundle\SkywoxAppBundle(),
+            new SkyFlow\AppBundle\SkyFlowAppBundle(),
 
             // Add your dependencies
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
@@ -39,9 +39,9 @@ class AppKernel extends Kernel
             //new JMS\TranslationBundle\JMSTranslationBundle(),
 
             // Application Bundles
-            new Skywox\Sonata\UserBundle\SkywoxSonataUserBundle(),
-            new Skywox\Sonata\AdminBundle\SkywoxSonataAdminBundle(),
-            new Skywox\GermanyCustomsBundle\GermanyCustomsBundle(),
+            new SkyFlow\Sonata\UserBundle\SkyFlowSonataUserBundle(),
+            new SkyFlow\Sonata\AdminBundle\SkyFlowSonataAdminBundle(),
+            new SkyFlow\GermanyCustomsBundle\GermanyCustomsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
