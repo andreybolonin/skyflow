@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle;
+namespace SkyFlow\GermanyCustomsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

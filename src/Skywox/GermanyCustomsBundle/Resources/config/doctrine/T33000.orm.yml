@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T33000:
+SkyFlow\GermanyCustomsBundle\Entity\T33000:
     type: entity
     table: gc_T33000
     description: Meursing-Unterposition

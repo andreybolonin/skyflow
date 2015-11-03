@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T37510:
+SkyFlow\GermanyCustomsBundle\Entity\T37510:
     type: entity
     table: gc_T37510
     description: 'Ermittlung des kritischen Status'

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T27000:
+SkyFlow\GermanyCustomsBundle\Entity\T27000:
     type: entity
     table: gc_T27000
     description: Warennomenklaturgruppe

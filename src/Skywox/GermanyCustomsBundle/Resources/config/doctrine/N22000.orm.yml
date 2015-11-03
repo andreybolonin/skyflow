@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N22000:
+SkyFlow\GermanyCustomsBundle\Entity\N22000:
     type: entity
     table: gc_N22000
     description: 'Schlüssel und Geltungsdauer Zollaussetzung'

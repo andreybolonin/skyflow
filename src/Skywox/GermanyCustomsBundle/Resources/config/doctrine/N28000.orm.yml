@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N28000:
+SkyFlow\GermanyCustomsBundle\Entity\N28000:
     type: entity
     table: gc_N28000
     description: 'Erlaubte Kombinationen Maßeinheit / Qualifikator'

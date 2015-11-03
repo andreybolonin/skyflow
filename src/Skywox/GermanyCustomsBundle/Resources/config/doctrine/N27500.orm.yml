@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27500:
+SkyFlow\GermanyCustomsBundle\Entity\N27500:
     type: entity
     table: gc_N27500
     description: 'Lizenzfreimenge bei Marktordnungswaren'

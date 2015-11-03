@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43015:
+SkyFlow\GermanyCustomsBundle\Entity\T43015:
     type: entity
     table: gc_T43015
     description: 'von Maßnahme ausgeschlossenes Land/Region'

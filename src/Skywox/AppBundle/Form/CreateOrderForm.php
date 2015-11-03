@@ -1,11 +1,11 @@
 <?php
 
-namespace Skywox\AppBundle\Form;
+namespace SkyFlow\AppBundle\Form;
 
-use Skywox\AppBundle\Form\Type\PositionsType;
-use Skywox\AppBundle\Form\Type\RecipientType;
-use Skywox\AppBundle\Form\Type\SenderType;
-use Skywox\AppBundle\Form\Type\ShipmentType;
+use SkyFlow\AppBundle\Form\Type\PositionsType;
+use SkyFlow\AppBundle\Form\Type\RecipientType;
+use SkyFlow\AppBundle\Form\Type\SenderType;
+use SkyFlow\AppBundle\Form\Type\ShipmentType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -16,12 +16,12 @@ class CreateOrderForm extends AbstractType
         switch ($options['flow_step']) {
             case 1:
                 $builder->add('sender', new SenderType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\Customer',
                 ));
                 break;
             case 2:
                 $builder->add('recipient', new RecipientType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Customer',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\Customer',
                 ));
                 break;
             case 3:
@@ -31,12 +31,12 @@ class CreateOrderForm extends AbstractType
                 break;
             case 4:
                 $builder->add('shipment', new ShipmentType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;
             case 5:
                 $builder->add('positions', new PositionsType(), array(
-                    'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;
         }

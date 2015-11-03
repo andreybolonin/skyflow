@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N20510:
+SkyFlow\GermanyCustomsBundle\Entity\N20510:
     type: entity
     table: gc_N20510
     description: 'Zuordnung zwischen Bereich und Bescheinigung'

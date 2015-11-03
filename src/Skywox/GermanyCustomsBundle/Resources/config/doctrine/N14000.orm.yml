@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N14000:
+SkyFlow\GermanyCustomsBundle\Entity\N14000:
     type: entity
     table: gc_N14000
     description: Hinweisart

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N22500:
+SkyFlow\GermanyCustomsBundle\Entity\N22500:
     type: entity
     table: gc_N22500
     description: 'AWR- Ausnahmeregelungen für bestimmte geographische Gebiete'

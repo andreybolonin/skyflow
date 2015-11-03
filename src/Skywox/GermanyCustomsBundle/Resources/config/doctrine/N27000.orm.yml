@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27000:
+SkyFlow\GermanyCustomsBundle\Entity\N27000:
     type: entity
     table: gc_N27000
     description: 'Zuordnung Ordnungsnummer mit Kontingentsart und Kontingentsmaßstab'

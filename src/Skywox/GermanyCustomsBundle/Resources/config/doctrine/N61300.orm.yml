@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61300:
+SkyFlow\GermanyCustomsBundle\Entity\N61300:
     type: entity
     table: gc_N61300
     description: 'Ausfuhrliste Teil 2'

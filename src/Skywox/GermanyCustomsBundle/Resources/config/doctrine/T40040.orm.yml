@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T40040:
+SkyFlow\GermanyCustomsBundle\Entity\T40040:
     type: entity
     table: gc_T40040
     description: 'Nachfolger der Warennomenklatur'

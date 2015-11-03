@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61005:
+SkyFlow\GermanyCustomsBundle\Entity\N61005:
     type: entity
     table: gc_N61005
     description: 'Zuordnung Güter mit doppeltem Verwendungszweck - Warennomenklatur'

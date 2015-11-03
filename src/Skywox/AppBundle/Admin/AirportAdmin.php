@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Admin;
+namespace SkyFlow\AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;

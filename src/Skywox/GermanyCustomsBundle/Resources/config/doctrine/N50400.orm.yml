@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N50400:
+SkyFlow\GermanyCustomsBundle\Entity\N50400:
     type: entity
     table: gc_N50400
     description: 'Zuordnung Ausfuhrerstattungsnomenklatur – Hinweise'

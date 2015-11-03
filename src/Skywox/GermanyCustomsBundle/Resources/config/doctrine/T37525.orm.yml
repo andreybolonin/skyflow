@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T37525:
+SkyFlow\GermanyCustomsBundle\Entity\T37525:
     type: entity
     table: gc_T37525
     description: 'Aufhebung der Aussetzung eines Kontingents'

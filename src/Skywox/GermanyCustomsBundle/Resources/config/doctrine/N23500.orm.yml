@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N23500:
+SkyFlow\GermanyCustomsBundle\Entity\N23500:
     type: entity
     table: gc_N23500
     description: Bedingungsart

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T16000:
+SkyFlow\GermanyCustomsBundle\Entity\T16000:
     type: entity
     table: gc_T16000
     description: Verordnungsfunktionsart

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N30500:
+SkyFlow\GermanyCustomsBundle\Entity\N30500:
     type: entity
     table: gc_N30500
     description: Stichworte

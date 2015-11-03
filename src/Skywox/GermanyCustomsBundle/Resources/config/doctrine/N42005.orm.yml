@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N42005:
+SkyFlow\GermanyCustomsBundle\Entity\N42005:
     type: entity
     table: gc_N42005
     description: 'ländergruppen- und/oder länderbezogene Schlüssel- Bedingungen/Genehmigun gspflicht AWR'

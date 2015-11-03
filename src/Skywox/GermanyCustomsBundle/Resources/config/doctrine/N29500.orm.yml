@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N29500:
+SkyFlow\GermanyCustomsBundle\Entity\N29500:
     type: entity
     table: gc_N29500
     description: Mittelwert

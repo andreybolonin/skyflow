@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\AppBundle;
+namespace SkyFlow\AppBundle;
 
 /**
  * Class Compliance
- * @package Skywox\AppBundle
+ * @package SkyFlow\AppBundle
  */
 class TrackingNumber
 {

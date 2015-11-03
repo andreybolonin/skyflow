@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N42020:
+SkyFlow\GermanyCustomsBundle\Entity\N42020:
     type: entity
     table: gc_N42020
     description: 'Zuordnung Warennomenklatur – Hinweise'

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T22000:
+SkyFlow\GermanyCustomsBundle\Entity\T22000:
     type: entity
     table: gc_T22000
     description: 'Erlaubte KombinationenMaßeinheit/ Qualifikator'

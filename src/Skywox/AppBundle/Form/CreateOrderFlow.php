@@ -1,13 +1,13 @@
 <?php
 
-namespace Skywox\AppBundle\Form;
+namespace SkyFlow\AppBundle\Form;
 
 use Craue\FormFlowBundle\Form\FormFlow;
 use Symfony\Component\Form\FormTypeInterface;
 
 /**
  * Class CreateVehicleFlow
- * @package Skywox\AppBundle\Form
+ * @package SkyFlow\AppBundle\Form
  */
 class CreateOrderFlow extends FormFlow
 {

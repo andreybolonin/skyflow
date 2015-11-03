@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61100:
+SkyFlow\GermanyCustomsBundle\Entity\N61100:
     type: entity
     table: gc_N61100
     description: 'Verbindung Ausfuhrliste - Warennomenklatur'

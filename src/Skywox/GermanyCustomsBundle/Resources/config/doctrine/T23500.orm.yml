@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T23500:
+SkyFlow\GermanyCustomsBundle\Entity\T23500:
     type: entity
     table: gc_T23500
     description: Maßnahmeart

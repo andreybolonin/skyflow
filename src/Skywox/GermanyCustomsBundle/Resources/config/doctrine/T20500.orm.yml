@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T20500:
+SkyFlow\GermanyCustomsBundle\Entity\T20500:
     type: entity
     table: gc_T20500
     description: Bescheinigung

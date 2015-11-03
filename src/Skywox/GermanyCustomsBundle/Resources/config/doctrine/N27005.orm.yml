@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27005:
+SkyFlow\GermanyCustomsBundle\Entity\N27005:
     type: entity
     table: gc_N27005
     description: 'Zuordnung Kontingentsnummer – geogr. Gebiet'

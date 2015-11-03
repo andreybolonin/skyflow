@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N50100:
+SkyFlow\GermanyCustomsBundle\Entity\N50100:
     type: entity
     table: gc_N50100
     description: 'Zuordnung Ausfuhrerstattungsnomenklatur – Fußnoten'

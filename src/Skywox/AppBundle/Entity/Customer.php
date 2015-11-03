@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Entity;
+namespace SkyFlow\AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;

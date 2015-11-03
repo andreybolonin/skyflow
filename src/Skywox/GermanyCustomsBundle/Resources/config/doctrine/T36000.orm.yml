@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T36000:
+SkyFlow\GermanyCustomsBundle\Entity\T36000:
     type: entity
     table: gc_T36000
     description: 'Ordnungsnummer QUOTA'

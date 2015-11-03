@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N12000:
+SkyFlow\GermanyCustomsBundle\Entity\N12000:
     type: entity
     table: gc_N12000
     description: Dokumentart

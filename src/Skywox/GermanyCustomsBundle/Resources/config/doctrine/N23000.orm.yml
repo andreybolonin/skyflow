@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N23000:
+SkyFlow\GermanyCustomsBundle\Entity\N23000:
     type: entity
     table: gc_N23000
     description: 'zu verwendende Verbuchungsstellen'

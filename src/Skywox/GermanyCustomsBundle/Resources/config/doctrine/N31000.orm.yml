@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N31000:
+SkyFlow\GermanyCustomsBundle\Entity\N31000:
     type: entity
     table: gc_N31000
     description: 'Zuordnung Warenverkehrsbescheinigung – geographisches Gebiet'

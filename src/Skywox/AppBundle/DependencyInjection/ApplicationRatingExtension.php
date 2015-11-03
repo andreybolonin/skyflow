@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\DependencyInjection;
+namespace SkyFlow\AppBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

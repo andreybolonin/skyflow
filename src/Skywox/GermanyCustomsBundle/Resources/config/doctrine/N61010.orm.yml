@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61010:
+SkyFlow\GermanyCustomsBundle\Entity\N61010:
     type: entity
     table: gc_N61010
     description: 'Verweise auf weitere Beschränkungen bei Gütern mit doppeltem Verwendungszweck'

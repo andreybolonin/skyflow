@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T29500:
+SkyFlow\GermanyCustomsBundle\Entity\T29500:
     type: entity
     table: gc_T29500
     description: Verlängerungsverordnung

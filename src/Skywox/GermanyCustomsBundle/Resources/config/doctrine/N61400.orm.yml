@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61400:
+SkyFlow\GermanyCustomsBundle\Entity\N61400:
     type: entity
     table: gc_N61400
     description: 'Verbindung Ausfuhrliste - Stichworte'

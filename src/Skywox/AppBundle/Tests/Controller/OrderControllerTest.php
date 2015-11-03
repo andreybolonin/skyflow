@@ -1,14 +1,14 @@
 <?php
 
-namespace Skywox\AppBundle\Tests\Controller;
+namespace SkyFlow\AppBundle\Tests\Controller;
 
-use Skywox\AppBundle\Entity\Customer;
-use Skywox\AppBundle\Entity\DeliveryOrder;
+use SkyFlow\AppBundle\Entity\Customer;
+use SkyFlow\AppBundle\Entity\DeliveryOrder;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class OrderControllerTest
- * @package Skywox\AppBundle\Tests\Controller
+ * @package SkyFlow\AppBundle\Tests\Controller
  */
 class OrderControllerTest extends WebTestCase
 {

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N30700:
+SkyFlow\GermanyCustomsBundle\Entity\N30700:
     type: entity
     table: gc_N30700
     description: 'Zuordnung Verbrauchsteuerarten– Kreditierungsarten'

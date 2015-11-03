@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T40035:
+SkyFlow\GermanyCustomsBundle\Entity\T40035:
     type: entity
     table: gc_T40035
     description: Warennomenklaturursprung

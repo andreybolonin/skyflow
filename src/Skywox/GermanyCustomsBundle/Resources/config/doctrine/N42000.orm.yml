@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N42000:
+SkyFlow\GermanyCustomsBundle\Entity\N42000:
     type: entity
     table: gc_N42000
     description: Warennomenklatur

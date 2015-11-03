@@ -1,13 +1,13 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Type;
+namespace SkyFlow\GermanyCustomsBundle\Type;
 
 use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 
 /**
  * Class EDIDateTimeType
- * @package Skywox\GermanyCustomsBundle\Type
+ * @package SkyFlow\GermanyCustomsBundle\Type
  */
 class EDIDateTimeType extends DateTimeType
 {

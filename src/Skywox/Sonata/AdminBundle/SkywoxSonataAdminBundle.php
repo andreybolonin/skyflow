@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\Sonata\AdminBundle;
+namespace SkyFlow\Sonata\AdminBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SkywoxSonataAdminBundle extends Bundle
+class SkyFlowSonataAdminBundle extends Bundle
 {
     /**
      * {@inheritdoc}

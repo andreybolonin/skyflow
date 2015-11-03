@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N20005:
+SkyFlow\GermanyCustomsBundle\Entity\N20005:
     type: entity
     table: gc_N20005
     description: 'Zuordnung Abgabenart zur "sekundären" Maßnahmeart'

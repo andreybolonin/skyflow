@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\AppBundle\Admin;
+namespace SkyFlow\AppBundle\Admin;
 
 use Doctrine\ORM\EntityRepository;
-use Skywox\AppBundle\Entity\Customer;
-use Skywox\AppBundle\Entity\Sender;
+use SkyFlow\AppBundle\Entity\Customer;
+use SkyFlow\AppBundle\Entity\Sender;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

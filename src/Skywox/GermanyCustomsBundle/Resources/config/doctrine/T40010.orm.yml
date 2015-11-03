@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T40010:
+SkyFlow\GermanyCustomsBundle\Entity\T40010:
     type: entity
     table: gc_T40010
     description: Warennomenklaturbeschreibung

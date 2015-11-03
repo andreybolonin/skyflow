@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N35000:
+SkyFlow\GermanyCustomsBundle\Entity\N35000:
     type: entity
     table: gc_N35000
     description: 'Zuordnung AHStat- Schlüssel – Bundesland'

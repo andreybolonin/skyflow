@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N30005:
+SkyFlow\GermanyCustomsBundle\Entity\N30005:
     type: entity
     table: gc_N30005
     description: 'Zuordnung Maßnahmeart – Buchungsschlüssel'

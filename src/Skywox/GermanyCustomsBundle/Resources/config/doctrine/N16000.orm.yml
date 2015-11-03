@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N16000:
+SkyFlow\GermanyCustomsBundle\Entity\N16000:
     type: entity
     table: gc_N16000
     description: 'Kreditierungsarten für Verbrauchsteuern'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\Sonata\UserBundle\Entity;
+namespace SkyFlow\Sonata\UserBundle\Entity;
 
 use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;

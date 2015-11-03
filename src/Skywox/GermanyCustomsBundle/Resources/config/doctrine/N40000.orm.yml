@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N40000:
+SkyFlow\GermanyCustomsBundle\Entity\N40000:
     type: entity
     table: gc_N40000
     description: 'nationale Maßnahmen'

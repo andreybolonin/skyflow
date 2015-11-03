@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N29000:
+SkyFlow\GermanyCustomsBundle\Entity\N29000:
     type: entity
     table: gc_N29000
     description: Maßeinheitsqualifikatoren

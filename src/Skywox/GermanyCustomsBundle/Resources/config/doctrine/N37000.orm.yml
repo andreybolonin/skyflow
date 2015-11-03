@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N37000:
+SkyFlow\GermanyCustomsBundle\Entity\N37000:
     type: entity
     table: gc_N37000
     description: 'erste Stelle des Schlüssel der KEU für zolltarifliche Regime'

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N40010:
+SkyFlow\GermanyCustomsBundle\Entity\N40010:
     type: entity
     table: gc_N40010
     description: 'Zuordnung Maßnahmen – Fußnoten'

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N20500:
+SkyFlow\GermanyCustomsBundle\Entity\N20500:
     type: entity
     table: gc_N20500
     description: 'Zuordnung Kapitel zu Abschnitt des Zolltarifs'

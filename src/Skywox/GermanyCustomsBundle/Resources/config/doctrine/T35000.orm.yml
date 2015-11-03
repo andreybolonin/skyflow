@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T35000:
+SkyFlow\GermanyCustomsBundle\Entity\T35000:
     type: entity
     table: gc_T35000
     description: Maßnahmebedingung

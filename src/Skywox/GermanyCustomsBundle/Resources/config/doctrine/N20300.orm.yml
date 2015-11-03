@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N20300:
+SkyFlow\GermanyCustomsBundle\Entity\N20300:
     type: entity
     table: gc_N20300
     description: Abkürzungen

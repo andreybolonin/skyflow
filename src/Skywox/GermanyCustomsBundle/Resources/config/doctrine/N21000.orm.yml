@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N21000:
+SkyFlow\GermanyCustomsBundle\Entity\N21000:
     type: entity
     table: gc_N21000
     description: 'Zuordnung AHStat- Schlüssel – TARIC- Schlüssel für Land oder Region'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Command;
+namespace SkyFlow\GermanyCustomsBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,7 +16,7 @@ use Symfony\Component\Yaml\Dumper;
 class SchemaUpdateCommand extends ContainerAwareCommand
 {
     const PREFIX = 'gc_';
-    const NAMESPACE_PREFIX = 'Skywox\GermanyCustomsBundle\\';
+    const NAMESPACE_PREFIX = 'SkyFlow\GermanyCustomsBundle\\';
 
     protected function configure()
     {

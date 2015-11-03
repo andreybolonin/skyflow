@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N42030:
+SkyFlow\GermanyCustomsBundle\Entity\N42030:
     type: entity
     table: gc_N42030
     description: Gültigkeitszeiträume

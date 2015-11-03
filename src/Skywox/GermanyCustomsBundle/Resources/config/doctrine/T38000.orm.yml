@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T38000:
+SkyFlow\GermanyCustomsBundle\Entity\T38000:
     type: entity
     table: gc_T38000
     description: Höchstmenge

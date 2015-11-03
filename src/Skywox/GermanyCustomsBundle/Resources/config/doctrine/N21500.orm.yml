@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N21500:
+SkyFlow\GermanyCustomsBundle\Entity\N21500:
     type: entity
     table: gc_N21500
     description: Maßnahmeaktion

@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\Sonata\UserBundle;
+namespace SkyFlow\Sonata\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SkywoxSonataUserBundle extends Bundle
+class SkyFlowSonataUserBundle extends Bundle
 {
     /**
      * {@inheritdoc}

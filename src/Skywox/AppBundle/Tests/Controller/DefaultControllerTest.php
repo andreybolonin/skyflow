@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Tests\Controller;
+namespace SkyFlow\AppBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

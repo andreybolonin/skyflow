@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\DependencyInjection;
+namespace SkyFlow\AppBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

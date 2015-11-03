@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N28500:
+SkyFlow\GermanyCustomsBundle\Entity\N28500:
     type: entity
     table: gc_N28500
     description: Maßeinheiten

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N15000:
+SkyFlow\GermanyCustomsBundle\Entity\N15000:
     type: entity
     table: gc_N15000
     description: Kontingentsart

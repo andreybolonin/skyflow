@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T32500:
+SkyFlow\GermanyCustomsBundle\Entity\T32500:
     type: entity
     table: gc_T32500
     description: Meursing-Position

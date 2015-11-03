@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43000:
+SkyFlow\GermanyCustomsBundle\Entity\T43000:
     type: entity
     table: gc_T43000
     description: Maßnahmen

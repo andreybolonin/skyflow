@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N24000:
+SkyFlow\GermanyCustomsBundle\Entity\N24000:
     type: entity
     table: gc_N24000
     description: 'Lizenzen, Bescheinigungen und ähnliche Dokumente'

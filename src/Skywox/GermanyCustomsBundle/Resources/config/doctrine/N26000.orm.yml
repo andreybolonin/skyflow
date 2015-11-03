@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N26000:
+SkyFlow\GermanyCustomsBundle\Entity\N26000:
     type: entity
     table: gc_N26000
     description: 'TARIC- Ländergruppenschlüssel'

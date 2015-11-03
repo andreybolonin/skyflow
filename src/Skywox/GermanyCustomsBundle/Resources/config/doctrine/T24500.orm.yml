@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T24500:
+SkyFlow\GermanyCustomsBundle\Entity\T24500:
     type: entity
     table: gc_T24500
     description: Zusatzcode

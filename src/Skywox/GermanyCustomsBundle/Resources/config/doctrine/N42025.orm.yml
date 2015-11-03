@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N42025:
+SkyFlow\GermanyCustomsBundle\Entity\N42025:
     type: entity
     table: gc_N42025
     description: 'Zuordnung Hinweise zur Warennomenklatur – Fußnoten'

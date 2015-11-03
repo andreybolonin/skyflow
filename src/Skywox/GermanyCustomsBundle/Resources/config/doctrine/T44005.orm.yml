@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T44005:
+SkyFlow\GermanyCustomsBundle\Entity\T44005:
     type: entity
     table: gc_T44005
     description: Währungsumrechnungskurs

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N43010:
+SkyFlow\GermanyCustomsBundle\Entity\N43010:
     type: entity
     table: gc_N43010
     description: 'Darstellung der Bedingung'

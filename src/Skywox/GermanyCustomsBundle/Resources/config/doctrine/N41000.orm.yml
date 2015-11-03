@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N41000:
+SkyFlow\GermanyCustomsBundle\Entity\N41000:
     type: entity
     table: gc_N41000
     description: Verbrauchsteuernomenklaturen

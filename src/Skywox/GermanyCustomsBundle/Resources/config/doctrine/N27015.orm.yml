@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27015:
+SkyFlow\GermanyCustomsBundle\Entity\N27015:
     type: entity
     table: gc_N27015
     description: 'Zuordnung Kontingentsnummer - Hinweise (national)'

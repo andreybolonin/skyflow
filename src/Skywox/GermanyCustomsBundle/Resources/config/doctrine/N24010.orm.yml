@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N24010:
+SkyFlow\GermanyCustomsBundle\Entity\N24010:
     type: entity
     table: gc_N24010
     description: Bescheinigungsartcodierung

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N26500:
+SkyFlow\GermanyCustomsBundle\Entity\N26500:
     type: entity
     table: gc_N26500
     description: Hinweise

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T40020:
+SkyFlow\GermanyCustomsBundle\Entity\T40020:
     type: entity
     table: gc_T40020
     description: 'Verbindung Fußnote- Warennomenklatur'

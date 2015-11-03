@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T27500:
+SkyFlow\GermanyCustomsBundle\Entity\T27500:
     type: entity
     table: gc_T27500
     description: 'Vollständige Aufhebungsverordnung'

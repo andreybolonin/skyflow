@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N37500:
+SkyFlow\GermanyCustomsBundle\Entity\N37500:
     type: entity
     table: gc_N37500
     description: 'zweite und dritte Stelle des dreistelligen von der KEU festgelegten Schlüssel für zolltarifliche Regime'

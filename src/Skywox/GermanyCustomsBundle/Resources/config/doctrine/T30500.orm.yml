@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T30500:
+SkyFlow\GermanyCustomsBundle\Entity\T30500:
     type: entity
     table: gc_T30500
     description: 'Ersatz einer Entwurfsverordnung durch eine "echte" Verordnung (Verordnungsersatz)'

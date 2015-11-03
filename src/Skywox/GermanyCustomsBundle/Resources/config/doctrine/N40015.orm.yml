@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N40015:
+SkyFlow\GermanyCustomsBundle\Entity\N40015:
     type: entity
     table: gc_N40015
     description: Maßnahmekomponente

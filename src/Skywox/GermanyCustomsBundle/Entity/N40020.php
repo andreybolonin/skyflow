@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Entity;
+namespace SkyFlow\GermanyCustomsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

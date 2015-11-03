@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27010:
+SkyFlow\GermanyCustomsBundle\Entity\N27010:
     type: entity
     table: gc_N27010
     description: 'Zuordnung Kontingentsnummer – kritischer Zeitraum'

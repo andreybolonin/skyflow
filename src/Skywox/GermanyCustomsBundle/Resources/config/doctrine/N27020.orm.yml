@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N27020:
+SkyFlow\GermanyCustomsBundle\Entity\N27020:
     type: entity
     table: gc_N27020
     description: 'Zuordnung Kontingentsnummer – Verweis auf ein anderes Kontingent'

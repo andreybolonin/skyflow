@@ -1,15 +1,15 @@
 <?php
 
-namespace Skywox\AppBundle\Controller;
+namespace SkyFlow\AppBundle\Controller;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Craue\FormFlowBundle\Tests\IntegrationTestBundle\Entity\Vehicle;
-use Skywox\AppBundle\Entity\Costumer;
-use Skywox\AppBundle\Entity\Customer;
-use Skywox\AppBundle\Entity\DeliveryOrder;
-use Skywox\AppBundle\Entity\Document;
-use Skywox\AppBundle\Entity\Recipient;
-use Skywox\AppBundle\Entity\Sender;
+use SkyFlow\AppBundle\Entity\Costumer;
+use SkyFlow\AppBundle\Entity\Customer;
+use SkyFlow\AppBundle\Entity\DeliveryOrder;
+use SkyFlow\AppBundle\Entity\Document;
+use SkyFlow\AppBundle\Entity\Recipient;
+use SkyFlow\AppBundle\Entity\Sender;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -33,7 +33,7 @@ class OrderController extends Controller
         $formData['shipment'] = $deliveryOrder;
         $formData['positions'] = $deliveryOrder;
 
-        $flow = $this->get('skywox.form.flow.create_order'); // must match the flow's service id
+        $flow = $this->get('skyflow.form.flow.create_order'); // must match the flow's service id
         $flow->bind($formData);
 
         // form of the current step
@@ -48,7 +48,7 @@ class OrderController extends Controller
 
                 // compliance check
                 if ($flow->getCurrentStepLabel() === 'compliance') {
-                    if ($this->get('skywox.compliance')->check($form->getData()) === false) {
+                    if ($this->get('SkyFlow.compliance')->check($form->getData()) === false) {
                         print_r('Compliance error');
                         return false;
                     } else {
@@ -63,7 +63,7 @@ class OrderController extends Controller
                 $recipient = $formData['recipient'];
                 $deliveryOrder = $formData['shipment'];
 
-                $user = $em->getRepository('SkywoxSonataUserBundle:User')->find(1);
+                $user = $em->getRepository('SkyFlowSonataUserBundle:User')->find(1);
 
                 $deliveryOrder->setSender($sender);
                 $deliveryOrder->setRecipient($recipient);
@@ -82,7 +82,7 @@ class OrderController extends Controller
             }
         }
 
-        return $this->render('SkywoxAppBundle:Order:vehicle.html.twig', array(
+        return $this->render('SkyFlowAppBundle:Order:vehicle.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
         ));
@@ -113,7 +113,7 @@ class OrderController extends Controller
         $formData['positions'] = $deliveryOrder;
         $formData['poa'] = new Document();
 
-        $flow = $this->get('skywox.form.flow.confirm_order'); // must match the flow's service id
+        $flow = $this->get('SkyFlow.form.flow.confirm_order'); // must match the flow's service id
         $flow->bind($formData);
 
         // form of the current step
@@ -128,7 +128,7 @@ class OrderController extends Controller
 
                 // compliance check
                 if ($flow->getCurrentStepLabel() === 'compliance') {
-                    if ($this->get('skywox.compliance')->check($form->getData()) === false) {
+                    if ($this->get('SkyFlow.compliance')->check($form->getData()) === false) {
                         print_r('Compliance error');
                         return false;
                     } else {
@@ -149,7 +149,7 @@ class OrderController extends Controller
                 $recipient = $formData['recipient'];
                 $deliveryOrder = $formData['shipment'];
 
-                $user = $em->getRepository('SkywoxSonataUserBundle:User')->find(1);
+                $user = $em->getRepository('SkyFlowSonataUserBundle:User')->find(1);
 
                 $poa->setDeliveryOrder($deliveryOrder);
                 $deliveryOrder->setRecipient($recipient);
@@ -168,7 +168,7 @@ class OrderController extends Controller
             }
         }
 
-        return $this->render('SkywoxAppBundle:Order:confirm.html.twig', array(
+        return $this->render('SkyFlowAppBundle:Order:confirm.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
         ));

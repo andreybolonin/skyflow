@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T23000:
+SkyFlow\GermanyCustomsBundle\Entity\T23000:
     type: entity
     table: gc_T23000
     description: Abgabenart

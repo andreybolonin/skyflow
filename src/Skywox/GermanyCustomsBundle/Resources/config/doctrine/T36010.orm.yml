@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T36010:
+SkyFlow\GermanyCustomsBundle\Entity\T36010:
     type: entity
     table: gc_T36010
     description: 'Ursprungsland Ordnungsnummer QUOTA'

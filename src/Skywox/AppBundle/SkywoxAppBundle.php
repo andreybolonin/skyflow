@@ -1,9 +1,9 @@
 <?php
 
-namespace Skywox\AppBundle;
+namespace SkyFlow\AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SkywoxAppBundle extends Bundle
+class SkyFlowAppBundle extends Bundle
 {
 }

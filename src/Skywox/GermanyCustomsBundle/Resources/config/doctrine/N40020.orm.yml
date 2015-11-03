@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N40020:
+SkyFlow\GermanyCustomsBundle\Entity\N40020:
     type: entity
     table: gc_N40020
     description: 'nationale Maßnahmebedingungsaktion'

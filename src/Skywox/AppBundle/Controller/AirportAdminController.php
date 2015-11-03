@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Controller;
+namespace SkyFlow\AppBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
 

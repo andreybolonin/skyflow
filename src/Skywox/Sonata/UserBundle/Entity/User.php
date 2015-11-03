@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\Sonata\UserBundle\Entity;
+namespace SkyFlow\Sonata\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
@@ -24,7 +24,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Skywox\AppBundle\Entity\DeliveryOrder", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="SkyFlow\AppBundle\Entity\DeliveryOrder", mappedBy="user")
      */
     protected $orders;
 

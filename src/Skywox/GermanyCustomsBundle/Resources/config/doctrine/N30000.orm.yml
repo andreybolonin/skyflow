@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N30000:
+SkyFlow\GermanyCustomsBundle\Entity\N30000:
     type: entity
     table: gc_N30000
     description: Maßnahmeart

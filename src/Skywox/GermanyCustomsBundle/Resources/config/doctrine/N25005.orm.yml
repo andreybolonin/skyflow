@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N25005:
+SkyFlow\GermanyCustomsBundle\Entity\N25005:
     type: entity
     table: gc_N25005
     description: 'Währungseinheitscode der Umrechnungskurse'

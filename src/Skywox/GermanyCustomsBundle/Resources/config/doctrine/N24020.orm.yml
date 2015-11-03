@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N24020:
+SkyFlow\GermanyCustomsBundle\Entity\N24020:
     type: entity
     table: gc_N24020
     description: Bescheinigungsbereich

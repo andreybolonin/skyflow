@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T24515:
+SkyFlow\GermanyCustomsBundle\Entity\T24515:
     type: entity
     table: gc_T24515
     description: 'Verbindung des Zusatzcodes mit Fußnoten'

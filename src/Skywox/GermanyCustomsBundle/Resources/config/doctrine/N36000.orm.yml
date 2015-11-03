@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N36000:
+SkyFlow\GermanyCustomsBundle\Entity\N36000:
     type: entity
     table: gc_N36000
     description: Abgabengruppe

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N13000:
+SkyFlow\GermanyCustomsBundle\Entity\N13000:
     type: entity
     table: gc_N13000
     description: Fußnotenart-ID

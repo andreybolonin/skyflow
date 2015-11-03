@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Entity;
+namespace SkyFlow\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

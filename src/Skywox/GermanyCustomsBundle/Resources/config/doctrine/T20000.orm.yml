@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T20000:
+SkyFlow\GermanyCustomsBundle\Entity\T20000:
     type: entity
     table: gc_T20000
     description: Fußnoten

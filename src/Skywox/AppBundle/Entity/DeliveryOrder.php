@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Entity;
+namespace SkyFlow\AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +14,7 @@ class DeliveryOrder extends Base
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Skywox\Sonata\UserBundle\Entity\User", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="\SkyFlow\Sonata\UserBundle\Entity\User", inversedBy="orders")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;

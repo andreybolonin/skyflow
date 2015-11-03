@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43005:
+SkyFlow\GermanyCustomsBundle\Entity\T43005:
     type: entity
     table: gc_T43005
     description: Maßnahmenkomponente

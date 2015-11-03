@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Command;
+namespace SkyFlow\GermanyCustomsBundle\Command;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityManager;
-use Skywox\GermanyCustomsBundle\Type\EDIDateTime;
+use SkyFlow\GermanyCustomsBundle\Type\EDIDateTime;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

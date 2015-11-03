@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T11000:
+SkyFlow\GermanyCustomsBundle\Entity\T11000:
     type: entity
     table: gc_T11000
     description: Bescheinigungsart

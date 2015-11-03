@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N40005:
+SkyFlow\GermanyCustomsBundle\Entity\N40005:
     type: entity
     table: gc_N40005
     description: 'nationale Maßnahmebedingungskomponenten'

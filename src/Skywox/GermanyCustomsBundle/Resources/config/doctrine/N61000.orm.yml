@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N61000:
+SkyFlow\GermanyCustomsBundle\Entity\N61000:
     type: entity
     table: gc_N61000
     description: 'Güter mit doppeltem Verwendungszweck (Dual- Use –VO)'

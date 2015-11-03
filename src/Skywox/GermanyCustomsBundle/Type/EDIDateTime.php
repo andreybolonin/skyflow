@@ -1,10 +1,10 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Type;
+namespace SkyFlow\GermanyCustomsBundle\Type;
 
 /**
  * Class EDIDateTime
- * @package Skywox\GermanyCustomsBundle\Type
+ * @package SkyFlow\GermanyCustomsBundle\Type
  */
 class EDIDateTime extends \DateTime
 {

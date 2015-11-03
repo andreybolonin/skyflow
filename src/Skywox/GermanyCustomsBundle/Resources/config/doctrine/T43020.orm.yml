@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43020:
+SkyFlow\GermanyCustomsBundle\Entity\T43020:
     type: entity
     table: gc_T43020
     description: 'Verbindung Maßnahme – Fußnoten'

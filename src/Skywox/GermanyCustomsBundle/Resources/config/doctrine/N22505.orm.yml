@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\N22505:
+SkyFlow\GermanyCustomsBundle\Entity\N22505:
     type: entity
     table: gc_N22505
     description: Verfahrensbeschränkungen

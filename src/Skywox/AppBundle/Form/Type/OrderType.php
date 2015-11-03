@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\AppBundle\Form\Type;
+namespace SkyFlow\AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,12 +18,12 @@ class OrderType extends AbstractType
             case 1:
                 $validValues = array(2, 4);
                 $builder->add('sender', 'SenderType', array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Sender',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\Sender',
                 ));
                 break;
             case 2:
                 $builder->add('recipient', 'RecipientType', array(
-                    'data_class' => 'Skywox\AppBundle\Entity\Recipient',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\Recipient',
                 ));
                 break;
             case 3:
@@ -33,12 +33,12 @@ class OrderType extends AbstractType
                 break;
             case 4:
                 $builder->add('shipment', 'ShipmentType', array(
-                    'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;
             case 5:
                 $builder->add('positions', 'PositionsType', array(
-                    'data_class' => 'Skywox\AppBundle\Entity\DeliveryOrder',
+                    'data_class' => 'SkyFlow\AppBundle\Entity\DeliveryOrder',
                 ));
                 break;
         }

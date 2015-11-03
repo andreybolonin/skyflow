@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43010:
+SkyFlow\GermanyCustomsBundle\Entity\T43010:
     type: entity
     table: gc_T43010
     description: Maßnahmebedingung

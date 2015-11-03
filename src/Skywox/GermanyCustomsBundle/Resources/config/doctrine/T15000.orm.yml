@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T15000:
+SkyFlow\GermanyCustomsBundle\Entity\T15000:
     type: entity
     table: gc_T15000
     description: Verordnungsgruppe

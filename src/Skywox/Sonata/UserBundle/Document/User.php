@@ -1,6 +1,6 @@
 <?php
 
-namespace Skywox\Sonata\UserBundle\Document;
+namespace SkyFlow\Sonata\UserBundle\Document;
 
 use Sonata\UserBundle\Document\BaseUser as BaseUser;
 

@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T34005:
+SkyFlow\GermanyCustomsBundle\Entity\T34005:
     type: entity
     table: gc_T34005
     description: 'Zellenkomponente der Meursing-Tabelle'

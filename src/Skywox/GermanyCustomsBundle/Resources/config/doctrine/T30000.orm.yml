@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T30000:
+SkyFlow\GermanyCustomsBundle\Entity\T30000:
     type: entity
     table: gc_T30000
     description: 'Vollständige zeitweilige Aussetzungsverordnung'

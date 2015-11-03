@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T25015:
+SkyFlow\GermanyCustomsBundle\Entity\T25015:
     type: entity
     table: gc_T25015
     description: 'Mitgliedschaft des geographischen Gebiets'

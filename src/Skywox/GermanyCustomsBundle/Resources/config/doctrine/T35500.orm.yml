@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T35500:
+SkyFlow\GermanyCustomsBundle\Entity\T35500:
     type: entity
     table: gc_T35500
     description: Maßnahmeaktion

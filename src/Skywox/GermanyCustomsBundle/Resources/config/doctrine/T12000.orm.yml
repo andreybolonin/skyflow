@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T12000:
+SkyFlow\GermanyCustomsBundle\Entity\T12000:
     type: entity
     table: gc_T12000
     description: Zusatzcodeart

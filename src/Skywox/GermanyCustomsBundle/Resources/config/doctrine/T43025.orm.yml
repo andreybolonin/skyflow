@@ -1,4 +1,4 @@
-Skywox\GermanyCustomsBundle\Entity\T43025:
+SkyFlow\GermanyCustomsBundle\Entity\T43025:
     type: entity
     table: gc_T43025
     description: 'Teilweise zeitweilige Aussetzung der Maßnahme'
