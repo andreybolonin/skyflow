@@ -3,9 +3,7 @@
 namespace Skywox\GermanyCustomsBundle\Command;
 
 use Doctrine\DBAL\DBALException;
-use Doctrine\ORM\EntityManager;
 use Skywox\GermanyCustomsBundle\Type\EDIDateTime;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -17,14 +15,8 @@ use Symfony\Component\Yaml\Parser;
  * Class ContentUpdateCommand
  * @package GermanyCustomsBundle\Command
  */
-class ContentUpdateCommand extends ContainerAwareCommand
+class ContentUpdateCommand extends EdifactCommand
 {
-    /** @var Parser */
-    private $yamlParser;
-
-    /** @var EntityManager */
-    private $entityManager;
-
     protected function configure()
     {
         $this
@@ -40,9 +32,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->yamlParser = new Parser();
-        $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
-        $this->entityManager->getConnection()->getConfiguration()->setSQLLogger(null);
+        parent::execute($input, $output);
 
         $edifactFilename = $input->getArgument('edifactFilename');
 
@@ -131,70 +121,7 @@ class ContentUpdateCommand extends ContainerAwareCommand
             }
 
             // Operation test
-            $criteria = [];
-            foreach ($pkFields as $name => $options) {
-                $getterName = $this->getGetterName($name);
-                $criteria[$name] = $entity->$getterName();
-            }
-            $resultEntity = $this->entityManager->getRepository($tableEntity)->findOneBy($criteria);
-
-            switch ($operation) {
-                case 'i': // insert
-                case 'u': // update
-                    if (is_null($resultEntity)) {
-                        echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error! Record is not found!' . PHP_EOL;
-                        echo 'Table: ' . $table . '; Criteria:' . PHP_EOL;
-                        var_dump($criteria);
-
-                        die;
-                    }
-
-                    foreach ($fields as $name => $options) {
-                        $getterName = $this->getGetterName($name);
-
-                        $source = $entity->$getterName();
-                        $result = $resultEntity->$getterName();
-
-                        // datetime comparison
-                        if ($source instanceof EDIDateTime && $result instanceof EDIDateTime) {
-                            $result->setTimezone($source->getTimezone());
-
-                            $source = $source->format('Y-m-d H:i:s');
-                            $result = $result->format('Y-m-d H:i:s');
-                        }
-
-                        if (is_float($source)) {
-                            $result = (float)$result;
-                        }
-
-                        if ($source !== $result) {
-                            echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error!' . PHP_EOL;
-
-                            echo 'Table: ' . $table . '; Column: ' . $name . '; Criteria:' . PHP_EOL;
-                            var_dump($criteria);
-
-                            echo 'Source entity value:' . PHP_EOL;
-                            var_dump($entity->$getterName());
-
-                            echo 'Result entity value:' . PHP_EOL;
-                            var_dump($resultEntity->$getterName());
-
-                            die;
-                        }
-                    }
-                    break;
-
-                case 'd': // delete
-                    if (!is_null($resultEntity)) {
-                        echo 'Delete operation error!' . PHP_EOL;
-                        var_dump($table, $criteria);
-                        die;
-                    }
-                    break;
-            }
-
-            unset($resultEntity);
-            $this->entityManager->clear();
+            $this->testOperationResult($pkFields, $entity, $tableEntity, $operation, $table, $fields);
         }
 
         fclose($fp);
@@ -225,27 +152,6 @@ class ContentUpdateCommand extends ContainerAwareCommand
     private function getGetterSetterName($name)
     {
         return str_replace('_', '', $name);
-    }
-
-    /**
-     * @param $table
-     * @return array
-     */
-    private function getTableStructure($table)
-    {
-        $tableSchemaFile = __DIR__ . '/../Resources/config/doctrine/' . $table . '.orm.yml';
-        if (!file_exists($tableSchemaFile)) {
-            throw new \UnexpectedValueException('table schema file "' . $tableSchemaFile . '" not found');
-        }
-
-        $yaml = $this->yamlParser->parse(file_get_contents($tableSchemaFile));
-        $tableEntity = array_keys($yaml)[0];
-
-        $fields = array_merge($yaml[$tableEntity]['id'], $yaml[$tableEntity]['fields']);
-
-        ksort($fields);
-
-        return [$tableEntity, $fields, $yaml[$tableEntity]['id']];
     }
 
     /**
@@ -461,5 +367,82 @@ class ContentUpdateCommand extends ContainerAwareCommand
             default:
                 throw new \UnexpectedValueException('undefined field type "' . $options['type'] . '"');
         }
+    }
+
+    /**
+     * @param array $pkFields
+     * @param object $entity
+     * @param string $tableEntity
+     * @param string $operation
+     * @param string $table
+     * @param array $fields
+     * @return void
+     */
+    private function testOperationResult($pkFields, $entity, $tableEntity, $operation, $table, $fields)
+    {
+        $criteria = [];
+        foreach ($pkFields as $name => $options) {
+            $getterName = $this->getGetterName($name);
+            $criteria[$name] = $entity->$getterName();
+        }
+        $resultEntity = $this->entityManager->getRepository($tableEntity)->findOneBy($criteria);
+
+        switch ($operation) {
+            case 'i': // insert
+            case 'u': // update
+                if (is_null($resultEntity)) {
+                    echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error! Record is not found!' . PHP_EOL;
+                    echo 'Table: ' . $table . '; Criteria:' . PHP_EOL;
+                    var_dump($criteria);
+
+                    die;
+                }
+
+                foreach ($fields as $name => $options) {
+                    $getterName = $this->getGetterName($name);
+
+                    $source = $entity->$getterName();
+                    $result = $resultEntity->$getterName();
+
+                    // datetime comparison
+                    if ($source instanceof EDIDateTime && $result instanceof EDIDateTime) {
+                        $result->setTimezone($source->getTimezone());
+
+                        $source = $source->format('Y-m-d H:i:s');
+                        $result = $result->format('Y-m-d H:i:s');
+                    }
+
+                    if (is_float($source)) {
+                        $result = (float)$result;
+                    }
+
+                    if ($source !== $result) {
+                        echo ($operation == 'i' ? 'Insert' : 'Update') . ' operation error!' . PHP_EOL;
+
+                        echo 'Table: ' . $table . '; Column: ' . $name . '; Criteria:' . PHP_EOL;
+                        var_dump($criteria);
+
+                        echo 'Source entity value:' . PHP_EOL;
+                        var_dump($entity->$getterName());
+
+                        echo 'Result entity value:' . PHP_EOL;
+                        var_dump($resultEntity->$getterName());
+
+                        die;
+                    }
+                }
+                break;
+
+            case 'd': // delete
+                if (!is_null($resultEntity)) {
+                    echo 'Delete operation error!' . PHP_EOL;
+                    var_dump($table, $criteria);
+                    die;
+                }
+                break;
+        }
+
+        unset($resultEntity);
+        $this->entityManager->clear();
     }
 }
