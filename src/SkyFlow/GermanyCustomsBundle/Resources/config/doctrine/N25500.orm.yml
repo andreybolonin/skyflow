@@ -1,0 +1,23 @@
+SkyFlow\GermanyCustomsBundle\Entity\N25500:
+    type: entity
+    table: gc_N25500
+    description: Fußnoten
+    fields:
+        AWX_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AWY_Text_der_Fußnote:
+            type: text
+            otype: LONG
+    id:
+        AWU_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        AWV_Fußnotenschlüssel:
+            type: string
+            length: 5
+            otype: CHAR
+        AWW_Beginndatum:
+            type: edidatetime
+            otype: DATE

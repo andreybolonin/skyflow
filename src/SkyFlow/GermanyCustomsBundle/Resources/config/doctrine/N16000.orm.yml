@@ -1,0 +1,14 @@
+SkyFlow\GermanyCustomsBundle\Entity\N16000:
+    type: entity
+    table: gc_N16000
+    description: 'Kreditierungsarten für Verbrauchsteuern'
+    fields:
+        ATR_Beschreibung_der_Kreditierungsart:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        ATQ_Kreditierungsart:
+            type: string
+            length: 1
+            otype: CHAR

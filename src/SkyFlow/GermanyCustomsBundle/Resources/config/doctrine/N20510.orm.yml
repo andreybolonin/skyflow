@@ -1,0 +1,24 @@
+SkyFlow\GermanyCustomsBundle\Entity\N20510:
+    type: entity
+    table: gc_N20510
+    description: 'Zuordnung zwischen Bereich und Bescheinigung'
+    fields:
+        AUS_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        AUO_Art_der_Bescheinigung:
+            type: string
+            length: 1
+            otype: CHAR
+        AUP_Bescheinigung:
+            type: string
+            length: 3
+            otype: VARCHAR
+        AUQ_Bescheinigungsbereich:
+            type: string
+            length: 1
+            otype: CHAR
+        AUR_Beginndatum:
+            type: edidatetime
+            otype: DATE

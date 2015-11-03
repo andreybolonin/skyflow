@@ -1,0 +1,24 @@
+SkyFlow\GermanyCustomsBundle\Entity\N40010:
+    type: entity
+    table: gc_N40010
+    description: 'Zuordnung Maßnahmen – Fußnoten'
+    fields:
+        BDG_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BDC_SID_der_nationalen_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BDD_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        BDE_Fußnote:
+            type: string
+            length: 5
+            otype: CHAR
+        BDF_Beginndatum:
+            type: edidatetime
+            otype: DATE

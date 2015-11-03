@@ -1,0 +1,31 @@
+SkyFlow\GermanyCustomsBundle\Entity\N40015:
+    type: entity
+    table: gc_N40015
+    description: Maßnahmekomponente
+    fields:
+        BDJ_Währungseinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        BDK_Abgabenbetrag:
+            type: decimal
+            precision: 10
+            scale: 4
+            otype: NUMBER
+        BDL_Maßeinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        BDM_Maßeinheitsqualifikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        BDH_SID_der_nationalen_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BDI_Abgabenart:
+            type: string
+            length: 2
+            otype: CHAR

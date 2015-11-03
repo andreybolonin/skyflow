@@ -1,0 +1,24 @@
+SkyFlow\GermanyCustomsBundle\Entity\N61400:
+    type: entity
+    table: gc_N61400
+    description: 'Verbindung Ausfuhrliste - Stichworte'
+    fields:
+        BIR_Stichwort:
+            type: string
+            length: 200
+            otype: VARCHAR
+        BIS_Ausfuhrlistennummer:
+            type: string
+            length: 10
+            otype: CHAR
+        BIU_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BIQ_SID:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BIT_Beginndatum:
+            type: edidatetime
+            otype: DATE

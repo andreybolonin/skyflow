@@ -1,0 +1,44 @@
+SkyFlow\GermanyCustomsBundle\Entity\N42020:
+    type: entity
+    table: gc_N42020
+    description: 'Zuordnung Warennomenklatur – Hinweise'
+    fields:
+        BFH_SID_der_nationalen_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BFI_Hinweisart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        BFJ_Hinweis:
+            type: string
+            length: 4
+            otype: VARCHAR
+        BFK_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BFL_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BFM_ID_des_geographischen_Gebiets:
+            type: string
+            length: 4
+            otype: CHAR
+        BFN_ID_der_Maßnahmeart:
+            type: string
+            length: 6
+            otype: CHAR
+        BFO_Zusatzcode:
+            type: string
+            length: 3
+            otype: CHAR
+        BFP_Zusatzcodeart:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        BFG_SID:
+            type: integer
+            length: 8
+            otype: NUMBER

@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\N18000:
+    type: entity
+    table: gc_N18000
+    description: Verbrauchsteuerart
+    fields:
+        ATU_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ATV_Beschreibung:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        ATS_Verbrauchsteuerart_ID:
+            type: string
+            length: 2
+            otype: CHAR
+        ATT_Beginndatum:
+            type: edidatetime
+            otype: DATE

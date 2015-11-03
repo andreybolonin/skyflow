@@ -1,0 +1,36 @@
+SkyFlow\GermanyCustomsBundle\Entity\N42005:
+    type: entity
+    table: gc_N42005
+    description: 'ländergruppen- und/oder länderbezogene Schlüssel- Bedingungen/Genehmigun gspflicht AWR'
+    fields:
+        BES_SID_der_nationalen_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BET_Geographisches_Gebiet:
+            type: string
+            length: 4
+            otype: CHAR
+        BEU_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        BEV_Fußnote:
+            type: string
+            length: 5
+            otype: CHAR
+        BEW_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BEX_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BEY_Verfahrensbeschränkung:
+            type: string
+            length: 3
+            otype: CHAR
+    id:
+        BER_SID:
+            type: integer
+            length: 8
+            otype: NUMBER

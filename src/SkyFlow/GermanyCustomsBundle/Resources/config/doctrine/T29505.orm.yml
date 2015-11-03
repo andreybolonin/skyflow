@@ -1,0 +1,25 @@
+SkyFlow\GermanyCustomsBundle\Entity\T29505:
+    type: entity
+    table: gc_T29505
+    description: 'Aktion der Verlängerungsverordnung'
+    fields:
+        AIA_Datum_Verordnung_verlängert_bis:
+            type: edidatetime
+            otype: DATE
+    id:
+        AHW_Funktion_der_Verlängerungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHX_ID_der_Verlängerungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AHY_Funktion_der_verlängerten_Verordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHZ_ID_der_verlängerten_Verordnung:
+            type: string
+            length: 8
+            otype: CHAR

@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\N20500:
+    type: entity
+    table: gc_N20500
+    description: 'Zuordnung Kapitel zu Abschnitt des Zolltarifs'
+    fields:
+        AUN_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        AUK_Abschnitt_Zolltarif:
+            type: string
+            length: 2
+            otype: CHAR
+        AUL_Kapitel_Zolltarif:
+            type: string
+            length: 2
+            otype: CHAR
+        AUM_Beginndatum:
+            type: edidatetime
+            otype: DATE

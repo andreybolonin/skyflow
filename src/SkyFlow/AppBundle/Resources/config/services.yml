@@ -1,0 +1,21 @@
+services:
+    SkyFlow_app.admin.customer:
+        class: SkyFlow\AppBundle\Admin\CustomerAdmin
+        arguments: [~, SkyFlow\AppBundle\Entity\Customer, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Customer}
+
+    SkyFlow_app.admin.airport:
+        class: SkyFlow\AppBundle\Admin\AirportAdmin
+        arguments: [~, SkyFlow\AppBundle\Entity\Airport, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Airport}
+
+#    SkyFlow_app.admin.delivery_order:
+#        class: SkyFlow\AppBundle\Admin\DeliveryOrderAdmin
+#        arguments: [~, SkyFlow\AppBundle\Entity\DeliveryOrder, SonataAdminBundle:CRUD]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: admin, label: DeliveryOrder}
+
+    SkyFlow_app.tracking:
+        class: SkyFlow\AppBundle\TrackingNumber

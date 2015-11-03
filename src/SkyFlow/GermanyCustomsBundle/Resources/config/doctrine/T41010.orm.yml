@@ -1,0 +1,39 @@
+SkyFlow\GermanyCustomsBundle\Entity\T41010:
+    type: entity
+    table: gc_T41010
+    description: Ausfuhrerstattungsnomenklaturbeschreibung
+    fields:
+        APV_SID_für_die_Ausfuhrerstattungsnomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        APW_Datum_des_Gültigkeitsbeginn_der_Beschreibung_der_Ausfuhrers:
+            type: edidatetime
+            otype: DATE
+        APX_Datum_des_Gültigkeitsende_der_Beschreibung_der_Ausfuhrersta:
+            type: edidatetime
+            otype: DATE
+        APY_Warennomenklatur_ID:
+            type: string
+            length: 10
+            otype: CHAR
+        APZ_Zusatzcodeart:
+            type: string
+            length: 1
+            otype: CHAR
+        AQA_Ausfuhrerstattungscode:
+            type: string
+            length: 3
+            otype: CHAR
+        AQB_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+        AQC_Beschreibung_der_Ausfuhrerstattungsnomenklatur:
+            type: text
+            otype: LONG
+    id:
+        APU_SID_für_die_Beschreibung_der_Ausfuhrerstattungsnomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER

@@ -1,0 +1,32 @@
+SkyFlow\GermanyCustomsBundle\Entity\T23000:
+    type: entity
+    table: gc_T23000
+    description: Abgabenart
+    fields:
+        ADB_Datum_des_Gültigkeitsbeginns_der_Abgabenart:
+            type: edidatetime
+            otype: DATE
+        ADC_Gültigkeitsendedatum_der_Abgabenart:
+            type: edidatetime
+            otype: DATE
+        ADD_Anwendbarkeitscode_des_Abgabenbetrags:
+            type: string
+            length: 1
+            otype: CHAR
+        ADE_Anwendbarkeitscode_der_Maßeinheit:
+            type: string
+            length: 1
+            otype: CHAR
+        ADF_Anwendbarkeitscode_der_Währungseinheit:
+            type: string
+            length: 1
+            otype: CHAR
+        ADG_Beschreibung_der_Abgabenart:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ADA_Abgabenart_ID:
+            type: string
+            length: 2
+            otype: CHAR

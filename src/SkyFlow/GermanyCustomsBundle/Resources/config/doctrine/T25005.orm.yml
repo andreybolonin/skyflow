@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\T25005:
+    type: entity
+    table: gc_T25005
+    description: 'Geographische Gebietsbeschreibung'
+    fields:
+        AEW_SID_des_geographischen_Gebiets:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AEX_Datum_des_Gültigkeitsbeginns_der_geographischen_Gebietsbesc:
+            type: edidatetime
+            otype: DATE
+        AEY_Datum_des_Gültigkeitsende_der_geographischen_Gebietsbeschre:
+            type: edidatetime
+            otype: DATE
+        AEZ_ID_des_geographischen_Gebiets:
+            type: string
+            length: 4
+            otype: CHAR
+        AFA_Name_des_geographischen_Gebiets:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AEV_SID_der_geographischen_Gebietsbezeichnung:
+            type: integer
+            length: 8
+            otype: NUMBER

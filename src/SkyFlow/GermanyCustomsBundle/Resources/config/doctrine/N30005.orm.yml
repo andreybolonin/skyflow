@@ -1,0 +1,32 @@
+SkyFlow\GermanyCustomsBundle\Entity\N30005:
+    type: entity
+    table: gc_N30005
+    description: 'Zuordnung Maßnahmeart – Buchungsschlüssel'
+    fields:
+        BAK_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BAL_Sicherheitsart:
+            type: string
+            length: 2
+            otype: VARCHAR
+        BAM_Bereich:
+            type: string
+            length: 1
+            otype: VARCHAR
+    id:
+        BAG_Maßnahmeart:
+            type: string
+            length: 6
+            otype: CHAR
+        BAH_Herkunft_der_Maßnahmeart_TARIC__national:
+            type: string
+            length: 1
+            otype: CHAR
+        BAI_Buchungsschlüssel:
+            type: string
+            length: 5
+            otype: CHAR
+        BAJ_Beginndatum:
+            type: edidatetime
+            otype: DATE

@@ -1,0 +1,14 @@
+SkyFlow\GermanyCustomsBundle\Entity\N27020:
+    type: entity
+    table: gc_N27020
+    description: 'Zuordnung Kontingentsnummer – Verweis auf ein anderes Kontingent'
+    fields: {  }
+    id:
+        AYH_SID_der_Kontingentshinweise:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AYI_Verweis_auf_ein_Kontingent:
+            type: string
+            length: 6
+            otype: VARCHAR

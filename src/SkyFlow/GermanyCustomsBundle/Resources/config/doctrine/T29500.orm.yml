@@ -1,0 +1,37 @@
+SkyFlow\GermanyCustomsBundle\Entity\T29500:
+    type: entity
+    table: gc_T29500
+    description: Verlängerungsverordnung
+    fields:
+        AHQ_Veröffentlichungsdatum_der_Verlängerungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AHR_Nummer_des_Amtsblattes:
+            type: string
+            length: 5
+            otype: CHAR
+        AHS_Amtsblatt_Seite:
+            type: string
+            length: 4
+            otype: CHAR
+        AHT_Ersatzindikator:
+            type: string
+            length: 1
+            otype: CHAR
+        AHU_Informationstext:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AHV_Billigungsindikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AHO_Funktion_der_Verlängerungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHP_Verlängerungsverordnungs_ID:
+            type: string
+            length: 8
+            otype: CHAR

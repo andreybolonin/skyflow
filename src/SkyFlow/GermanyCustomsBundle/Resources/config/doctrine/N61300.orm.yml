@@ -1,0 +1,32 @@
+SkyFlow\GermanyCustomsBundle\Entity\N61300:
+    type: entity
+    table: gc_N61300
+    description: 'Ausfuhrliste Teil 2'
+    fields:
+        BIK_Warennummer:
+            type: string
+            length: 10
+            otype: CHAR
+        BIL_Flag_ob_nur_ein_Teil_der_Warennummer_betroffen_ist:
+            type: integer
+            length: 1
+            otype: NUMBER
+        BIN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BIO_Beschreibung:
+            type: string
+            length: 2000
+            otype: VARCHAR
+        BIP_Grund_der_Beschränkung_Beschreibungsfeld:
+            type: string
+            length: 100
+            otype: VARCHAR
+    id:
+        BIJ_SID:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BIM_Beginndatum:
+            type: edidatetime
+            otype: DATE

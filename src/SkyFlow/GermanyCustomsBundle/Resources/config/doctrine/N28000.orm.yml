@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\N28000:
+    type: entity
+    table: gc_N28000
+    description: 'Erlaubte Kombinationen Maßeinheit / Qualifikator'
+    fields:
+        AYY_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AYZ_Beschreibung_der_Kombination_Maßeinheit_Maßeinheitsqualifi:
+            type: string
+            length: 200
+            otype: VARCHAR
+        AZA_Kombinationscode:
+            type: string
+            length: 3
+            otype: CHAR
+    id:
+        AYV_Schlüssel_der_Maßeinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        AYW_Qualifikator_der_Maßeinheit:
+            type: string
+            length: 1
+            otype: CHAR
+        AYX_Beginndatum:
+            type: edidatetime
+            otype: DATE

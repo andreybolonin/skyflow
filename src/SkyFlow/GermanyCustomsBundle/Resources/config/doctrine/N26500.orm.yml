@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\N26500:
+    type: entity
+    table: gc_N26500
+    description: Hinweise
+    fields:
+        AXH_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AXI_Beschreibung_des_Hinweises:
+            type: string
+            length: 200
+            otype: VARCHAR
+        AXJ_Hinweistext:
+            type: string
+            length: 2000
+            otype: LONG
+    id:
+        AXE_Hinweisart:
+            type: string
+            length: 3
+            otype: CHAR
+        AXF_Hinweisschlüssel:
+            type: string
+            length: 4
+            otype: VARCHAR
+        AXG_Beginndatum:
+            type: edidatetime
+            otype: DATE

@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\T37010:
+    type: entity
+    table: gc_T37010
+    description: 'Zeitraum der Sperrung eines Kontingents'
+    fields:
+        ALX_SID_der_QUOTA_Beschreibung:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ALY_Beginn_der_Sperrung:
+            type: edidatetime
+            otype: DATE
+        ALZ_Ende_der_Sperrung:
+            type: edidatetime
+            otype: DATE
+        AMA_Typ_des_Zeitraums_der_Sperrung:
+            type: integer
+            length: 1
+            otype: NUMBER
+        AMB_Kurzbeschreibung_Grund_der_Sperrung:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        ALW_SID_des_Zeitraums_der_Sperrung:
+            type: integer
+            length: 8
+            otype: NUMBER

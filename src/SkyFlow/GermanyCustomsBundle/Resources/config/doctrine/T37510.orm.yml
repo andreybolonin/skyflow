@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\T37510:
+    type: entity
+    table: gc_T37510
+    description: 'Ermittlung des kritischen Status'
+    fields:
+        AMR_kritischer_Status:
+            type: string
+            length: 1
+            otype: CHAR
+        AMS_Datum_des_Statuswechsels:
+            type: edidatetime
+            otype: DATE
+    id:
+        AMP_SID_der_QUOTA_Beschreibung:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AMQ_Datum_und_Uhrzeit:
+            type: edidatetime
+            otype: DATE
