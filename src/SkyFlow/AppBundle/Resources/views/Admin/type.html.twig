@@ -1,0 +1,12 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    {% spaceless %}
+        {% if (object.type == constant('SkyFlow\\AppBundle\\Entity\\Customer::TYPE_RECIPIENT')) %}
+            {{ 'Recipient' }}
+        {% elseif (object.type == constant('SkyFlow\\AppBundle\\Entity\\Customer::TYPE_SENDER')) %}
+            {{ 'Sender' }}
+        {% elseif (object.type == constant('SkyFlow\\AppBundle\\Entity\\Customer::TYPE_APPLICANT')) %}
+            {{ 'Applicant' }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
