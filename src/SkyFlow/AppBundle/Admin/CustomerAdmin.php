@@ -19,11 +19,11 @@ class CustomerAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('OrderId')
-            ->add('trackingNumber')
-            ->add('senderDetails', 'doctrine_orm_callback', ['callback' => array($this, 'getWithSenderFilter')])
-            ->add('recipientDetails', 'doctrine_orm_callback', ['callback' => array($this, 'getWithRecipientFilter')])
-            ->add('invoiceNumber')
+            ->add('id', null, ['label' => 'OrderID'])
+            ->add('trackingNumber', 'doctrine_orm_callback', ['callback' => [$this, 'getWithInvoiceTrackingNumberFilter']])
+            ->add('senderDetails', 'doctrine_orm_callback', ['callback' => [$this, 'getWithSenderFilter']])
+            ->add('recipientDetails', 'doctrine_orm_callback', ['callback' => [$this, 'getWithRecipientFilter']])
+            ->add('invoiceNumber', 'doctrine_orm_callback', ['callback' => [$this, 'getWithInvoiceNumberFilter']])
             ->add('date', 'doctrine_orm_datetime_range')
             ->add('type', null, ['label' => 'Account type'], 'choice', [
                 'choices' => [
@@ -90,6 +90,50 @@ class CustomerAdmin extends Admin
     }
 
     /**
+     *
+     * @param $queryBuilder
+     * @param $alias
+     * @param $field
+     * @param $value
+     * @return bool|void
+     */
+    public function getWithInvoiceTrackingNumberFilter($queryBuilder, $alias, $field, $value)
+    {
+        if (!$value['value']) {
+            return;
+        }
+
+        $queryBuilder
+            ->leftJoin(sprintf('%s.invoices', $alias), 'u')
+            ->andWhere('u.trackingNumber = :id')
+            ->setParameter('id', $value['value']);
+
+        return true;
+    }
+
+    /**
+     *
+     * @param $queryBuilder
+     * @param $alias
+     * @param $field
+     * @param $value
+     * @return bool|void
+     */
+    public function getWithInvoiceNumberFilter($queryBuilder, $alias, $field, $value)
+    {
+        if (!$value['value']) {
+            return;
+        }
+
+        $queryBuilder
+            ->leftJoin(sprintf('%s.invoices', $alias), 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $value['value']);
+
+        return true;
+    }
+
+    /**
      * @param ListMapper $listMapper
      */
     protected function configureListFields(ListMapper $listMapper)
@@ -99,24 +143,25 @@ class CustomerAdmin extends Admin
 //            ->add('formOfAddress')
 //            ->add('buildingNumber')
 //            ->add('company')
-            ->add('firstName')
+            ->add('status')
+            ->add('type', null , ['template' => 'SkyFlowAppBundle:Admin:type.html.twig'])
 //            ->add('familyName')
 //            ->add('customReg')
 //            ->add('companyReg')
 //            ->add('address')
 //            ->add('additionalInfo')
-            ->add('postCode')
-//            ->add('city')
+            ->add('firstName', null, ['label' => 'Name'])
+            ->add('orders', null, ['template' => 'SkyFlowAppBundle:Admin:orders.html.twig'])
             ->add('country')
-            ->add('email')
-            ->add('type')
+//            ->add('email')
+
 //            ->add('telephone')
 //            ->add('fax')
 //            ->add('mobile')
-            ->add('trackingNumber')
-//            ->add('invoice')
-            ->add('createdAt')
-            ->add('updatedAt')
+            ->add('postCode')
+            ->add('email')
+//            ->add('createdAt')
+//            ->add('updatedAt')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

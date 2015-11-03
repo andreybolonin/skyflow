@@ -1,9 +1,13 @@
 <?php
 
-namespace Skywox\GermanyCustomsBundle\Tests\Command;
+namespace SkyFlow\GermanyCustomsBundle\Tests\Command;
 
-use Skywox\GermanyCustomsBundle\Command\ContentUpdateCommand;
+use SkyFlow\GermanyCustomsBundle\Command\ContentUpdateCommand;
 
+/**
+ * Class ContentUpdateCommandTest
+ * @package SkyFlow\GermanyCustomsBundle\Tests\Command
+ */
 class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
 {
     /** @var ContentUpdateCommand */
@@ -32,6 +36,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    /**
+     *
+     */
     protected function setUp()
     {
         $this->command = new ContentUpdateCommand();
@@ -41,6 +48,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     *
+     */
     public function testParseChar()
     {
         $start = $this->messageParts()['char'][2];
@@ -53,6 +63,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseVarchar()
     {
         $start = $this->messageParts()['varchar'][2];
@@ -63,6 +76,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseDate()
     {
         $start = $this->messageParts()['date'][2];
@@ -74,6 +90,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseInteger()
     {
         $start = $this->messageParts()['integer'][2];
@@ -86,6 +105,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseDecimal()
     {
         $start = $this->messageParts()['decimal'][2];
@@ -98,6 +120,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseLong()
     {
         $start = $this->messageParts()['long'][2];
@@ -110,6 +135,9 @@ class ContentUpdateCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expStart, $start);
     }
 
+    /**
+     *
+     */
     public function testParseClob()
     {
         $start = $this->messageParts()['clob'][2];

@@ -26,6 +26,18 @@ class DeliveryOrder extends Base
     protected $recipient;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="ordersApplicant")
+     * @ORM\JoinColumn(name="applicant_id", referencedColumnName="id")
+     */
+    protected $applicant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="ordersSender")
+     * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
+     */
+    protected $sender;
+
+    /**
      * @return mixed
      */
     public function getRecipient()
@@ -40,18 +52,6 @@ class DeliveryOrder extends Base
     {
         $this->recipient = $recipient;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="ordersApplicant")
-     * @ORM\JoinColumn(name="applicant_id", referencedColumnName="id")
-     */
-    protected $applicant;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="orders")
-     * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
-     */
-    protected $sender;
 
     /**
      * @return mixed

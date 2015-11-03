@@ -45,16 +45,59 @@ class Customer extends Base
     protected $invoices;
 
     /**
-     * @ORM\OneToMany(targetEntity="DeliveryOrder", mappedBy="sender")
+     * @return mixed
      */
-    protected $orders;
+    public function getOrdersRecipient()
+    {
+        return $this->ordersRecipient;
+    }
 
     /**
      * @return mixed
      */
-    public function getOrders()
+    public function getOrdersApplicant()
     {
-        return $this->orders;
+        return $this->ordersApplicant;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="DeliveryOrder", mappedBy="sender")
+     */
+    protected $ordersSender;
+
+    /**
+     * @return mixed
+     */
+    public function getOrdersSender()
+    {
+        return $this->ordersSender;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOrdersCount()
+    {
+        $idsOrder = [];
+        foreach ($this->getOrdersSender() as $order) {
+            $idsOrder[] = $order->getId();
+        }
+        foreach ($this->getOrdersApplicant() as $order) {
+            $idsOrder[] = $order->getId();
+        }
+        foreach ($this->getOrdersSender() as $order) {
+            $idsOrder[] = $order->getId();
+        }
+
+        return count(array_unique($idsOrder));
+    }
+
+    /**
+     * @param mixed $ordersSender
+     */
+    public function setOrdersSender($ordersSender)
+    {
+        $this->ordersSender = $ordersSender;
     }
 
     /**
@@ -236,7 +279,7 @@ class Customer extends Base
     {
         $this->ordersRecipient = new ArrayCollection();
         $this->ordersApplicant = new ArrayCollection();
-        $this->orders = new ArrayCollection();
+        $this->ordersSender = new ArrayCollection();
         $this->invoices = new ArrayCollection();
         $this->setType($type);
     }
