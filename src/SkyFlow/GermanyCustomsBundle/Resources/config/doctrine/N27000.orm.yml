@@ -1,0 +1,36 @@
+SkyFlow\GermanyCustomsBundle\Entity\N27000:
+    type: entity
+    table: gc_N27000
+    description: 'Zuordnung Ordnungsnummer mit Kontingentsart und Kontingentsmaßstab'
+    fields:
+        AXM_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AXN_Schlüssel_der_Kontingentsart:
+            type: string
+            length: 2
+            otype: CHAR
+        AXO_Schlüssel_der_Maßeinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        AXP_Qualifikator_der_Maßeinheit:
+            type: string
+            length: 1
+            otype: CHAR
+        AXQ_Nationale_Abrechnungsnummer_des_Kontingents:
+            type: string
+            length: 4
+            otype: CHAR
+        AXR_Kennzahl_einer_eventuellen_ZZK_Meldung:
+            type: string
+            length: 2
+            otype: CHAR
+    id:
+        AXK_Ordnungsnummer:
+            type: string
+            length: 6
+            otype: CHAR
+        AXL_Beginndatum:
+            type: edidatetime
+            otype: DATE

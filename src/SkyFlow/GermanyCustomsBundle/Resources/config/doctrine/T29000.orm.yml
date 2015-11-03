@@ -1,0 +1,74 @@
+SkyFlow\GermanyCustomsBundle\Entity\T29000:
+    type: entity
+    table: gc_T29000
+    description: Änderungsverordnung
+    fields:
+        AGY_Veröffentlichungsdatum_der_Änderungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AGZ_Nummer_des_Amtsblattes:
+            type: string
+            length: 5
+            otype: CHAR
+        AHA_Amtsblatt_Seite:
+            type: string
+            length: 4
+            otype: CHAR
+        AHB_Datum_des_Gültigkeitsbeginns_der_Änderungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AHC_Gültigkeitsendedatum_der_Änderungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AHD_Tatsächliches_Endedatum_der_Änderungsverordnung:
+            type: edidatetime
+            otype: DATE
+        AHE_Funktion_der_Basisverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHF_ID_der_Basisverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AHG_Funktion_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHH_ID_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AHI_Funktion_der_expliziten_Aufhebungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AHJ_ID_der_expliziten_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AHK_Ersatzindikator:
+            type: string
+            length: 1
+            otype: CHAR
+        AHL_ausgesetztes_Merkmal:
+            type: string
+            length: 1
+            otype: CHAR
+        AHM_Informationstext:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AHN_Billigungsindikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AGW_Funktion_der_Änderungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AGX_Änderungsverordnungs_ID:
+            type: string
+            length: 8
+            otype: CHAR

@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\N43005:
+    type: entity
+    table: gc_N43005
+    description: 'Zuordnung Maßnahmen – Buchungsschlüssel'
+    fields:
+        BGD_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BGA_SID_der_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BGB_Buchungsschlüssel:
+            type: string
+            length: 5
+            otype: CHAR
+        BGC_Beginndatum:
+            type: edidatetime
+            otype: DATE

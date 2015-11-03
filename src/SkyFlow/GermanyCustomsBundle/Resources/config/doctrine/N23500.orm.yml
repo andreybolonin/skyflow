@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\N23500:
+    type: entity
+    table: gc_N23500
+    description: Bedingungsart
+    fields:
+        AWA_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AWB_Beschreibung_der_Bedingung:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AVY_Bedingung:
+            type: string
+            length: 2
+            otype: CHAR
+        AVZ_Beginndatum:
+            type: edidatetime
+            otype: DATE

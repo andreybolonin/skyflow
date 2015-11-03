@@ -1,0 +1,36 @@
+SkyFlow\GermanyCustomsBundle\Entity\N21000:
+    type: entity
+    table: gc_N21000
+    description: 'Zuordnung AHStat- Schlüssel – TARIC- Schlüssel für Land oder Region'
+    fields:
+        AUW_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AUX_Name_des_geogr_Gebietes_Land_Region:
+            type: string
+            length: 200
+            otype: VARCHAR
+        AUY_Kennzeichen_der_Länderliste:
+            type: string
+            length: 3
+            otype: VARCHAR
+        AUZ_Kurzbezeichnung_im_Länderverzeichnis_der_AHStat:
+            type: string
+            length: 50
+            otype: VARCHAR
+        AVA_Zusatztext_aus_dem_Länderverzeichnis_der_AHStat:
+            type: string
+            length: 200
+            otype: VARCHAR
+    id:
+        AUT_ID_des_Geographischen_Gebietes:
+            type: string
+            length: 4
+            otype: CHAR
+        AUU_AHStat_Code:
+            type: string
+            length: 3
+            otype: CHAR
+        AUV_Beginndatum:
+            type: edidatetime
+            otype: DATE

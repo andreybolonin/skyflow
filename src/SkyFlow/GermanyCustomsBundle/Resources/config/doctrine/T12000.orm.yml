@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\T12000:
+    type: entity
+    table: gc_T12000
+    description: Zusatzcodeart
+    fields:
+        AAM_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        AAN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AAO_Anwendungscode_für_die_Zusatzcodeart:
+            type: string
+            length: 1
+            otype: CHAR
+        AAP_Meursing_Tabellenplan_ID:
+            type: string
+            length: 2
+            otype: CHAR
+        AAQ_Kurztext_der_Zusatzcodeart:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AAL_Zusatzcodeart_ID:
+            type: string
+            length: 1
+            otype: CHAR

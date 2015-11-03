@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\T20000:
+    type: entity
+    table: gc_T20000
+    description: Fußnoten
+    fields:
+        ABS_Datum_des_Gültigkeitsbeginns_des_Fußnotencodes:
+            type: edidatetime
+            otype: DATE
+        ABT_Gültigkeitsendedatum_des_Fußnotencodes:
+            type: edidatetime
+            otype: DATE
+    id:
+        ABQ_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        ABR_Fußnoten_ID:
+            type: string
+            length: 5
+            otype: CHAR

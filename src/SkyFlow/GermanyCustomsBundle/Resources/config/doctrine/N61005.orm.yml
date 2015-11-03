@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\N61005:
+    type: entity
+    table: gc_N61005
+    description: 'Zuordnung Güter mit doppeltem Verwendungszweck - Warennomenklatur'
+    fields:
+        BHS_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BHP_Beschränkungsgrund:
+            type: string
+            length: 10
+            otype: CHAR
+        BHQ_Warennummer:
+            type: string
+            length: 10
+            otype: CHAR
+        BHR_Beginndatum:
+            type: edidatetime
+            otype: DATE

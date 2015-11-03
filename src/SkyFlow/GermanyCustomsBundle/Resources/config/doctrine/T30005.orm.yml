@@ -1,0 +1,22 @@
+SkyFlow\GermanyCustomsBundle\Entity\T30005:
+    type: entity
+    table: gc_T30005
+    description: 'Aktion der Aussetzung'
+    fields: {  }
+    id:
+        AIQ_Funktion_der_vollständigen_zeitweiligen_Aussetzungsverordnu:
+            type: string
+            length: 1
+            otype: CHAR
+        AIR_ID_der_vollständigen_zeitweiligen_Aussetzungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AIS_Funktion_der_ausgesetzten_Verordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AIT_ID_der_ausgesetzten_Verordnung:
+            type: string
+            length: 8
+            otype: CHAR

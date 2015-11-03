@@ -1,0 +1,26 @@
+SkyFlow\GermanyCustomsBundle\Entity\T40040:
+    type: entity
+    table: gc_T40040
+    description: 'Nachfolger der Warennomenklatur'
+    fields:
+        APB_Warennomenklatur_ID:
+            type: string
+            length: 10
+            otype: CHAR
+        APC_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+    id:
+        AOY_SID_der_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AOZ_Absorbiert_aus_Warennomenklatur:
+            type: string
+            length: 10
+            otype: CHAR
+        APA_Absorbiert_aus_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR

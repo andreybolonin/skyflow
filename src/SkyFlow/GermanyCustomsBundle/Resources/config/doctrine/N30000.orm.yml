@@ -1,0 +1,44 @@
+SkyFlow\GermanyCustomsBundle\Entity\N30000:
+    type: entity
+    table: gc_N30000
+    description: Maßnahmeart
+    fields:
+        AZZ_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BAA_Handelsbewegungscode:
+            type: string
+            length: 1
+            otype: CHAR
+        BAB_Maßnahmeartserien_ID:
+            type: string
+            length: 2
+            otype: CHAR
+        BAC_Beschreibung_der_Maßnahmeart:
+            type: string
+            length: 500
+            otype: VARCHAR
+        BAD_Abgabengruppe:
+            type: string
+            length: 2
+            otype: CHAR
+        BAE_Anzeigeflag:
+            type: string
+            length: 1
+            otype: CHAR
+        BAF_Maßnahmemerkmal:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AZW_Maßnahmeart:
+            type: string
+            length: 6
+            otype: CHAR
+        AZX_Herkunft_der_Maßnahmeart_TARIC__national:
+            type: string
+            length: 1
+            otype: CHAR
+        AZY_Beginndatum:
+            type: edidatetime
+            otype: DATE

@@ -1,0 +1,16 @@
+SkyFlow\GermanyCustomsBundle\Entity\T37515:
+    type: entity
+    table: gc_T37515
+    description: 'Erschöpfung eines Kontingents'
+    fields:
+        AMV_Datum_der_Erschöpfung:
+            type: edidatetime
+            otype: DATE
+    id:
+        AMT_SID_der_QUOTA_Beschreibung:
+            type: integer
+            length: 8
+            otype: NUMBER
+        AMU_Datum_und_Uhrzeit:
+            type: edidatetime
+            otype: DATE

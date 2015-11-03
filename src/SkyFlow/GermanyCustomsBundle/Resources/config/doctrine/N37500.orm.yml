@@ -1,0 +1,36 @@
+SkyFlow\GermanyCustomsBundle\Entity\N37500:
+    type: entity
+    table: gc_N37500
+    description: 'zweite und dritte Stelle des dreistelligen von der KEU festgelegten Schlüssel für zolltarifliche Regime'
+    fields:
+        BBS_Art_der_TARIC_Maßnahme_2:
+            type: string
+            length: 6
+            otype: CHAR
+        BBX_Endedatum:
+            type: edidatetime
+            otype: DATE
+    id:
+        BBQ_Zweite_und_dritte_Stelle_des_Antragscodes:
+            type: string
+            length: 2
+            otype: CHAR
+        BBR_Art_der_TARIC_Maßnahme:
+            type: string
+            length: 6
+            otype: CHAR
+        BBT_Art_der_Bescheinigung:
+            type: string
+            length: 1
+            otype: CHAR
+        BBU_Schlüssel_der_Bescheinigung:
+            type: string
+            length: 3
+            otype: VARCHAR
+        BBV_Schlüssel_der_Bedingung:
+            type: string
+            length: 2
+            otype: CHAR
+        BBW_Beginndatum:
+            type: edidatetime
+            otype: DATE

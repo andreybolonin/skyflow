@@ -1,0 +1,62 @@
+SkyFlow\GermanyCustomsBundle\Entity\T30000:
+    type: entity
+    table: gc_T30000
+    description: 'Vollständige zeitweilige Aussetzungsverordnung'
+    fields:
+        AID_Veröffentlichungsdatum_der_vollständigen_zeitweiligen_Auss:
+            type: edidatetime
+            otype: DATE
+        AIE_Nummer_des_Amtsblattes:
+            type: string
+            length: 5
+            otype: CHAR
+        AIF_Amtsblatt_Seite:
+            type: string
+            length: 4
+            otype: CHAR
+        AIG_Datum_des_Gültigkeitsbeginns_der_vollständigen_zeitweilige:
+            type: edidatetime
+            otype: DATE
+        AIH_Gültigkeitsendedatum_der_vollständigen_zeitweiligen_Ausset:
+            type: edidatetime
+            otype: DATE
+        AII_tatsächliches_Endedatum_der_vollständigen_zeitweiligen_Aus:
+            type: edidatetime
+            otype: DATE
+        AIJ_Funktion_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AIK_ID_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AIL_Funktion_der_expliziten_Aufhebungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AIM_ID_der_expliziten_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        AIN_Ersatzindikator:
+            type: string
+            length: 1
+            otype: CHAR
+        AIO_Informationstext:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AIP_Billigungsindikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AIB_Funktion_der_vollständigen_zeitweiligen_Aussetzungsverordnu:
+            type: string
+            length: 1
+            otype: CHAR
+        AIC_ID_der_vollständigen_zeitweiligen_Aussetzungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR

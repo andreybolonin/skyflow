@@ -1,0 +1,40 @@
+SkyFlow\GermanyCustomsBundle\Entity\T43025:
+    type: entity
+    table: gc_T43025
+    description: 'Teilweise zeitweilige Aussetzung der Maßnahme'
+    fields:
+        ASM_Endedatum_der_teilweisen_zeitweiligen_Aussetzung:
+            type: edidatetime
+            otype: DATE
+        ASN_ID_der_teilweisen_zeitweiligen_Aussetzungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        ASO_Nummer_des_Amtsblatts_der_teilweisen_zeitweiligen_Aussetzung:
+            type: string
+            length: 5
+            otype: CHAR
+        ASP_Amtsblattseite_der_teilweisen_zeitweiligen_Aussetzungsverord:
+            type: string
+            length: 4
+            otype: CHAR
+        ASQ_ID_der_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR
+        ASR_Nummer_des_Amtsblatts_der_Aufhebungsverordnung:
+            type: string
+            length: 5
+            otype: CHAR
+        ASS_Amtsblattseite_der_Aufhebungsverordnung:
+            type: string
+            length: 4
+            otype: CHAR
+    id:
+        ASK_SID_der_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ASL_Anfangsdatum_der_teilweisen_zeitweiligen_Aussetzung:
+            type: edidatetime
+            otype: DATE

@@ -1,0 +1,79 @@
+SkyFlow\GermanyCustomsBundle\Entity\N40000:
+    type: entity
+    table: gc_N40000
+    description: 'nationale Maßnahmen'
+    fields:
+        BBZ_Maßnahmeart:
+            type: string
+            length: 6
+            otype: CHAR
+        BCA_Herkunft_der_Maßnahmeart_TARIC_national:
+            type: string
+            length: 1
+            otype: CHAR
+        BCB_Geographisches_Gebiet:
+            type: string
+            length: 4
+            otype: CHAR
+        BCC_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        BCD_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BCE_tatsächliches_Endedatum:
+            type: edidatetime
+            otype: DATE
+        BCF_Zollaussetzung:
+            type: string
+            length: 2
+            otype: CHAR
+        BCG_Warennomenklatur_ID:
+            type: string
+            length: 10
+            otype: CHAR
+        BCH_Codenummer:
+            type: string
+            length: 11
+            otype: CHAR
+        BCI_Zusatzcodeart:
+            type: string
+            length: 1
+            otype: CHAR
+        BCJ_Zusatzcode:
+            type: string
+            length: 3
+            otype: CHAR
+        BCK_Ordnungsnummer:
+            type: string
+            length: 6
+            otype: CHAR
+        BCL_Verbrauchsteuerart_ID:
+            type: string
+            length: 2
+            otype: CHAR
+        BCM_Verbrauchsteuer_ID:
+            type: string
+            length: 4
+            otype: CHAR
+        BCN_SID_der_TARIC_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BCO_SID_der_TARIC_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BCP_SID_der_nationalen_Nomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+        BCQ_SID_der_Verbrauchsteuer:
+            type: integer
+            length: 8
+            otype: NUMBER
+    id:
+        BBY_SID:
+            type: integer
+            length: 8
+            otype: NUMBER

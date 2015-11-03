@@ -1,0 +1,28 @@
+SkyFlow\GermanyCustomsBundle\Entity\T17000:
+    type: entity
+    table: gc_T17000
+    description: Veröffentlichungsab-kürzung
+    fields:
+        ABN_Endedatum:
+            type: edidatetime
+            otype: DATE
+        ABO_Veröffentlichungscode:
+            type: string
+            length: 1
+            otype: CHAR
+        ABP_Veröffentlichungsabkürzung:
+            type: string
+            length: 20
+            otype: CHAR
+    id:
+        ABK_Codeart:
+            type: string
+            length: 4
+            otype: CHAR
+        ABL_Code_der_zu_veröffentlichenden_Daten:
+            type: string
+            length: 10
+            otype: CHAR
+        ABM_Beginndatum:
+            type: edidatetime
+            otype: DATE

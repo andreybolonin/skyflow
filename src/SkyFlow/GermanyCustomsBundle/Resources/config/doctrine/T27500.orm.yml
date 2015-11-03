@@ -1,0 +1,37 @@
+SkyFlow\GermanyCustomsBundle\Entity\T27500:
+    type: entity
+    table: gc_T27500
+    description: 'Vollständige Aufhebungsverordnung'
+    fields:
+        AFN_Veröffentlichungsdatum_der_vollständigen_Aufhebungsverordn:
+            type: edidatetime
+            otype: DATE
+        AFO_Nummer_des_Amtsblattes:
+            type: string
+            length: 5
+            otype: CHAR
+        AFP_Amtsblatt_Seite:
+            type: string
+            length: 4
+            otype: CHAR
+        AFQ_Ersatzindikator:
+            type: string
+            length: 1
+            otype: CHAR
+        AFR_Informationstext:
+            type: string
+            length: 500
+            otype: VARCHAR
+        AFS_Billigungsindikator:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        AFL_Funktion_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 1
+            otype: CHAR
+        AFM_ID_der_vollständigen_Aufhebungsverordnung:
+            type: string
+            length: 8
+            otype: CHAR

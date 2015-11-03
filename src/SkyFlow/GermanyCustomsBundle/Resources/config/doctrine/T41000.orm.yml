@@ -1,0 +1,36 @@
+SkyFlow\GermanyCustomsBundle\Entity\T41000:
+    type: entity
+    table: gc_T41000
+    description: Ausfuhrerstattungsnomenklatur
+    fields:
+        APE_Warennomenklatur_ID:
+            type: string
+            length: 10
+            otype: CHAR
+        APF_Zusatzcodeart:
+            type: string
+            length: 1
+            otype: CHAR
+        APG_Ausfuhrerstattungscode:
+            type: string
+            length: 3
+            otype: CHAR
+        APH_Warenliniensuffix:
+            type: string
+            length: 2
+            otype: CHAR
+        API_Datum_des_Gültigkeitsbeginn_der_Ausfuhrerstattungsnomenklat:
+            type: edidatetime
+            otype: DATE
+        APJ_Gültigkeitsendedatum_der_Ausfuhrerstattungsnomenklatur:
+            type: edidatetime
+            otype: DATE
+        APK_SID_der_Warennomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER
+    id:
+        APD_SID_für_die_Ausfuhrerstattungsnomenklatur:
+            type: integer
+            length: 8
+            otype: NUMBER

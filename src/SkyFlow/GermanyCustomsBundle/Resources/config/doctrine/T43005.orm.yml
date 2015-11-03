@@ -1,0 +1,31 @@
+SkyFlow\GermanyCustomsBundle\Entity\T43005:
+    type: entity
+    table: gc_T43005
+    description: Maßnahmenkomponente
+    fields:
+        ARJ_Abgabenbetrag:
+            type: decimal
+            precision: 10
+            scale: 3
+            otype: NUMBER
+        ARK_Code_der_Währungseinheit:
+            type: string
+            length: 3
+            otype: CHAR
+        ARL_Maßeinheitscode:
+            type: string
+            length: 3
+            otype: CHAR
+        ARM_Code_des_Maßeinheitsqualifikators:
+            type: string
+            length: 1
+            otype: CHAR
+    id:
+        ARH_SID_der_Maßnahme:
+            type: integer
+            length: 8
+            otype: NUMBER
+        ARI_ID_der_Abgabenart:
+            type: string
+            length: 2
+            otype: CHAR

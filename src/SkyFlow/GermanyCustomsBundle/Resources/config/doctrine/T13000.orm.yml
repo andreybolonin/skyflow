@@ -1,0 +1,20 @@
+SkyFlow\GermanyCustomsBundle\Entity\T13000:
+    type: entity
+    table: gc_T13000
+    description: Sprache
+    fields:
+        AAS_Beginndatum:
+            type: edidatetime
+            otype: DATE
+        AAT_Endedatum:
+            type: edidatetime
+            otype: DATE
+        AAU_Name_der_Sprache:
+            type: string
+            length: 500
+            otype: VARCHAR
+    id:
+        AAR_ID_der_Sprache:
+            type: string
+            length: 2
+            otype: VARCHAR

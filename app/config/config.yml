@@ -65,7 +65,7 @@ doctrine:
 
         types:
             json: Sonata\Doctrine\Types\JsonType
-            edidatetime: Skywox\GermanyCustomsBundle\Type\EDIDateTimeType
+            edidatetime: SkyFlow\GermanyCustomsBundle\Type\EDIDateTimeType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -100,19 +100,19 @@ sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
     class:
-        user: Skywox\Sonata\UserBundle\Entity\User
-        group: Skywox\Sonata\UserBundle\Entity\Group
+        user: SkyFlow\Sonata\UserBundle\Entity\User
+        group: SkyFlow\Sonata\UserBundle\Entity\Group
 
 sonata_admin:
-    title: Skywox
+    title: SkyFlow
 
 fos_user:
     db_driver:      orm
     firewall_name:  main
-    user_class:     Skywox\Sonata\UserBundle\Entity\User
+    user_class:     SkyFlow\Sonata\UserBundle\Entity\User
 
     group:
-        group_class:   Skywox\Sonata\UserBundle\Entity\Group
+        group_class:   SkyFlow\Sonata\UserBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager
 
     service:

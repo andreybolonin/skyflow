@@ -1,0 +1,32 @@
+SkyFlow\GermanyCustomsBundle\Entity\T32510:
+    type: entity
+    table: gc_T32510
+    description: 'Verbindung Fußnote – Meursing-Position'
+    fields:
+        AJQ_Gültigkeitsendedatum_der_Verbindung_zwischen_Meursing_Posit:
+            type: edidatetime
+            otype: DATE
+    id:
+        AJK_ID_des_Meursing_Tabellenplans:
+            type: string
+            length: 2
+            otype: CHAR
+        AJL_Meursing_Positionsnummer:
+            type: string
+            length: 3
+            otype: CHAR
+        AJM_Meursing_Reihen__Spaltencode:
+            type: string
+            length: 1
+            otype: CHAR
+        AJN_Fußnotenart_ID:
+            type: string
+            length: 3
+            otype: CHAR
+        AJO_Fußnoten_ID:
+            type: string
+            length: 5
+            otype: CHAR
+        AJP_Datum_des_Gültigkeitsbeginns_der_Verbindung_zwischen_Meursi:
+            type: edidatetime
+            otype: DATE
